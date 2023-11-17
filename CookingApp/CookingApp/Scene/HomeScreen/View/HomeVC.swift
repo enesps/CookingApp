@@ -7,15 +7,24 @@
 
 import Foundation
 import SwiftAlertView
+import ALPopup
+import UIKit
 class HomeVC : ViewController{
     override func viewDidLoad() {
-        SwiftAlertView.show(title: "Lorem ipsum",
-                            message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-                            buttonTitles: "Cancel", "Ok") {
-            $0.style = .dark
+
+        let popupVC = ALPopup.popup(template: .init(
+                                                title: "Yaprak Dolmasi",
+                                                subtitle: "Zeytinyagli Yaprak Dolmasi",
+                                                image: UIImage(named: "zeytinyagli-yaprak"),
+                                                privaryButtonTitle: "Bak",
+                                                secondaryButtonTitle: "Simdi Degil")
+                        )
+
+        popupVC.tempateView.primaryButtonAction = { [weak self] in
+            
+            popupVC.pop()
         }
-        .onButtonClicked { _, buttonIndex in
-            print("Button Clicked At Index \(buttonIndex)")
-        }
+        popupVC.push(from: self)
+        
     }
 }

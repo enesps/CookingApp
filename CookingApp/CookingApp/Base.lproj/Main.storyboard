@@ -31,9 +31,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4X-KM-7Iw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4X-KM-7Iw">
                                 <rect key="frame" x="274" y="59" width="86" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="EOH-j2-hLd"/>
+                                    <constraint firstAttribute="width" constant="86" id="M94-qs-3X9"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Skip">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -45,6 +48,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s6m-Hm-j63"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s6m-Hm-j63" firstAttribute="trailing" secondItem="B4X-KM-7Iw" secondAttribute="trailing" constant="33" id="924-9c-SCo"/>
+                            <constraint firstItem="B4X-KM-7Iw" firstAttribute="leading" secondItem="s6m-Hm-j63" secondAttribute="leading" constant="274" id="KSA-mP-upt"/>
+                            <constraint firstItem="s6m-Hm-j63" firstAttribute="bottom" secondItem="B4X-KM-7Iw" secondAttribute="bottom" constant="715" id="jmk-qi-sqF"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="skipButton" destination="B4X-KM-7Iw" id="PAU-pM-0ro"/>

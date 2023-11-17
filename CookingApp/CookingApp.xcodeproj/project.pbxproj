@@ -22,6 +22,7 @@
 		E000F9D12B06A5E400ACA458 /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E000F9D02B06A5E400ACA458 /* OnBoardingScreen.swift */; };
 		E000F9D42B06A80200ACA458 /* LottieAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E000F9D32B06A80200ACA458 /* LottieAnimation.json */; };
 		E000F9D72B06B71400ACA458 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E000F9D62B06B71400ACA458 /* HomeVC.swift */; };
+		E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */ = {isa = PBXBuildFile; productRef = E05086B62B07A9510022CDE8 /* ALPopup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */,
 				E000F9C12B06A3F600ACA458 /* SwiftAlertView in Frameworks */,
 				E000F9C42B06A41200ACA458 /* Lottie in Frameworks */,
 				E000F9C72B06A42000ACA458 /* PaperOnboarding in Frameworks */,
@@ -226,6 +228,7 @@
 				E000F9C02B06A3F600ACA458 /* SwiftAlertView */,
 				E000F9C32B06A41200ACA458 /* Lottie */,
 				E000F9C62B06A42000ACA458 /* PaperOnboarding */,
+				E05086B62B07A9510022CDE8 /* ALPopup */,
 			);
 			productName = CookingApp;
 			productReference = E000F98C2B06A12B00ACA458 /* CookingApp.app */;
@@ -303,6 +306,7 @@
 				E000F9BF2B06A3F600ACA458 /* XCRemoteSwiftPackageReference "SwiftAlertView" */,
 				E000F9C22B06A41200ACA458 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				E000F9C52B06A42000ACA458 /* XCRemoteSwiftPackageReference "paper-onboarding" */,
+				E05086B52B07A9510022CDE8 /* XCRemoteSwiftPackageReference "ALPopup" */,
 			);
 			productRefGroup = E000F98D2B06A12B00ACA458 /* Products */;
 			projectDirPath = "";
@@ -717,6 +721,14 @@
 				minimumVersion = 6.1.5;
 			};
 		};
+		E05086B52B07A9510022CDE8 /* XCRemoteSwiftPackageReference "ALPopup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alxrguz/ALPopup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -734,6 +746,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E000F9C52B06A42000ACA458 /* XCRemoteSwiftPackageReference "paper-onboarding" */;
 			productName = PaperOnboarding;
+		};
+		E05086B62B07A9510022CDE8 /* ALPopup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E05086B52B07A9510022CDE8 /* XCRemoteSwiftPackageReference "ALPopup" */;
+			productName = ALPopup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "alpopup",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alxrguz/ALPopup",
+      "state" : {
+        "revision" : "d2cab88a04545a6fd3c88a6881f0a546b8f8d8ab",
+        "version" : "1.1.0"
+      }
+    },
+    {
       "identity" : "lottie-spm",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/airbnb/lottie-spm.git",

@@ -23,6 +23,10 @@
 		E000F9D42B06A80200ACA458 /* LottieAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E000F9D32B06A80200ACA458 /* LottieAnimation.json */; };
 		E000F9D72B06B71400ACA458 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E000F9D62B06B71400ACA458 /* HomeVC.swift */; };
 		E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */ = {isa = PBXBuildFile; productRef = E05086B62B07A9510022CDE8 /* ALPopup */; };
+		E0A878D52B0B596800E27247 /* RAMReel in Frameworks */ = {isa = PBXBuildFile; productRef = E0A878D42B0B596800E27247 /* RAMReel */; };
+		E0A878D92B0B59DC00E27247 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A878D82B0B59DC00E27247 /* SearchVC.swift */; };
+		E0A878E22B0B959B00E27247 /* PreLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A878E12B0B959B00E27247 /* PreLoginVC.swift */; };
+		E0A878E62B0B960A00E27247 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A878E52B0B960A00E27247 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,9 @@
 		E000F9D02B06A5E400ACA458 /* OnBoardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreen.swift; sourceTree = "<group>"; };
 		E000F9D32B06A80200ACA458 /* LottieAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottieAnimation.json; sourceTree = "<group>"; };
 		E000F9D62B06B71400ACA458 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E0A878D82B0B59DC00E27247 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		E0A878E12B0B959B00E27247 /* PreLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLoginVC.swift; sourceTree = "<group>"; };
+		E0A878E52B0B960A00E27247 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0A878D52B0B596800E27247 /* RAMReel in Frameworks */,
 				E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */,
 				E000F9C12B06A3F600ACA458 /* SwiftAlertView in Frameworks */,
 				E000F9C42B06A41200ACA458 /* Lottie in Frameworks */,
@@ -144,6 +152,8 @@
 		E000F9C82B06A43C00ACA458 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				E0A878DE2B0B918100E27247 /* ProfileScreen */,
+				E0A878D62B0B59B100E27247 /* SearchScreen */,
 				E000F9D52B06B6E900ACA458 /* HomeScreen */,
 				E000F9CE2B06A5A700ACA458 /* OnBoardingScreen */,
 				E000F9C92B06A44B00ACA458 /* LauncScreen */,
@@ -208,6 +218,63 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E0A878D62B0B59B100E27247 /* SearchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E0A878D72B0B59C000E27247 /* View */,
+			);
+			path = SearchScreen;
+			sourceTree = "<group>";
+		};
+		E0A878D72B0B59C000E27247 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0A878D82B0B59DC00E27247 /* SearchVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0A878DE2B0B918100E27247 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E0A878E02B0B91BC00E27247 /* PreLoginScreen */,
+				E0A878DF2B0B919F00E27247 /* LoginScreen */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		E0A878DF2B0B919F00E27247 /* LoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E0A878E42B0B95F900E27247 /* View */,
+			);
+			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		E0A878E02B0B91BC00E27247 /* PreLoginScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E0A878E32B0B95A100E27247 /* View */,
+			);
+			path = PreLoginScreen;
+			sourceTree = "<group>";
+		};
+		E0A878E32B0B95A100E27247 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0A878E12B0B959B00E27247 /* PreLoginVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0A878E42B0B95F900E27247 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0A878E52B0B960A00E27247 /* LoginVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,6 +296,7 @@
 				E000F9C32B06A41200ACA458 /* Lottie */,
 				E000F9C62B06A42000ACA458 /* PaperOnboarding */,
 				E05086B62B07A9510022CDE8 /* ALPopup */,
+				E0A878D42B0B596800E27247 /* RAMReel */,
 			);
 			productName = CookingApp;
 			productReference = E000F98C2B06A12B00ACA458 /* CookingApp.app */;
@@ -307,6 +375,8 @@
 				E000F9C22B06A41200ACA458 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				E000F9C52B06A42000ACA458 /* XCRemoteSwiftPackageReference "paper-onboarding" */,
 				E05086B52B07A9510022CDE8 /* XCRemoteSwiftPackageReference "ALPopup" */,
+				E0A878D32B0B596800E27247 /* XCRemoteSwiftPackageReference "reel-search" */,
+				E0A878E72B0BA1D400E27247 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = E000F98D2B06A12B00ACA458 /* Products */;
 			projectDirPath = "";
@@ -355,8 +425,11 @@
 				E000F9942B06A12B00ACA458 /* ViewController.swift in Sources */,
 				E000F9902B06A12B00ACA458 /* AppDelegate.swift in Sources */,
 				E000F9D72B06B71400ACA458 /* HomeVC.swift in Sources */,
+				E0A878E22B0B959B00E27247 /* PreLoginVC.swift in Sources */,
+				E0A878E62B0B960A00E27247 /* LoginVC.swift in Sources */,
 				E000F9922B06A12B00ACA458 /* SceneDelegate.swift in Sources */,
 				E000F9D12B06A5E400ACA458 /* OnBoardingScreen.swift in Sources */,
+				E0A878D92B0B59DC00E27247 /* SearchVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +802,22 @@
 				minimumVersion = 1.1.0;
 			};
 		};
+		E0A878D32B0B596800E27247 /* XCRemoteSwiftPackageReference "reel-search" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ramotion/reel-search";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
+		E0A878E72B0BA1D400E27247 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -751,6 +840,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E05086B52B07A9510022CDE8 /* XCRemoteSwiftPackageReference "ALPopup" */;
 			productName = ALPopup;
+		};
+		E0A878D42B0B596800E27247 /* RAMReel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0A878D32B0B596800E27247 /* XCRemoteSwiftPackageReference "reel-search" */;
+			productName = RAMReel;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

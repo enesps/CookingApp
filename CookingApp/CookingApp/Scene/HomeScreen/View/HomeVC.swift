@@ -20,7 +20,7 @@ class HomeVC : ViewController{
                                                 secondaryButtonTitle: "Simdi Degil")
                         )
 
-        popupVC.tempateView.primaryButtonAction = { [weak self] in
+        popupVC.tempateView.secondaryButtonAction = { [weak self] in
             
             popupVC.pop()
         }

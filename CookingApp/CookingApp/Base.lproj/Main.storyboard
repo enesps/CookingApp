@@ -158,16 +158,6 @@
                     <view key="view" contentMode="scaleToFill" id="ATJ-fB-DCe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ESx-Ex-ebf">
-                                <rect key="frame" x="0.0" y="103" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="JeI-KM-Mjl" id="1Qs-cl-fge"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="igv-9J-B59"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>

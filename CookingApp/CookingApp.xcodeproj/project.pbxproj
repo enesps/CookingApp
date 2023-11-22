@@ -22,6 +22,8 @@
 		E000F9D12B06A5E400ACA458 /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E000F9D02B06A5E400ACA458 /* OnBoardingScreen.swift */; };
 		E000F9D42B06A80200ACA458 /* LottieAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E000F9D32B06A80200ACA458 /* LottieAnimation.json */; };
 		E000F9D72B06B71400ACA458 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E000F9D62B06B71400ACA458 /* HomeVC.swift */; };
+		E00F24F02B0E442500B36FBC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E00F24EF2B0E442500B36FBC /* GoogleSignIn */; };
+		E00F24F22B0E442B00B36FBC /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E00F24F12B0E442B00B36FBC /* GoogleSignInSwift */; };
 		E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */ = {isa = PBXBuildFile; productRef = E05086B62B07A9510022CDE8 /* ALPopup */; };
 		E0A878D52B0B596800E27247 /* RAMReel in Frameworks */ = {isa = PBXBuildFile; productRef = E0A878D42B0B596800E27247 /* RAMReel */; };
 		E0A878D92B0B59DC00E27247 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A878D82B0B59DC00E27247 /* SearchVC.swift */; };
@@ -75,9 +77,11 @@
 			files = (
 				E0A878D52B0B596800E27247 /* RAMReel in Frameworks */,
 				E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */,
+				E00F24F22B0E442B00B36FBC /* GoogleSignInSwift in Frameworks */,
 				E000F9C12B06A3F600ACA458 /* SwiftAlertView in Frameworks */,
 				E000F9C42B06A41200ACA458 /* Lottie in Frameworks */,
 				E000F9C72B06A42000ACA458 /* PaperOnboarding in Frameworks */,
+				E00F24F02B0E442500B36FBC /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +109,7 @@
 				E000F9A52B06A12C00ACA458 /* CookingAppTests */,
 				E000F9AF2B06A12C00ACA458 /* CookingAppUITests */,
 				E000F98D2B06A12B00ACA458 /* Products */,
+				E00F24EC2B0E437D00B36FBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +223,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E00F24EC2B0E437D00B36FBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E0A878D62B0B59B100E27247 /* SearchScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +309,8 @@
 				E000F9C62B06A42000ACA458 /* PaperOnboarding */,
 				E05086B62B07A9510022CDE8 /* ALPopup */,
 				E0A878D42B0B596800E27247 /* RAMReel */,
+				E00F24EF2B0E442500B36FBC /* GoogleSignIn */,
+				E00F24F12B0E442B00B36FBC /* GoogleSignInSwift */,
 			);
 			productName = CookingApp;
 			productReference = E000F98C2B06A12B00ACA458 /* CookingApp.app */;
@@ -835,6 +849,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E000F9C52B06A42000ACA458 /* XCRemoteSwiftPackageReference "paper-onboarding" */;
 			productName = PaperOnboarding;
+		};
+		E00F24EF2B0E442500B36FBC /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0A878E72B0BA1D400E27247 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		E00F24F12B0E442B00B36FBC /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0A878E72B0BA1D400E27247 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 		E05086B62B07A9510022CDE8 /* ALPopup */ = {
 			isa = XCSwiftPackageProductDependency;

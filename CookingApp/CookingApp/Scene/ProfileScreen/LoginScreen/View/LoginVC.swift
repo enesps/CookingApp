@@ -8,9 +8,12 @@
 
 import Foundation
 import UIKit
+import GoogleSignIn
 class LoginVC:UIViewController{
+    @IBOutlet weak var GoogleSignInButton: GIDSignInButton!
     
     override func viewDidLoad(){
+        GoogleSignInButton.layer.cornerRadius = 15
         
     }
     

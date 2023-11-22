@@ -13,8 +13,8 @@ class HomeVC : ViewController{
     override func viewDidLoad() {
 
         let popupVC = ALPopup.popup(template: .init(
-                                                title: "Yaprak Dolmasi",
-                                                subtitle: "Zeytinyagli Yaprak Dolmasi",
+                                                title: "Günün Menüsü",
+                                                subtitle: "Zeytinyagli Yaprak Sarması",
                                                 image: UIImage(named: "zeytinyagli-yaprak"),
                                                 privaryButtonTitle: "Bak",
                                                 secondaryButtonTitle: "Simdi Degil")

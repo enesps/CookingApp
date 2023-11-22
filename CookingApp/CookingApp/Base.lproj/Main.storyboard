@@ -112,24 +112,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIW-5v-dBJ">
-                                <rect key="frame" x="84" y="140" width="183" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES" searchField="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="quf-LH-Sxg" customClass="GIDSignInButton">
-                                <rect key="frame" x="91" y="507" width="211" height="85"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="77Q-81-9Sw" customClass="GIDSignInButton">
+                                <rect key="frame" x="115" y="600" width="162" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vTS-aV-L0V"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="GoogleSignInButton" destination="77Q-81-9Sw" id="3eO-e2-3wH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Txw-Yq-x7Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,7 +154,7 @@
             <objects>
                 <viewController id="JeI-KM-Mjl" customClass="SearchVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ATJ-fB-DCe">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <viewLayoutGuide key="safeArea" id="igv-9J-B59"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -165,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtR-6d-NyE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3437" y="-277"/>
+            <point key="canvasLocation" x="3435.8778625954196" y="-277.46478873239437"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="PgD-UZ-R1i">
@@ -226,14 +224,18 @@
         <!--Search-->
         <scene sceneID="TEQ-bV-YfU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lEG-DG-vYL" sceneMemberID="viewController">
+                <navigationController wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="lEG-DG-vYL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="Bpm-R4-d9f"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eY2-LZ-B8h">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="eY2-LZ-B8h">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ttM-0C-kec">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="JeI-KM-Mjl" kind="relationship" relationship="rootViewController" id="8WV-YC-fTe"/>
                     </connections>

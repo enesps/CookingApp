@@ -29,6 +29,8 @@
 		E0A878D92B0B59DC00E27247 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A878D82B0B59DC00E27247 /* SearchVC.swift */; };
 		E0A878E22B0B959B00E27247 /* PreLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A878E12B0B959B00E27247 /* PreLoginVC.swift */; };
 		E0A878E62B0B960A00E27247 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A878E52B0B960A00E27247 /* LoginVC.swift */; };
+		E0B1973F2B0F7BDB006F4FFF /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1973E2B0F7BDB006F4FFF /* ForgetPasswordVC.swift */; };
+		E0B197432B0F94F1006F4FFF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B197422B0F94F1006F4FFF /* SignUpVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		E0A878D82B0B59DC00E27247 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		E0A878E12B0B959B00E27247 /* PreLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLoginVC.swift; sourceTree = "<group>"; };
 		E0A878E52B0B960A00E27247 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		E0B1973E2B0F7BDB006F4FFF /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
+		E0B197422B0F94F1006F4FFF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +253,8 @@
 		E0A878DE2B0B918100E27247 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E0B197402B0F94C9006F4FFF /* SignUpScreen */,
+				E0B1973C2B0F7B94006F4FFF /* ForgetPasswordScreen */,
 				E0A878E02B0B91BC00E27247 /* PreLoginScreen */,
 				E0A878DF2B0B919F00E27247 /* LoginScreen */,
 			);
@@ -283,6 +289,38 @@
 			isa = PBXGroup;
 			children = (
 				E0A878E52B0B960A00E27247 /* LoginVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0B1973C2B0F7B94006F4FFF /* ForgetPasswordScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E0B1973D2B0F7BA9006F4FFF /* View */,
+			);
+			path = ForgetPasswordScreen;
+			sourceTree = "<group>";
+		};
+		E0B1973D2B0F7BA9006F4FFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0B1973E2B0F7BDB006F4FFF /* ForgetPasswordVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0B197402B0F94C9006F4FFF /* SignUpScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E0B197412B0F94D9006F4FFF /* View */,
+			);
+			path = SignUpScreen;
+			sourceTree = "<group>";
+		};
+		E0B197412B0F94D9006F4FFF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0B197422B0F94F1006F4FFF /* SignUpVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -438,11 +476,13 @@
 				E000F9CC2B06A53900ACA458 /* LaunchScreen.swift in Sources */,
 				E000F9942B06A12B00ACA458 /* ViewController.swift in Sources */,
 				E000F9902B06A12B00ACA458 /* AppDelegate.swift in Sources */,
+				E0B197432B0F94F1006F4FFF /* SignUpVC.swift in Sources */,
 				E000F9D72B06B71400ACA458 /* HomeVC.swift in Sources */,
 				E0A878E22B0B959B00E27247 /* PreLoginVC.swift in Sources */,
 				E0A878E62B0B960A00E27247 /* LoginVC.swift in Sources */,
 				E000F9922B06A12B00ACA458 /* SceneDelegate.swift in Sources */,
 				E000F9D12B06A5E400ACA458 /* OnBoardingScreen.swift in Sources */,
+				E0B1973F2B0F7BDB006F4FFF /* ForgetPasswordVC.swift in Sources */,
 				E0A878D92B0B59DC00E27247 /* SearchVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,6 +655,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 39545B6YAC;
@@ -632,6 +673,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.CookingApp.CookingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -643,6 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 39545B6YAC;
@@ -660,6 +703,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.CookingApp.CookingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

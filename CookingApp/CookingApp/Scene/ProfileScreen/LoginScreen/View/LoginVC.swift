@@ -40,4 +40,7 @@ class LoginVC:UIViewController{
         
     }
     
+    @IBAction func signInGoogle(_ sender: Any) {
+    }
+    
 }

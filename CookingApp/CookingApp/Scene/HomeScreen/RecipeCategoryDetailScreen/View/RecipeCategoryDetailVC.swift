@@ -20,7 +20,13 @@ class RecipeCategoryDetailVC: UIViewController {
         self.navigationItem.title = categoryTitle
         recipeCollectionView.dataSource = self
         recipeCollectionView.delegate = self
-        
+        recipeCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        if let flowLayout = recipeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.minimumInteritemSpacing = 5  // Hücreler arasındaki minimum boşluk
+            flowLayout.minimumLineSpacing = 5       // Satırlar arasındaki minimum boşluk
+            flowLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)  // Ekran kenarlarına olan boşluk
+        }
+
         recipeFillData()
         configureSearchController()
         // Do any additional setup after loading the view.
@@ -30,10 +36,18 @@ class RecipeCategoryDetailVC: UIViewController {
         let recipeItem2 = RecipeModel(recipeImage: "chicken", recipeName: "Icecek", recipeScore: "5.0", recipeCookingTime: "30dk", recipeDifficultyLevel: "kolay")
         let recipeItem3 = RecipeModel(recipeImage: "chicken", recipeName: "Tatli", recipeScore: "3.5", recipeCookingTime: "60dk", recipeDifficultyLevel: "Zor")
         let recipeItem4 = RecipeModel(recipeImage: "chicken", recipeName: "Corba", recipeScore: "4.99", recipeCookingTime: "35dk", recipeDifficultyLevel: "Zor")
+        let recipeItem5 = RecipeModel(recipeImage: "chicken", recipeName: "Sarma", recipeScore: "4.5", recipeCookingTime: "50dk", recipeDifficultyLevel: "Orta")
+        let recipeItem6 = RecipeModel(recipeImage: "chicken", recipeName: "Sucuk", recipeScore: "5.0", recipeCookingTime: "30dk", recipeDifficultyLevel: "kolay")
+        let recipeItem7 = RecipeModel(recipeImage: "chicken", recipeName: "Et", recipeScore: "3.5", recipeCookingTime: "60dk", recipeDifficultyLevel: "Zor")
+        let recipeItem8 = RecipeModel(recipeImage: "chicken", recipeName: "Pilav", recipeScore: "4.99", recipeCookingTime: "35dk", recipeDifficultyLevel: "Zor")
         recipeData.append(recipeItem1)
         recipeData.append(recipeItem2)
         recipeData.append(recipeItem3)
         recipeData.append(recipeItem4)
+        recipeData.append(recipeItem5)
+        recipeData.append(recipeItem6)
+        recipeData.append(recipeItem7)
+        recipeData.append(recipeItem8)
         
     }
     private func configureSearchController(){
@@ -63,7 +77,7 @@ class RecipeCategoryDetailVC: UIViewController {
 
 }
 
-extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewDataSource,UISearchResultsUpdating,UISearchBarDelegate{
+extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewDataSource,UISearchResultsUpdating,UISearchBarDelegate,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if searching
         {
@@ -97,10 +111,37 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
             cell.recipeDifficultyLevel.text = recipeData[indexPath.row].recipeDifficultyLevel
             
         }
+        cell.layer.masksToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.3
+        
+     
+
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.darkGray.cgColor
         cell.layer.cornerRadius = 15
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (recipeCollectionView.frame.size.width - 20) / 2
+        return CGSize(width: width, height:150)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
+        if searching
+        {
+            recipeVC.recipeName = searchedRecipe[indexPath.row].recipeName
+        }
+        else
+        {
+         
+            
+            recipeVC.recipeName = recipeData[indexPath.row].recipeName
+           
+        }
+
+        self.navigationController?.pushViewController(recipeVC, animated: true)
+        
     }
     
     func updateSearchResults(for searchController: UISearchController) {

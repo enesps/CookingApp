@@ -20,7 +20,7 @@ class LoginVC:UIViewController{
     override func viewDidLoad(){
       super.viewDidLoad()
     
-        
+        navigationItem.title = "Giriş Yap"
         
         
     }
@@ -28,15 +28,23 @@ class LoginVC:UIViewController{
     @IBAction func goToForgetPasswordVC(_ sender: Any) {
        
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ForgetVC") as? UIViewController else { return }
-        vc.modalPresentationStyle = .popover
-        self.present(vc, animated: true)
+        let transition = CATransition()
+                transition.duration = 0.5
+                transition.type = CATransitionType.push
+                transition.subtype = CATransitionSubtype.fromTop
+        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        self.navigationController?.pushViewController(vc, animated: false)
         
     }
     @IBAction func goToSignUpVC(_ sender: Any) {
         
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as? UIViewController else { return }
-        vc.modalPresentationStyle = .popover
-        self.present(vc, animated: true)
+        let transition = CATransition()
+                transition.duration = 0.5
+                transition.type = CATransitionType.push
+                transition.subtype = CATransitionSubtype.fromTop
+        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
+        self.navigationController?.pushViewController(vc, animated: false)
         
     }
     

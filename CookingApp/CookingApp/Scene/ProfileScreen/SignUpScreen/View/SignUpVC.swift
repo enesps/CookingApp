@@ -12,7 +12,7 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.title = "Üye Ol"
         // Do any additional setup after loading the view.
     }
     

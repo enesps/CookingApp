@@ -18,15 +18,17 @@ class RecipeSavedVC: UIViewController {
     var data = [recipeSavedData(recipeImage: "chicken", recipeName: "Tavuk", recipeScore: "4.5", recipeCookingTime: "60dk", recipeDifficultyLevel: "Zor"),
                 recipeSavedData(recipeImage: "chicken", recipeName: "Tavuk", recipeScore: "2.5", recipeCookingTime: "50dk", recipeDifficultyLevel: "Kolay"),
                 recipeSavedData(recipeImage: "chicken", recipeName: "Tavuk", recipeScore: "3.5", recipeCookingTime: "30dk", recipeDifficultyLevel: "Orta"),
-                recipeSavedData(recipeImage: "chicken", recipeName: "Tavuk", recipeScore: "5.00", recipeCookingTime: "55dk", recipeDifficultyLevel: "Zor"),
-                recipeSavedData(recipeImage: "chicken", recipeName: "Tavuk", recipeScore: "2.00", recipeCookingTime: "60dk", recipeDifficultyLevel: "Kolay")]
+                recipeSavedData(recipeImage: "chicken", recipeName: "Tavuk", recipeScore: "5.0", recipeCookingTime: "55dk", recipeDifficultyLevel: "Zor"),
+                recipeSavedData(recipeImage: "chicken", recipeName: "Tavuk", recipeScore: "2.0", recipeCookingTime: "60dk", recipeDifficultyLevel: "Kolay")]
     @IBOutlet weak var recipeSavedTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeSavedTableView.delegate = self
         recipeSavedTableView.dataSource = self
         // Do any additional setup after loading the view.
+        
     }
+    
     
 
     /*

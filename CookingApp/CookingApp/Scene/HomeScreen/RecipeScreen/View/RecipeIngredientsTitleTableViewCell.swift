@@ -1,20 +1,18 @@
 //
-//  RecipeIngredientsTableViewCell.swift
+//  RecipeIngredientsTitleTableViewCell.swift
 //  CookingApp
 //
-//  Created by Enes Pusa on 28.11.2023.
+//  Created by Enes Pusa on 30.11.2023.
 //
 
 import UIKit
 
-class RecipeIngredientsTableViewCell: UITableViewCell {
+class RecipeIngredientsTitleTableViewCell: UITableViewCell {
     @IBOutlet weak var recipeIngredientsTitle: UILabel!
     
-    @IBOutlet weak var recipeIngredientsText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

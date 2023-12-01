@@ -9,6 +9,7 @@ import UIKit
 
 class FavoriteVC: UIViewController {
 
+    @IBOutlet weak var ifNoData: UIView!
     @IBOutlet weak var recipeLike: UIView!
     @IBOutlet weak var recipeSaved: UIView!
     @IBOutlet weak var segmentController: UISegmentedControl!
@@ -21,7 +22,10 @@ class FavoriteVC: UIViewController {
     @IBAction func onClickSegment(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex{
         case 0:
-            self.view.bringSubviewToFront(recipeSaved)
+                self.view.bringSubviewToFront(recipeSaved)
+
+             
+            
         case 1:
             self.view.bringSubviewToFront(recipeLike)
         default:

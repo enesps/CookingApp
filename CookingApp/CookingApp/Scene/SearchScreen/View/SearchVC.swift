@@ -25,19 +25,7 @@ class SearchVC:UIViewController{
          super.viewDidLoad()
          recipeSearchTableView.dataSource = self
          recipeSearchTableView.delegate = self
-         
-//         // TableView'ı konfigüre et
-//              tableView.frame = view.bounds
-//              tableView.dataSource = self
-//              view.addSubview(tableView)
-//         self.setupSearchController()
-//
-//         // SearchBar'ı TableView'ın üstüne ekle
-//         tableView.tableHeaderView = searchSontroller.searchBar
-//
-//         // Verileri TableView'a yükle
-//         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//         tableView.reloadData()
+         recipeSearchTableView.register(UINib(nibName: "RecipeCardTableViewCell", bundle: nil), forCellReuseIdentifier: "XibCard")
          recipeFillData()
          configureSearchController()
      }
@@ -138,25 +126,25 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource,UISearchResultsUp
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = recipeSearchTableView.dequeueReusableCell(withIdentifier: "RecipeSearchCell", for: indexPath)
-        as! RecipeTableViewCell
+        let cell = recipeSearchTableView.dequeueReusableCell(withIdentifier: "XibCard", for: indexPath)
+        as! RecipeCardTableViewCell
         if searching
         {
-            cell.recipeImage.image = UIImage(named: searchedRecipe[indexPath.row].recipeImage)
-            cell.recipeName.text = searchedRecipe[indexPath.row].recipeName
-            cell.recipeScore.text = searchedRecipe[indexPath.row].recipeScore
-            cell.recipeCookingTime.text = searchedRecipe[indexPath.row].recipeCookingTime
-            cell.recipeDifficultyLevel.text = searchedRecipe[indexPath.row].recipeDifficultyLevel
+            cell.recipeCardImage.image = UIImage(named: searchedRecipe[indexPath.row].recipeImage)
+            cell.recipeCardName.text = searchedRecipe[indexPath.row].recipeName
+            cell.recipeCardScore.text = searchedRecipe[indexPath.row].recipeScore
+            cell.recipeCardCookingTime.text = searchedRecipe[indexPath.row].recipeCookingTime
+            cell.recipeCardDifficultyLevel.text = searchedRecipe[indexPath.row].recipeDifficultyLevel
             
         }
         else
         {
             
-            cell.recipeImage.image = UIImage(named: recipeData[indexPath.row].recipeImage)
-            cell.recipeName.text = recipeData[indexPath.row].recipeName
-            cell.recipeScore.text = recipeData[indexPath.row].recipeScore
-            cell.recipeCookingTime.text = recipeData[indexPath.row].recipeCookingTime
-            cell.recipeDifficultyLevel.text = recipeData[indexPath.row].recipeDifficultyLevel
+            cell.recipeCardImage.image = UIImage(named: recipeData[indexPath.row].recipeImage)
+            cell.recipeCardName.text = recipeData[indexPath.row].recipeName
+            cell.recipeCardScore.text = recipeData[indexPath.row].recipeScore
+            cell.recipeCardCookingTime.text = recipeData[indexPath.row].recipeCookingTime
+            cell.recipeCardDifficultyLevel.text = recipeData[indexPath.row].recipeDifficultyLevel
             
         }
 //        cell.layer.masksToBounds = false

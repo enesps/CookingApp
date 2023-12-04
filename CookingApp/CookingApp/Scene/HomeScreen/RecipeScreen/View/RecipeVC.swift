@@ -53,15 +53,34 @@ class RecipeVC: UIViewController {
 }
 extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeIngredientsArray.count+2
+        switch section {
+           case 0:
+               return 1
+           case 1:
+               return 1// İkinci section için belirlenen sayı
+           case 2:
+               return 1// Üçüncü section için belirlenen sayı
+        case 3:
+            return recipeIngredientsArray.count
+        case 4:
+            return 1
+        case 5:
+            return recipeIngredientsArray.count
+           default:
+               return 0
+           }
+        return array.count
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0{
+        if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "recipeProfileCell", for: indexPath) as! RecipeProfileTableViewCell
             return cell
         }
-        else if indexPath.row == 1 {
+        else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell") as! RecipeButtonGroupTableViewCell
             cell.recipeLikeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
             cell.recipeLikeBtn.titleLabel?.text = "3.24"
@@ -70,24 +89,24 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
             
             return cell
         }
-        else if indexPath.row == 2 {
+        else if indexPath.section == 2 {
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTitleCell" ,for: indexPath) as! RecipeIngredientsTitleTableViewCell
             return cell
             
         }
-        else if (indexPath.row > 3 && indexPath.row < (recipeIngredientsArray.count+3)){
+        else if (indexPath.section == 3){
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "recipeIngredientsCell",for: indexPath) as! RecipeIngredientsTableViewCell
-            cell.recipeIngredientsTitle.text = recipeIngredientsArray[indexPath.row-3].title
-            cell.recipeIngredientsText.text = recipeIngredientsArray[indexPath.row-3].text
+            cell.recipeIngredientsTitle.text = recipeIngredientsArray[indexPath.row].title
+            cell.recipeIngredientsText.text = recipeIngredientsArray[indexPath.row].text
             return cell
         }
-        else if indexPath.row == (recipeIngredientsArray.count+3){
+        else if indexPath.section == 4{
             let cell =  recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTitleCell", for: indexPath) as! RecipeIngredientsTitleTableViewCell
             cell.recipeIngredientsTitle.text = "Nasil Yapilir?"
         }
         let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeCookingCell", for: indexPath) as! RecipeCookingTableViewCell
-        cell.recipeStepNumber.text = "Adim 1/\(indexPath.row-recipeIngredientsArray.count+3)"
-        cell.recipeCookingStep.text = array[indexPath.row-recipeIngredientsArray.count+3]
+        cell.recipeStepNumber.text = "Adim 1/\(indexPath.row)"
+        cell.recipeCookingStep.text = array[indexPath.row]
         return cell
 
  

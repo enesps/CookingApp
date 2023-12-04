@@ -25,6 +25,7 @@ class RecipeSavedVC: UIViewController {
         super.viewDidLoad()
         recipeSavedTableView.delegate = self
         recipeSavedTableView.dataSource = self
+        recipeSavedTableView.register(UINib(nibName: "RecipeCardTableViewCell", bundle: nil), forCellReuseIdentifier: "XibCard")
         // Do any additional setup after loading the view.
         
     }
@@ -48,12 +49,12 @@ extension RecipeSavedVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = recipeSavedTableView.dequeueReusableCell(withIdentifier: "recipeSavedCell", for: indexPath) as! RecipeSavedTableViewCell
-        cell.recipeImage.image = UIImage(named: data[indexPath.row].recipeImage)
-        cell.recipeName.text = data[indexPath.row].recipeName
-        cell.recipeScore.text = data[indexPath.row].recipeScore
-        cell.recipeCookingTime.text = data[indexPath.row].recipeCookingTime
-        cell.recipeDifficultyLevel.text = data[indexPath.row].recipeDifficultyLevel
+        let cell = recipeSavedTableView.dequeueReusableCell(withIdentifier: "XibCard", for: indexPath) as! RecipeCardTableViewCell
+        cell.recipeCardImage.image = UIImage(named: data[indexPath.row].recipeImage)
+        cell.recipeCardName.text = data[indexPath.row].recipeName
+        cell.recipeCardScore.text = data[indexPath.row].recipeScore
+        cell.recipeCardCookingTime.text = data[indexPath.row].recipeCookingTime
+        cell.recipeCardDifficultyLevel.text = data[indexPath.row].recipeDifficultyLevel
         return cell
     }
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

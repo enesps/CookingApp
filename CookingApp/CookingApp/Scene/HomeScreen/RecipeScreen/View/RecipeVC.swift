@@ -6,12 +6,17 @@
 //
 
 import UIKit
-
+enum CellType {
+    case recipeHeaderTableViewCell
+    case recipeIngredientsTableViewCell
+    case recipeCookingTableViewCell
+}
 class RecipeVC: UIViewController {
     struct  recipeIngredients{
         var title:String
         var text:String
     }
+    let cellTypes: [CellType] = [.recipeHeaderTableViewCell, .recipeIngredientsTableViewCell, .recipeCookingTableViewCell]
     var recipeIngredientsArray = [recipeIngredients(title: "Su", text: "1 litre su"), recipeIngredients(title: "Su", text: "1 litre su"),recipeIngredients(title: "Su", text: "1 litre su"),recipeIngredients(title: "Su", text: "1 litre su"),recipeIngredients(title: "Su", text: "1 litre su")]
  var array = ["Pirinçleri sıcak ve tuzlu suda 15-20 dakika bekletin.",
               "Kuş üzümlerini sıcak suda bekletin ve şişmelerini sağlayın.",
@@ -29,6 +34,10 @@ class RecipeVC: UIViewController {
         // Do any additional setup after loading the view.
         recipeTableView.delegate = self
         recipeTableView.dataSource = self
+        recipeTableView.register(UINib(nibName: "RecipeHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeHeaderTableViewCell")
+        recipeTableView.register(UINib(nibName: "RecipeCookingTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCookingTableViewCell")
+        recipeTableView.register(UINib(nibName: "RecipeIngredientsTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeIngredientsTableViewCell")
+
         recipeTableView.separatorStyle = .none
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 300))
         let imageView = UIImageView(frame: header.bounds)
@@ -53,63 +62,33 @@ class RecipeVC: UIViewController {
 }
 extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-           case 0:
-               return 1
-           case 1:
-               return 1// İkinci section için belirlenen sayı
-           case 2:
-               return 1// Üçüncü section için belirlenen sayı
-        case 3:
-            return recipeIngredientsArray.count
-        case 4:
-            return 1
-        case 5:
-            return recipeIngredientsArray.count
-           default:
-               return 0
-           }
-        return array.count
+        return cellTypes.count
     }
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 6
-    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "recipeProfileCell", for: indexPath) as! RecipeProfileTableViewCell
-            return cell
-        }
-        else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell") as! RecipeButtonGroupTableViewCell
+        let cellType = cellTypes[indexPath.section]
+        switch cellType {
+        case .recipeHeaderTableViewCell:
+            let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeHeaderTableViewCell", for: indexPath) as! RecipeHeaderTableViewCell
             cell.recipeLikeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
             cell.recipeLikeBtn.titleLabel?.text = "3.24"
             cell.recipeShareBtn.setImage(UIImage(systemName: "bookmark"), for: .normal)
             cell.recipeShareBtn.titleLabel?.text = "Kaydet"
-            
             return cell
-        }
-        else if indexPath.section == 2 {
-            let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTitleCell" ,for: indexPath) as! RecipeIngredientsTitleTableViewCell
-            return cell
+        case .recipeIngredientsTableViewCell:
+            let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTableViewCell", for: indexPath) as! RecipeIngredientsTableViewCell
             
-        }
-        else if (indexPath.section == 3){
-            let cell = recipeTableView.dequeueReusableCell(withIdentifier: "recipeIngredientsCell",for: indexPath) as! RecipeIngredientsTableViewCell
-            cell.recipeIngredientsTitle.text = recipeIngredientsArray[indexPath.row].title
+            cell.recipeIngredientsTitle.text = recipeIngredientsArray[indexPath.row][ ].title
             cell.recipeIngredientsText.text = recipeIngredientsArray[indexPath.row].text
             return cell
+        case .recipeCookingTableViewCell:
+            let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeCookingTableViewCell", for: indexPath) as! RecipeCookingTableViewCell
+            cell.recipeStepNumber.text = "Adim 1/\(indexPath.row)"
+            cell.recipeStepCooking.text = array[indexPath.row]
+            return cell
+            
         }
-        else if indexPath.section == 4{
-            let cell =  recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTitleCell", for: indexPath) as! RecipeIngredientsTitleTableViewCell
-            cell.recipeIngredientsTitle.text = "Nasil Yapilir?"
-        }
-        let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeCookingCell", for: indexPath) as! RecipeCookingTableViewCell
-        cell.recipeStepNumber.text = "Adim 1/\(indexPath.row)"
-        cell.recipeCookingStep.text = array[indexPath.row]
-        return cell
-
- 
             
         
         
@@ -118,18 +97,19 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 1 {
-            return 56
+        switch indexPath.section {
+        case 0:
+            return 120 // İlk section'daki hücre yüksekliği
+        case 1:
+            return 70
+        case 2:
+            return 50// İkinci section'daki hücre yüksekliği
+        default:
+            return UITableView.automaticDimension
         }
-        else if indexPath.row == 0{
-            return 59
-        }
-        else {
-            /*if indexPath.row >= 2 && indexPath.row < (recipeIngredientsArray.count+3){*/
-            return 115
-        }
-        
-       
+    }
+    func tableView(_ tableView: UITableView, widthForRowAt indexPath: IndexPath) -> CGFloat {
+        return 393
     }
      func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil

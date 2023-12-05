@@ -32,6 +32,7 @@ class HomeVC : ViewController{
         popupVC.push(from: self)
         recipeCategoryCollectionView.dataSource = self
         recipeCategoryCollectionView.delegate = self
+        recipeCategoryCollectionView.register(UINib(nibName: "RecipeImageViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecipeImageViewCollectionViewCell")
         recipeCategoryCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         if let flowLayout = recipeCategoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.minimumInteritemSpacing = 5  // Hücreler arasındaki minimum boşluk
@@ -47,13 +48,13 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = recipeCategoryCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! RecipeCategoryCollectionViewCell
+        let cell = recipeCategoryCollectionView.dequeueReusableCell(withReuseIdentifier: "RecipeImageViewCollectionViewCell", for: indexPath) as! RecipeImageViewCollectionViewCell
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.darkGray.cgColor
         cell.layer.cornerRadius = 15
 
-        cell.recipeCategoryImage.image = UIImage(named: recipeCategoryImage[indexPath.row])
-        cell.recipeCategoryName.text = recipeCategoryTitle[indexPath.row]
+        cell.recipeImageView.image = UIImage(named: recipeCategoryImage[indexPath.row])
+        cell.recipeName.text = recipeCategoryTitle[indexPath.row]
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

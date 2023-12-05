@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeHeaderTableViewCell" id="KGk-i7-Jjw" customClass="RecipeHeaderTableViewCell" customModule="CookingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="394" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="394" height="120"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ogh-Uh-ed4">
+                        <rect key="frame" x="6" y="9.9999999999999964" width="56" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="IIQ-L8-GUu"/>
+                            <constraint firstAttribute="height" constant="57.329999999999998" id="IhE-hz-tEF"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enes Pusa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApS-Of-dS8">
+                        <rect key="frame" x="70" y="17" width="78.666666666666686" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="6B9-Mp-AyB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1100 Tarif" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ezd-b3-iIj">
+                        <rect key="frame" x="70" y="42" width="48" height="13.333333333333336"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="YJR-db-AB2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJF-Xs-otF">
+                        <rect key="frame" x="0.0" y="66.333333333333329" width="197" height="53.666666666666671"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="197" id="gJI-MT-BbK"/>
+                        </constraints>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title="3.234" subtitle="">
+                            <color key="baseForegroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </buttonConfiguration>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBM-bx-Nma">
+                        <rect key="frame" x="197" y="64" width="197" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="197" id="cWB-wx-dHv"/>
+                        </constraints>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system" title="Kaydet">
+                            <color key="baseForegroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </buttonConfiguration>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9Y-45-XWN">
+                        <rect key="frame" x="257" y="17" width="117" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="4RX-yz-gOx"/>
+                        </constraints>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="filled" title="Takip Et">
+                            <backgroundConfiguration key="background" cornerRadius="10"/>
+                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="baseBackgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </buttonConfiguration>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="sBM-bx-Nma" secondAttribute="bottom" id="2wV-Az-seJ"/>
+                    <constraint firstItem="sBM-bx-Nma" firstAttribute="top" secondItem="g9Y-45-XWN" secondAttribute="bottom" constant="7" id="5VP-uU-Hxh"/>
+                    <constraint firstItem="Ogh-Uh-ed4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="6w0-b0-WPZ"/>
+                    <constraint firstAttribute="trailing" secondItem="sBM-bx-Nma" secondAttribute="trailing" id="7x4-nK-k03"/>
+                    <constraint firstAttribute="trailing" secondItem="g9Y-45-XWN" secondAttribute="trailing" constant="20" symbolic="YES" id="Esu-7v-eDU"/>
+                    <constraint firstItem="XJF-Xs-otF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LRA-Kb-H8w"/>
+                    <constraint firstItem="ApS-Of-dS8" firstAttribute="leading" secondItem="Ogh-Uh-ed4" secondAttribute="trailing" constant="8" symbolic="YES" id="Lbk-jq-eFD"/>
+                    <constraint firstItem="sBM-bx-Nma" firstAttribute="top" secondItem="g9Y-45-XWN" secondAttribute="bottom" constant="7" id="M6J-bb-TbS"/>
+                    <constraint firstItem="g9Y-45-XWN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="S66-FL-cPD"/>
+                    <constraint firstAttribute="bottom" secondItem="sBM-bx-Nma" secondAttribute="bottom" id="Shi-OA-bAJ"/>
+                    <constraint firstItem="sBM-bx-Nma" firstAttribute="top" secondItem="g9Y-45-XWN" secondAttribute="bottom" constant="7" id="Sr3-o1-P9S"/>
+                    <constraint firstItem="Ogh-Uh-ed4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="TOi-S7-zZh"/>
+                    <constraint firstItem="sBM-bx-Nma" firstAttribute="leading" secondItem="XJF-Xs-otF" secondAttribute="trailing" id="TPV-yY-1KI"/>
+                    <constraint firstItem="g9Y-45-XWN" firstAttribute="leading" secondItem="ApS-Of-dS8" secondAttribute="trailing" constant="108.33" id="VCG-T1-5Yf"/>
+                    <constraint firstItem="g9Y-45-XWN" firstAttribute="leading" secondItem="Ezd-b3-iIj" secondAttribute="trailing" constant="139" id="X2y-BZ-gHh"/>
+                    <constraint firstAttribute="bottom" secondItem="XJF-Xs-otF" secondAttribute="bottom" id="agq-tR-l2n"/>
+                    <constraint firstItem="sBM-bx-Nma" firstAttribute="leading" secondItem="XJF-Xs-otF" secondAttribute="trailing" id="gQF-xH-fOO"/>
+                    <constraint firstItem="sBM-bx-Nma" firstAttribute="leading" secondItem="XJF-Xs-otF" secondAttribute="trailing" id="kS2-mu-nD2"/>
+                    <constraint firstAttribute="trailing" secondItem="sBM-bx-Nma" secondAttribute="trailing" id="kS4-gy-NY9"/>
+                    <constraint firstItem="Ezd-b3-iIj" firstAttribute="leading" secondItem="Ogh-Uh-ed4" secondAttribute="trailing" constant="8" symbolic="YES" id="lVg-bQ-5t5"/>
+                    <constraint firstItem="ApS-Of-dS8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="mCk-RP-7gu"/>
+                    <constraint firstAttribute="bottom" secondItem="Ogh-Uh-ed4" secondAttribute="bottom" constant="53.670000000000002" id="q36-0p-Wir"/>
+                    <constraint firstItem="Ezd-b3-iIj" firstAttribute="top" secondItem="ApS-Of-dS8" secondAttribute="bottom" constant="4" id="ubZ-ag-QdB"/>
+                    <constraint firstItem="g9Y-45-XWN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="uew-hM-SgP"/>
+                    <constraint firstItem="XJF-Xs-otF" firstAttribute="top" secondItem="Ezd-b3-iIj" secondAttribute="bottom" constant="11" id="w0i-vM-Tdj"/>
+                    <constraint firstItem="sBM-bx-Nma" firstAttribute="top" secondItem="g9Y-45-XWN" secondAttribute="bottom" constant="7" id="yvU-lD-sJp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="recipe" destination="Ezd-b3-iIj" id="H7n-wr-OJE"/>
+                <outlet property="recipeFollowProfile" destination="g9Y-45-XWN" id="rGl-1a-BP4"/>
+                <outlet property="recipeLikeBtn" destination="XJF-Xs-otF" id="t2Q-aW-yao"/>
+                <outlet property="recipeProfileImage" destination="Ogh-Uh-ed4" id="PRH-dc-yEY"/>
+                <outlet property="recipeProfileName" destination="ApS-Of-dS8" id="peA-R6-q8r"/>
+                <outlet property="recipeShareBtn" destination="sBM-bx-Nma" id="qgd-XI-kRb"/>
+            </connections>
+            <point key="canvasLocation" x="69" y="20"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bookmark" catalog="system" width="110" height="128"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
+    </resources>
+</document>

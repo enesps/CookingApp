@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileNC: UINavigationController {
- let flag = false
+ let flag = true
     override func viewDidLoad() {
         super.viewDidLoad()
         // Ana view controller'ı oluşturun (örneğin, bir ViewController sınıfı kullanın)

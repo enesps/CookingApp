@@ -2,7 +2,7 @@
 //  RecipeIngredientsTableViewCell.swift
 //  CookingApp
 //
-//  Created by Enes Pusa on 28.11.2023.
+//  Created by Enes Pusa on 5.12.2023.
 //
 
 import UIKit
@@ -14,7 +14,6 @@ class RecipeIngredientsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -22,5 +21,5 @@ class RecipeIngredientsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

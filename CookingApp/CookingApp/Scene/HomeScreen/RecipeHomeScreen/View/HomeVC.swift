@@ -20,16 +20,27 @@ class HomeVC : ViewController{
         let popupVC = ALPopup.popup(template: .init(
                                                 title: "Günün Menüsü",
                                                 subtitle: "Zeytinyagli Yaprak Sarması",
-                                                image: UIImage(named: "zeytinyagli-yaprak"),
+                                                image: UIImage(named: "chicken"),
                                                 privaryButtonTitle: "Bak",
                                                 secondaryButtonTitle: "Simdi Degil")
                         )
+        popupVC.tempateView.imageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        popupVC.tempateView.imageView.layer.cornerRadius = 30
 
         popupVC.tempateView.secondaryButtonAction = { [weak self] in
             
             popupVC.pop()
         }
+        
+        popupVC.tempateView.primaryButtonAction = {
+            popupVC.pop()
+            let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
+           
+            self.navigationController?.pushViewController(recipeVC, animated: true)
+            
+        }
         popupVC.push(from: self)
+    
         recipeCategoryCollectionView.dataSource = self
         recipeCategoryCollectionView.delegate = self
         recipeCategoryCollectionView.register(UINib(nibName: "RecipeImageViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecipeImageViewCollectionViewCell")

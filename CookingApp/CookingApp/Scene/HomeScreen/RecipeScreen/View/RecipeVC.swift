@@ -16,8 +16,17 @@ class RecipeVC: UIViewController {
         var title:String
         var text:String
     }
+    struct cellData{
+        var sectionType:CellType
+        var data:[Any]
+    }
+
     let cellTypes: [CellType] = [.recipeHeaderTableViewCell, .recipeIngredientsTableViewCell, .recipeCookingTableViewCell]
-    var recipeIngredientsArray = [recipeIngredients(title: "Su", text: "1 litre su"), recipeIngredients(title: "Su", text: "1 litre su"),recipeIngredients(title: "Su", text: "1 litre su"),recipeIngredients(title: "Su", text: "1 litre su"),recipeIngredients(title: "Su", text: "1 litre su")]
+    
+    var recipeIngredientsArray = [recipeIngredients(title: "zeytinyağı", text: "2 yemek kaşığı"), recipeIngredients(title: "soğan", text: "2 adet"),
+        recipeIngredients(title: "pirinç", text: "2 su bardağı"),
+        recipeIngredients(title: "sıcak su", text: "2 su bardağı"),
+        recipeIngredients(title: "kuş üzümü", text: "1,5 yemek kaşığı ")]
  var array = ["Pirinçleri sıcak ve tuzlu suda 15-20 dakika bekletin.",
               "Kuş üzümlerini sıcak suda bekletin ve şişmelerini sağlayın.",
               "Soğanları ince ince doğrayın.",
@@ -25,6 +34,15 @@ class RecipeVC: UIViewController {
               "Soğanları karıştıra karıştıra kavurun.",
               "Suyunu süzüp duruladığınız pirinçleri ekleyin ve sıcak suyu ekleyip baharatları ve kuş üzümünü ilave edin. Kısık ateşte 15 dakika demlemeye bırakın.",
               "Demlenen iç harcı soğumaya bırakın."]
+
+    var cellDataArray: [cellData] {
+        return [
+             cellData(sectionType: .recipeHeaderTableViewCell, data: ["kjnsks"]),
+             cellData(sectionType: .recipeIngredientsTableViewCell, data: recipeIngredientsArray),
+             cellData(sectionType: .recipeCookingTableViewCell, data: array)
+                                             
+        ]
+    }
     @IBOutlet weak var recipeTableView: UITableView!
     
     var recipeName : String?
@@ -49,25 +67,18 @@ class RecipeVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return cellDataArray.count
+}
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellTypes.count
+        return cellDataArray[section].data.count
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellType = cellTypes[indexPath.section]
+        let cellType = cellDataArray[indexPath.section].sectionType
         switch cellType {
         case .recipeHeaderTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeHeaderTableViewCell", for: indexPath) as! RecipeHeaderTableViewCell
@@ -78,50 +89,70 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
             return cell
         case .recipeIngredientsTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTableViewCell", for: indexPath) as! RecipeIngredientsTableViewCell
-            
-            cell.recipeIngredientsTitle.text = recipeIngredientsArray[indexPath.row][ ].title
-            cell.recipeIngredientsText.text = recipeIngredientsArray[indexPath.row].text
+            if let ingredientsData = cellDataArray[indexPath.section].data[indexPath.row] as? recipeIngredients {
+                    // ingredientsData'yi kullanarak hücre içeriğini ayarla
+                
+                    cell.recipeIngredientsTitle.text = "\(ingredientsData.title):"
+                cell.recipeIngredientsText.text = ingredientsData.text
+                }
             return cell
+            
         case .recipeCookingTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeCookingTableViewCell", for: indexPath) as! RecipeCookingTableViewCell
-            cell.recipeStepNumber.text = "Adim 1/\(indexPath.row)"
-            cell.recipeStepCooking.text = array[indexPath.row]
-            return cell
-            
-        }
-            
         
-        
+                      // cookingData'yi kullanarak hücre içeriğini ayarla
+                      
+            cell.recipeStepNumber.text = "\(indexPath.row+1)/\(cellDataArray[indexPath.section].data.count)"
+            cell.recipeStepCooking.text = (cellDataArray[indexPath.section].data[indexPath.row] as? String)
+                return cell
+                  
 
         
-        
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
-            return 120 // İlk section'daki hücre yüksekliği
-        case 1:
-            return 70
-        case 2:
-            return 50// İkinci section'daki hücre yüksekliği
-        default:
-            return UITableView.automaticDimension
+            
         }
+
     }
-    func tableView(_ tableView: UITableView, widthForRowAt indexPath: IndexPath) -> CGFloat {
-        return 393
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        switch indexPath.section {
+//        case 0:
+//            return 120 // İlk section'daki hücre yüksekliği
+//        case 1:
+//            return 120
+//        case 2:
+//            return 120// İkinci section'daki hücre yüksekliği
+//        default:
+//            return UITableView.automaticDimension
+//        }
+//    }
+//    func tableView(_ tableView: UITableView, widthForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 393
+//    }
      func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
-//     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        // Sadece belirli bir satırın yüksekliğini artırın
-//        if indexPath.row == 1{
-//            return 60.0 // İstediğiniz yükseklik değerini belirtin
-//        } else {
-//            return 44.0 // Diğer satırlar için varsayılan yükseklik değeri
-//        }
-//    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let section = cellDataArray[section].sectionType
+        switch section{
+            
+       
+        case .recipeIngredientsTableViewCell:
+            return "Malzemeler:"
+        case .recipeCookingTableViewCell:
+            return "Nasil Yapilir?"
+        default:
+            return nil
+        }
+    
+        
+    }
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let headerView = view as? UITableViewHeaderFooterView else { return }
+        
+        // Başlık fontunu ayarlayın
+        headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: 18) // İstediğiniz boyutu kullanabilirsiniz
+    }
+
+    
     
     
     

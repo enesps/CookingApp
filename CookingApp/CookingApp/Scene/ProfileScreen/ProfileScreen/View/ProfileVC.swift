@@ -77,6 +77,11 @@ extension ProfileVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         let screenWidth = UIScreen.main.bounds.width
         return CGSize(width: screenWidth / 3, height: screenWidth / 3)
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
+       
+        self.navigationController?.pushViewController(recipeVC, animated: true)
+    }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 //        // Hücreler arasındaki minimum dikey boşluğu ayarlayın

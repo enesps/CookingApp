@@ -16,10 +16,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydk-i0-Zzd">
-                        <rect key="frame" x="0.0" y="0.0" width="179" height="40"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ydk-i0-Zzd">
+                        <rect key="frame" x="32" y="0.0" width="147" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="179" id="1Nj-PX-yVz"/>
+                            <constraint firstAttribute="width" constant="147" id="1Nj-PX-yVz"/>
                             <constraint firstAttribute="height" constant="40" id="OLK-Is-kLB"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -41,7 +41,7 @@
                     <constraint firstAttribute="trailing" secondItem="no5-z1-OXw" secondAttribute="trailing" id="2Sp-5B-4MX"/>
                     <constraint firstItem="Ydk-i0-Zzd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="T6X-4C-tmz"/>
                     <constraint firstAttribute="bottom" secondItem="Ydk-i0-Zzd" secondAttribute="bottom" id="YXa-BL-gtv"/>
-                    <constraint firstItem="Ydk-i0-Zzd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="d3i-xz-5ht"/>
+                    <constraint firstItem="Ydk-i0-Zzd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="d3i-xz-5ht"/>
                     <constraint firstItem="no5-z1-OXw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fpH-nW-kU7"/>
                     <constraint firstItem="no5-z1-OXw" firstAttribute="leading" secondItem="Ydk-i0-Zzd" secondAttribute="trailing" constant="14" id="wdF-Jn-iZi"/>
                     <constraint firstAttribute="bottom" secondItem="no5-z1-OXw" secondAttribute="bottom" id="xhk-ti-5ta"/>

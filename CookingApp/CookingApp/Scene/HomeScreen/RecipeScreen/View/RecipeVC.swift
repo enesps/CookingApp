@@ -50,7 +50,7 @@ class RecipeVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        recipeTableView.delegate = self
+       recipeTableView.delegate = self
         recipeTableView.dataSource = self
         recipeTableView.register(UINib(nibName: "RecipeHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeHeaderTableViewCell")
         recipeTableView.register(UINib(nibName: "RecipeCookingTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCookingTableViewCell")
@@ -65,6 +65,7 @@ class RecipeVC: UIViewController {
         header.addSubview(imageView)
         recipeTableView.tableHeaderView = header
     }
+
     
 
 
@@ -76,6 +77,7 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellDataArray[section].data.count
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellType = cellDataArray[indexPath.section].sectionType

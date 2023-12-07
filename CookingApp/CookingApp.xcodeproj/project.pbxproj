@@ -22,6 +22,7 @@
 		E000F9D12B06A5E400ACA458 /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E000F9D02B06A5E400ACA458 /* OnBoardingScreen.swift */; };
 		E000F9D42B06A80200ACA458 /* LottieAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = E000F9D32B06A80200ACA458 /* LottieAnimation.json */; };
 		E000F9D72B06B71400ACA458 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E000F9D62B06B71400ACA458 /* HomeVC.swift */; };
+		E0014C822B21F2F500EF6496 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = E0014C812B21F2F500EF6496 /* SkeletonView */; };
 		E003216C2B10D2DD006A280A /* FixProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003216B2B10D2DD006A280A /* FixProfileVC.swift */; };
 		E00321702B10EA04006A280A /* ProfileSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003216F2B10EA04006A280A /* ProfileSettingsVC.swift */; };
 		E00F24F02B0E442500B36FBC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E00F24EF2B0E442500B36FBC /* GoogleSignIn */; };
@@ -129,6 +130,7 @@
 				E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */,
 				E00F24F22B0E442B00B36FBC /* GoogleSignInSwift in Frameworks */,
 				E000F9C12B06A3F600ACA458 /* SwiftAlertView in Frameworks */,
+				E0014C822B21F2F500EF6496 /* SkeletonView in Frameworks */,
 				E000F9C42B06A41200ACA458 /* Lottie in Frameworks */,
 				E000F9C72B06A42000ACA458 /* PaperOnboarding in Frameworks */,
 				E00F24F02B0E442500B36FBC /* GoogleSignIn in Frameworks */,
@@ -554,6 +556,7 @@
 				E0A878D42B0B596800E27247 /* RAMReel */,
 				E00F24EF2B0E442500B36FBC /* GoogleSignIn */,
 				E00F24F12B0E442B00B36FBC /* GoogleSignInSwift */,
+				E0014C812B21F2F500EF6496 /* SkeletonView */,
 			);
 			productName = CookingApp;
 			productReference = E000F98C2B06A12B00ACA458 /* CookingApp.app */;
@@ -634,6 +637,7 @@
 				E05086B52B07A9510022CDE8 /* XCRemoteSwiftPackageReference "ALPopup" */,
 				E0A878D32B0B596800E27247 /* XCRemoteSwiftPackageReference "reel-search" */,
 				E0A878E72B0BA1D400E27247 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				E0014C802B21F2F500EF6496 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = E000F98D2B06A12B00ACA458 /* Products */;
 			projectDirPath = "";
@@ -1080,6 +1084,14 @@
 				minimumVersion = 6.1.5;
 			};
 		};
+		E0014C802B21F2F500EF6496 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.30.4;
+			};
+		};
 		E05086B52B07A9510022CDE8 /* XCRemoteSwiftPackageReference "ALPopup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alxrguz/ALPopup.git";
@@ -1121,6 +1133,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E000F9C52B06A42000ACA458 /* XCRemoteSwiftPackageReference "paper-onboarding" */;
 			productName = PaperOnboarding;
+		};
+		E0014C812B21F2F500EF6496 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0014C802B21F2F500EF6496 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		E00F24EF2B0E442500B36FBC /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;

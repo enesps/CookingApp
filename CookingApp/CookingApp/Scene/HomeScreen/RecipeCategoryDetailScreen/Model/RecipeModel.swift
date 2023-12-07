@@ -6,6 +6,15 @@
 //
 
 import Foundation
+struct recipeModel1:Decodable{
+    
+}
+struct Welcome: Codable {
+    let count: Int?
+    let name: String?
+    let age: Int?
+}
+
 class RecipeModel{
     
     var recipeImage:String

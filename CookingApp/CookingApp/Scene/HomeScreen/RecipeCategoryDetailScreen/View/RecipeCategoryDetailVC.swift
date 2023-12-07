@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class RecipeCategoryDetailVC: UIViewController {
     var searching = false
+    private var cancellables: Set<AnyCancellable> = []
+      private let viewModel = RecipeCategoryDetailVM()
     var searchedRecipe = [RecipeModel]()
     
     var searchController = UISearchController(searchResultsController: nil)
@@ -29,6 +32,14 @@ class RecipeCategoryDetailVC: UIViewController {
 
         recipeFillData()
         configureSearchController()
+        viewModel.$recipeData
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] data in
+                print(data?.name)
+            }
+            .store(in: &cancellables)
+        viewModel.fetchRecipeData(for: "meelad")
+        
         // Do any additional setup after loading the view.
     }
     func recipeFillData(){

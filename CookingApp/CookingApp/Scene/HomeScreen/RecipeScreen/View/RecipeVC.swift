@@ -10,6 +10,7 @@ enum CellType {
     case recipeHeaderTableViewCell
     case recipeIngredientsTableViewCell
     case recipeCookingTableViewCell
+//    case recipePickerPeopleTableViewCell
 }
 class RecipeVC: UIViewController {
     struct  recipeIngredients{
@@ -21,7 +22,7 @@ class RecipeVC: UIViewController {
         var data:[Any]
     }
 
-    let cellTypes: [CellType] = [.recipeHeaderTableViewCell, .recipeIngredientsTableViewCell, .recipeCookingTableViewCell]
+    let cellTypes: [CellType] = [.recipeHeaderTableViewCell, .recipeIngredientsTableViewCell, .recipeCookingTableViewCell/*.recipePickerPeopleTableViewCell*/]
     
     var recipeIngredientsArray = [recipeIngredients(title: "zeytinyağı", text: "2 yemek kaşığı"), recipeIngredients(title: "soğan", text: "2 adet"),
         recipeIngredients(title: "pirinç", text: "2 su bardağı"),
@@ -38,7 +39,9 @@ class RecipeVC: UIViewController {
     var cellDataArray: [cellData] {
         return [
              cellData(sectionType: .recipeHeaderTableViewCell, data: ["kjnsks"]),
+//             cellData(sectionType: .recipePickerPeopleTableViewCell, data: ["csdsdc"]),
              cellData(sectionType: .recipeIngredientsTableViewCell, data: recipeIngredientsArray),
+
              cellData(sectionType: .recipeCookingTableViewCell, data: array)
                                              
         ]
@@ -55,6 +58,7 @@ class RecipeVC: UIViewController {
         recipeTableView.register(UINib(nibName: "RecipeHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeHeaderTableViewCell")
         recipeTableView.register(UINib(nibName: "RecipeCookingTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCookingTableViewCell")
         recipeTableView.register(UINib(nibName: "RecipeIngredientsTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeIngredientsTableViewCell")
+        recipeTableView.register(UINib(nibName: "RecipePickerPeopleTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipePickerPeopleTableViewCell")
 
         recipeTableView.separatorStyle = .none
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 300))
@@ -89,6 +93,9 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
             cell.recipeShareBtn.setImage(UIImage(systemName: "bookmark"), for: .normal)
             cell.recipeShareBtn.titleLabel?.text = "Kaydet"
             return cell
+//        case .recipePickerPeopleTableViewCell:
+//            let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipePickerPeopleTableViewCell", for: indexPath) as! RecipePickerPeopleTableViewCell
+//            return cell
         case .recipeIngredientsTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTableViewCell", for: indexPath) as! RecipeIngredientsTableViewCell
             if let ingredientsData = cellDataArray[indexPath.section].data[indexPath.row] as? recipeIngredients {
@@ -139,6 +146,8 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
        
         case .recipeIngredientsTableViewCell:
             return "Malzemeler:"
+//        case .recipePickerPeopleTableViewCell:
+//            return "Kac Kisilik?"
         case .recipeCookingTableViewCell:
             return "Nasil Yapilir?"
         default:

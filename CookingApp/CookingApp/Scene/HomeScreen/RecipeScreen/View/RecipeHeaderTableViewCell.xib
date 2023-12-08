@@ -54,9 +54,6 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBM-bx-Nma">
                         <rect key="frame" x="197" y="64" width="197" height="56"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="197" id="cWB-wx-dHv"/>
-                        </constraints>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system" title="Kaydet">
@@ -79,13 +76,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="sBM-bx-Nma" secondAttribute="bottom" id="2wV-Az-seJ"/>
-                    <constraint firstItem="sBM-bx-Nma" firstAttribute="top" secondItem="g9Y-45-XWN" secondAttribute="bottom" constant="7" id="5VP-uU-Hxh"/>
                     <constraint firstItem="Ogh-Uh-ed4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="6w0-b0-WPZ"/>
                     <constraint firstAttribute="trailing" secondItem="sBM-bx-Nma" secondAttribute="trailing" id="7x4-nK-k03"/>
                     <constraint firstAttribute="trailing" secondItem="g9Y-45-XWN" secondAttribute="trailing" constant="20" symbolic="YES" id="Esu-7v-eDU"/>
                     <constraint firstItem="XJF-Xs-otF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LRA-Kb-H8w"/>
-                    <constraint firstItem="ApS-Of-dS8" firstAttribute="leading" secondItem="Ogh-Uh-ed4" secondAttribute="trailing" constant="8" symbolic="YES" id="Lbk-jq-eFD"/>
-                    <constraint firstItem="sBM-bx-Nma" firstAttribute="top" secondItem="g9Y-45-XWN" secondAttribute="bottom" constant="7" id="M6J-bb-TbS"/>
                     <constraint firstItem="g9Y-45-XWN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="S66-FL-cPD"/>
                     <constraint firstAttribute="bottom" secondItem="sBM-bx-Nma" secondAttribute="bottom" id="Shi-OA-bAJ"/>
                     <constraint firstItem="sBM-bx-Nma" firstAttribute="top" secondItem="g9Y-45-XWN" secondAttribute="bottom" constant="7" id="Sr3-o1-P9S"/>
@@ -101,9 +95,7 @@
                     <constraint firstItem="ApS-Of-dS8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="mCk-RP-7gu"/>
                     <constraint firstAttribute="bottom" secondItem="Ogh-Uh-ed4" secondAttribute="bottom" constant="53.670000000000002" id="q36-0p-Wir"/>
                     <constraint firstItem="Ezd-b3-iIj" firstAttribute="top" secondItem="ApS-Of-dS8" secondAttribute="bottom" constant="4" id="ubZ-ag-QdB"/>
-                    <constraint firstItem="g9Y-45-XWN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="uew-hM-SgP"/>
                     <constraint firstItem="XJF-Xs-otF" firstAttribute="top" secondItem="Ezd-b3-iIj" secondAttribute="bottom" constant="11" id="w0i-vM-Tdj"/>
-                    <constraint firstItem="sBM-bx-Nma" firstAttribute="top" secondItem="g9Y-45-XWN" secondAttribute="bottom" constant="7" id="yvU-lD-sJp"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

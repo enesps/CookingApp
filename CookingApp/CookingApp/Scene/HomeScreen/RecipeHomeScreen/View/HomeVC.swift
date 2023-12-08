@@ -24,7 +24,10 @@ class HomeVC : ViewController{
                                                 privaryButtonTitle: "Bak",
                                                 secondaryButtonTitle: "Simdi Degil")
                         )
-        popupVC.tempateView.imageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        popupVC.tempateView.imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 130).isActive = false
+
+        popupVC.tempateView.imageView.widthAnchor.constraint(equalToConstant: 300).isActive = false
+
         popupVC.tempateView.imageView.layer.cornerRadius = 30
 
         popupVC.tempateView.secondaryButtonAction = { [weak self] in

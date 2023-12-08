@@ -54,6 +54,8 @@
 		E0BCA5302B109AB10057C65B /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCA52F2B109AB10057C65B /* ProfileVC.swift */; };
 		E0E50C752B226FA9000E6171 /* RecipeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E50C742B226FA9000E6171 /* RecipeApiService.swift */; };
 		E0E50C782B2270A0000E6171 /* RecipeCategoryDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E50C772B2270A0000E6171 /* RecipeCategoryDetailVM.swift */; };
+		E0F20D202B239A02007EE71A /* RecipePickerPeopleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F20D1E2B239A02007EE71A /* RecipePickerPeopleTableViewCell.swift */; };
+		E0F20D212B239A02007EE71A /* RecipePickerPeopleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F20D1F2B239A02007EE71A /* RecipePickerPeopleTableViewCell.xib */; };
 		E0F2B1D52B14E22000B5C801 /* RecipeCategoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F2B1D42B14E22000B5C801 /* RecipeCategoryDetailVC.swift */; };
 		E0F2B1D72B1506C500B5C801 /* RecipeCategoryDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F2B1D62B1506C500B5C801 /* RecipeCategoryDetailCollectionViewCell.swift */; };
 		E0F2B1DA2B1509D700B5C801 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F2B1D92B1509D700B5C801 /* RecipeModel.swift */; };
@@ -120,6 +122,8 @@
 		E0BCA52F2B109AB10057C65B /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		E0E50C742B226FA9000E6171 /* RecipeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeApiService.swift; sourceTree = "<group>"; };
 		E0E50C772B2270A0000E6171 /* RecipeCategoryDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoryDetailVM.swift; sourceTree = "<group>"; };
+		E0F20D1E2B239A02007EE71A /* RecipePickerPeopleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePickerPeopleTableViewCell.swift; sourceTree = "<group>"; };
+		E0F20D1F2B239A02007EE71A /* RecipePickerPeopleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipePickerPeopleTableViewCell.xib; sourceTree = "<group>"; };
 		E0F2B1D42B14E22000B5C801 /* RecipeCategoryDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoryDetailVC.swift; sourceTree = "<group>"; };
 		E0F2B1D62B1506C500B5C801 /* RecipeCategoryDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoryDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0F2B1D92B1509D700B5C801 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
@@ -353,6 +357,8 @@
 				E02CDA462B1F4A6A003617F2 /* RecipeCookingTableViewCell.xib */,
 				E02CDA492B1F4BD6003617F2 /* RecipeIngredientsTableViewCell.swift */,
 				E02CDA4A2B1F4BD6003617F2 /* RecipeIngredientsTableViewCell.xib */,
+				E0F20D1E2B239A02007EE71A /* RecipePickerPeopleTableViewCell.swift */,
+				E0F20D1F2B239A02007EE71A /* RecipePickerPeopleTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -684,6 +690,7 @@
 				E0B05E932B1DB98C00EC0FF7 /* RecipeCardTableViewCell.xib in Resources */,
 				E000F9D42B06A80200ACA458 /* LottieAnimation.json in Resources */,
 				E000F9972B06A12B00ACA458 /* Main.storyboard in Resources */,
+				E0F20D212B239A02007EE71A /* RecipePickerPeopleTableViewCell.xib in Resources */,
 				E0B05E972B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,6 +746,7 @@
 				E0F2B1D52B14E22000B5C801 /* RecipeCategoryDetailVC.swift in Sources */,
 				E02CDA432B1F46FE003617F2 /* RecipeHeaderTableViewCell.swift in Sources */,
 				E0E50C782B2270A0000E6171 /* RecipeCategoryDetailVM.swift in Sources */,
+				E0F20D202B239A02007EE71A /* RecipePickerPeopleTableViewCell.swift in Sources */,
 				E0B05E962B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

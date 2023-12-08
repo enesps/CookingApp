@@ -32,16 +32,44 @@ class RecipeCategoryDetailVC: UIViewController {
 
         recipeFillData()
         configureSearchController()
-        viewModel.$recipeData
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] data in
-                print(data?.name)
-            }
-            .store(in: &cancellables)
-        viewModel.fetchRecipeData(for: "meelad")
+//        viewModel.$recipeData
+//            .receive(on: DispatchQueue.main)
+//            .sink { [weak self] data in
+//                print(data?.name)
+//            }
+//            .store(in: &cancellables)
+//        viewModel.fetchRecipeData(for: "meelad")
+        
+//                viewModel.$recipeData
+//                           .receive(on: DispatchQueue.main)
+//                           .sink { [weak self] data in
+//                               guard let data = data else {
+//               
+//                                   return
+//                               }
+//                               print(data.name)
+//                           }
+//                           .store(in: &cancellables)
+//               
+//                       viewModel.fetchRecipeData(for: "meelad")
+               viewModel.onDataUpdate = { [weak self]   in
+       
+                   //            self?.recipeCollectionView.reloadData()
+                   self?.updateUI()
+               }
+       
+               viewModel.fetchData(for: "meelad")
         
         // Do any additional setup after loading the view.
     }
+    private func updateUI() {
+        if let data = viewModel.data {
+            print("Data: \(data)")
+        } else {
+            print("Data is nil")
+        }
+    }
+
     func recipeFillData(){
         let recipeItem1 = RecipeModel(recipeImage: "chicken", recipeName: "Ana yemek", recipeScore: "4.5", recipeCookingTime: "50dk", recipeDifficultyLevel: "Orta")
         let recipeItem2 = RecipeModel(recipeImage: "chicken", recipeName: "Icecek", recipeScore: "5.0", recipeCookingTime: "30dk", recipeDifficultyLevel: "kolay")
@@ -135,8 +163,16 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (recipeCollectionView.frame.size.width - 20) / 2
-        return CGSize(width: width, height:150)
+        return CGSize(width: width, height:(recipeCollectionView.frame.size.width-93)/2)
     }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        coordinator.animate(alongsideTransition: { _ in
+            self.recipeCollectionView.collectionViewLayout.invalidateLayout()
+        }, completion: nil)
+    }
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
         if searching

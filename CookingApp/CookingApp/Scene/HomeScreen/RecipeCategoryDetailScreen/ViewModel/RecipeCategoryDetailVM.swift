@@ -16,14 +16,14 @@ protocol ViewModelProtocol: ObservableObject {
 }
 
 class RecipeCategoryDetailVM: ViewModelProtocol {
-    @Published var data: Welcome?
+    @Published var data: Recipe?
     var onDataUpdate: (() -> Void)?
     private var cancellables: Set<AnyCancellable> = []
     private let apiService = APIService()
 
     @Published var recipeData: Welcome?
     func fetchData(for query: String) {
-        apiService.fetchData(for: query, modelType: Welcome.self)
+        apiService.fetchData(for: query, modelType: Recipe.self)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
 //                switch completion {
@@ -37,6 +37,7 @@ class RecipeCategoryDetailVM: ViewModelProtocol {
                 self?.onDataUpdate?()
             })
             .store(in: &cancellables)
+        
     }
 
     func fetchRecipeData(for query: String) {

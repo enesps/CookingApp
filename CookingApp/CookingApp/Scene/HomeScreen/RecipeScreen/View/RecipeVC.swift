@@ -61,7 +61,7 @@ class RecipeVC: UIViewController {
         recipeTableView.register(UINib(nibName: "RecipePickerPeopleTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipePickerPeopleTableViewCell")
 
         recipeTableView.separatorStyle = .none
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 300))
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.width-93))
         let imageView = UIImageView(frame: header.bounds)
         imageView.image = UIImage(named: "chicken") // Fotoğraf adını güncelleyin
         imageView.contentMode = .scaleAspectFill

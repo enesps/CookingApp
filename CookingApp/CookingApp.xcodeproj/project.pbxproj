@@ -36,6 +36,7 @@
 		E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */ = {isa = PBXBuildFile; productRef = E05086B62B07A9510022CDE8 /* ALPopup */; };
 		E05AD9AC2B15457A002D544C /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AD9AB2B15457A002D544C /* RecipeVC.swift */; };
 		E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072E2142B108C8600F3F4F7 /* ProfileNC.swift */; };
+		E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E075A2692B24BAED00C71C95 /* Kingfisher */; };
 		E0A534532B17310D00E22588 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A534522B17310D00E22588 /* FavoriteVC.swift */; };
 		E0A534562B1754D100E22588 /* RecipeSavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A534552B1754D100E22588 /* RecipeSavedVC.swift */; };
 		E0A5345B2B177D9800E22588 /* RecipeLikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A5345A2B177D9800E22588 /* RecipeLikeVC.swift */; };
@@ -137,6 +138,7 @@
 				E0A878D52B0B596800E27247 /* RAMReel in Frameworks */,
 				E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */,
 				E00F24F22B0E442B00B36FBC /* GoogleSignInSwift in Frameworks */,
+				E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */,
 				E000F9C12B06A3F600ACA458 /* SwiftAlertView in Frameworks */,
 				E0014C822B21F2F500EF6496 /* SkeletonView in Frameworks */,
 				E000F9C42B06A41200ACA458 /* Lottie in Frameworks */,
@@ -585,6 +587,7 @@
 				E00F24EF2B0E442500B36FBC /* GoogleSignIn */,
 				E00F24F12B0E442B00B36FBC /* GoogleSignInSwift */,
 				E0014C812B21F2F500EF6496 /* SkeletonView */,
+				E075A2692B24BAED00C71C95 /* Kingfisher */,
 			);
 			productName = CookingApp;
 			productReference = E000F98C2B06A12B00ACA458 /* CookingApp.app */;
@@ -666,6 +669,7 @@
 				E0A878D32B0B596800E27247 /* XCRemoteSwiftPackageReference "reel-search" */,
 				E0A878E72B0BA1D400E27247 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				E0014C802B21F2F500EF6496 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				E075A2682B24BAED00C71C95 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E000F98D2B06A12B00ACA458 /* Products */;
 			projectDirPath = "";
@@ -1132,6 +1136,14 @@
 				minimumVersion = 1.1.0;
 			};
 		};
+		E075A2682B24BAED00C71C95 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.1;
+			};
+		};
 		E0A878D32B0B596800E27247 /* XCRemoteSwiftPackageReference "reel-search" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Ramotion/reel-search";
@@ -1185,6 +1197,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E05086B52B07A9510022CDE8 /* XCRemoteSwiftPackageReference "ALPopup" */;
 			productName = ALPopup;
+		};
+		E075A2692B24BAED00C71C95 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E075A2682B24BAED00C71C95 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		E0A878D42B0B596800E27247 /* RAMReel */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -9,7 +9,7 @@ enum APIError: Error {
 
 class APIService {
     func fetchData<T: Decodable>(for query: String, modelType: T.Type) -> AnyPublisher<T, APIError> {
-        guard let url = URL(string: "https://api.agify.io?name=\(query)") else {
+        guard let url = URL(string: "https://voices-cir-army-hate.trycloudflare.com/v1/recipes/search?foodName=\(query)") else {
             return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
         }
 

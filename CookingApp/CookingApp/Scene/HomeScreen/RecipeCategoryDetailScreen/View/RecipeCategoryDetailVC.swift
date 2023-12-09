@@ -7,9 +7,11 @@
 
 import UIKit
 import Combine
+import Kingfisher
 
 class RecipeCategoryDetailVC: UIViewController {
     var searching = false
+    var notFound = false
     private var cancellables: Set<AnyCancellable> = []
       private let viewModel = RecipeCategoryDetailVM()
     var searchedRecipe = [RecipeModel]()
@@ -53,18 +55,22 @@ class RecipeCategoryDetailVC: UIViewController {
 //               
 //                       viewModel.fetchRecipeData(for: "meelad")
                viewModel.onDataUpdate = { [weak self]   in
-       
+                   self!.updateUI()
                    //            self?.recipeCollectionView.reloadData()
-                   self?.updateUI()
+
                }
        
-               viewModel.fetchData(for: "meelad")
+               
         
         // Do any additional setup after loading the view.
     }
     private func updateUI() {
-        if let data = viewModel.data {
-            print("Data: \(data)")
+        if let data = viewModel.data ,
+           let recipeScrore = data.score{
+            
+            searchedRecipe.append(RecipeModel(recipeImage:data.imageURL! , recipeName: data.recipeName!, recipeScore:String(describing: recipeScrore), recipeCookingTime: (data.cookingTime)!, recipeDifficultyLevel: data.difficultyLevel!))
+            recipeCollectionView.reloadData()
+            print(searchedRecipe.first?.recipeScore)
         } else {
             print("Data is nil")
         }
@@ -150,6 +156,16 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
             cell.recipeDifficultyLevel.text = recipeData[indexPath.row].recipeDifficultyLevel
             
         }
+        if(notFound){
+            if let imageURL = URL(string: searchedRecipe[indexPath.row].recipeImage) {
+                cell.recipeImage.kf.setImage(with: imageURL)
+            }
+            cell.recipeName.text = searchedRecipe[indexPath.row].recipeName
+            cell.recipeScore.text = searchedRecipe[indexPath.row].recipeScore
+            cell.recipeCookingTime.text = searchedRecipe[indexPath.row].recipeCookingTime
+            cell.recipeDifficultyLevel.text = searchedRecipe[indexPath.row].recipeDifficultyLevel
+            notFound = false
+        }
         cell.layer.masksToBounds = false
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOpacity = 0.3
@@ -212,6 +228,10 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
             searchedRecipe = recipeData
         }
         recipeCollectionView.reloadData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        notFound = true
+        viewModel.fetchData(for: searchBar.text!)
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false

@@ -32,69 +32,34 @@ class RecipeCategoryDetailVC: UIViewController {
             flowLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)  // Ekran kenarlarına olan boşluk
         }
 
-        recipeFillData()
-        configureSearchController()
-//        viewModel.$recipeData
-//            .receive(on: DispatchQueue.main)
-//            .sink { [weak self] data in
-//                print(data?.name)
-//            }
-//            .store(in: &cancellables)
-//        viewModel.fetchRecipeData(for: "meelad")
         
-//                viewModel.$recipeData
-//                           .receive(on: DispatchQueue.main)
-//                           .sink { [weak self] data in
-//                               guard let data = data else {
-//               
-//                                   return
-//                               }
-//                               print(data.name)
-//                           }
-//                           .store(in: &cancellables)
-//               
-//                       viewModel.fetchRecipeData(for: "meelad")
+        configureSearchController()
                viewModel.onDataUpdate = { [weak self]   in
-                   self!.updateUI()
+                   self?.recipeCollectionView.reloadData()
                    //            self?.recipeCollectionView.reloadData()
 
                }
+                    viewModel.endpoint = "/v1/recipes/category/çorba"
+        
        
+        viewModel.fetchData()
+        
                
         
         // Do any additional setup after loading the view.
     }
-    private func updateUI() {
-        if let data = viewModel.data ,
-           let recipeScrore = data.score{
-            
-            searchedRecipe.append(RecipeModel(recipeImage:data.imageURL! , recipeName: data.recipeName!, recipeScore:String(describing: recipeScrore), recipeCookingTime: (data.cookingTime)!, recipeDifficultyLevel: data.difficultyLevel!))
-            recipeCollectionView.reloadData()
-            print(searchedRecipe.first?.recipeScore)
-        } else {
-            print("Data is nil")
-        }
-    }
+//    private func updateUI() {
+//        if let data = viewModel.data ,
+//           let recipeScrore = data.score{
+//            
+//            searchedRecipe.append(RecipeModel(recipeImage:data.imageURL! , recipeName: data.recipeName!, recipeScore:String(describing: recipeScrore), recipeCookingTime: (data.cookingTime)!, recipeDifficultyLevel: data.difficultyLevel!))
+//            recipeCollectionView.reloadData()
+//            print(searchedRecipe.first?.recipeScore)
+//        } else {
+//            print("Data is nil")
+//        }
+//    }
 
-    func recipeFillData(){
-        let recipeItem1 = RecipeModel(recipeImage: "chicken", recipeName: "Ana yemek", recipeScore: "4.5", recipeCookingTime: "50dk", recipeDifficultyLevel: "Orta")
-        let recipeItem2 = RecipeModel(recipeImage: "chicken", recipeName: "Icecek", recipeScore: "5.0", recipeCookingTime: "30dk", recipeDifficultyLevel: "kolay")
-        let recipeItem3 = RecipeModel(recipeImage: "chicken", recipeName: "Tatli", recipeScore: "3.5", recipeCookingTime: "60dk", recipeDifficultyLevel: "Zor")
-        let recipeItem4 = RecipeModel(recipeImage: "chicken", recipeName: "Corba", recipeScore: "4.99", recipeCookingTime: "35dk", recipeDifficultyLevel: "Zor")
-        let recipeItem5 = RecipeModel(recipeImage: "chicken", recipeName: "Sarma", recipeScore: "4.5", recipeCookingTime: "50dk", recipeDifficultyLevel: "Orta")
-        let recipeItem6 = RecipeModel(recipeImage: "chicken", recipeName: "Sucuk", recipeScore: "5.0", recipeCookingTime: "30dk", recipeDifficultyLevel: "kolay")
-        let recipeItem7 = RecipeModel(recipeImage: "chicken", recipeName: "Et", recipeScore: "3.5", recipeCookingTime: "60dk", recipeDifficultyLevel: "Zor")
-        let recipeItem8 = RecipeModel(recipeImage: "chicken", recipeName: "Pilav", recipeScore: "4.99", recipeCookingTime: "35dk", recipeDifficultyLevel: "Zor")
-        recipeData.append(recipeItem1)
-        recipeData.append(recipeItem2)
-        recipeData.append(recipeItem3)
-        recipeData.append(recipeItem4)
-        recipeData.append(recipeItem5)
-        recipeData.append(recipeItem6)
-        recipeData.append(recipeItem7)
-        recipeData.append(recipeItem8)
-        
-    }
     private func configureSearchController(){
         
         searchController.loadViewIfNeeded()
@@ -124,57 +89,67 @@ class RecipeCategoryDetailVC: UIViewController {
 
 extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewDataSource,UISearchResultsUpdating,UISearchBarDelegate,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if searching
-        {
-            return searchedRecipe.count
-        }
-        else
-        {
-            return recipeData.count
-        }
+//        if searching
+//        {
+//            return searchedRecipe.count
+//        }
+//        else
+//        {
+//            return recipeData.count
+//        }
+        return searchController.isActive ? viewModel.filteredData.count : viewModel.data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+//        if searching
+//        {
+//            cell.recipeImage.image = UIImage(named: searchedRecipe[indexPath.row].recipeImage)
+//            cell.recipeName.text = searchedRecipe[indexPath.row].recipeName
+//            cell.recipeScore.text = searchedRecipe[indexPath.row].recipeScore
+//            cell.recipeCookingTime.text = searchedRecipe[indexPath.row].recipeCookingTime
+//            cell.recipeDifficultyLevel.text = searchedRecipe[indexPath.row].recipeDifficultyLevel
+//            
+//        }
+//        else
+//        {
+//            
+//            cell.recipeImage.image = UIImage(named: recipeData[indexPath.row].recipeImage)
+//            cell.recipeName.text = recipeData[indexPath.row].recipeName
+//            cell.recipeScore.text = recipeData[indexPath.row].recipeScore
+//            cell.recipeCookingTime.text = recipeData[indexPath.row].recipeCookingTime
+//            cell.recipeDifficultyLevel.text = recipeData[indexPath.row].recipeDifficultyLevel
+//            
+//        }
+//        if(notFound){
+//            if let imageURL = URL(string: searchedRecipe[indexPath.row].recipeImage) {
+//                cell.recipeImage.kf.setImage(with: imageURL)
+//            }
+//            cell.recipeName.text = searchedRecipe[indexPath.row].recipeName
+//            cell.recipeScore.text = searchedRecipe[indexPath.row].recipeScore
+//            cell.recipeCookingTime.text = searchedRecipe[indexPath.row].recipeCookingTime
+//            cell.recipeDifficultyLevel.text = searchedRecipe[indexPath.row].recipeDifficultyLevel
+//            notFound = false
+//        }
+        let recipe: Recipe
+
+        if searchController.isActive {
+            recipe = viewModel.filteredData[indexPath.item]
+        }
+        else{
+            recipe = viewModel.data[indexPath.item]
+            
+        }
         let cell = recipeCollectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
         as! RecipeCategoryDetailCollectionViewCell
-        if searching
-        {
-            cell.recipeImage.image = UIImage(named: searchedRecipe[indexPath.row].recipeImage)
-            cell.recipeName.text = searchedRecipe[indexPath.row].recipeName
-            cell.recipeScore.text = searchedRecipe[indexPath.row].recipeScore
-            cell.recipeCookingTime.text = searchedRecipe[indexPath.row].recipeCookingTime
-            cell.recipeDifficultyLevel.text = searchedRecipe[indexPath.row].recipeDifficultyLevel
-            
-        }
-        else
-        {
-            
-            cell.recipeImage.image = UIImage(named: recipeData[indexPath.row].recipeImage)
-            cell.recipeName.text = recipeData[indexPath.row].recipeName
-            cell.recipeScore.text = recipeData[indexPath.row].recipeScore
-            cell.recipeCookingTime.text = recipeData[indexPath.row].recipeCookingTime
-            cell.recipeDifficultyLevel.text = recipeData[indexPath.row].recipeDifficultyLevel
-            
-        }
-        if(notFound){
-            if let imageURL = URL(string: searchedRecipe[indexPath.row].recipeImage) {
-                cell.recipeImage.kf.setImage(with: imageURL)
-            }
-            cell.recipeName.text = searchedRecipe[indexPath.row].recipeName
-            cell.recipeScore.text = searchedRecipe[indexPath.row].recipeScore
-            cell.recipeCookingTime.text = searchedRecipe[indexPath.row].recipeCookingTime
-            cell.recipeDifficultyLevel.text = searchedRecipe[indexPath.row].recipeDifficultyLevel
-            notFound = false
-        }
+        cell.configure(with: recipe)
         cell.layer.masksToBounds = false
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOpacity = 0.3
-        
-     
-
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.darkGray.cgColor
         cell.layer.cornerRadius = 15
+
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -188,55 +163,92 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
             self.recipeCollectionView.collectionViewLayout.invalidateLayout()
         }, completion: nil)
     }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
-        if searching
-        {
-            recipeVC.recipeName = searchedRecipe[indexPath.row].recipeName
-        }
-        else
-        {
-         
-            
-            recipeVC.recipeName = recipeData[indexPath.row].recipeName
-           
-        }
-
-        self.navigationController?.pushViewController(recipeVC, animated: true)
-        
-    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
+//        if searching
+//        {
+//            recipeVC.recipeName = searchedRecipe[indexPath.row].recipeName
+//        }
+//        else
+//        {
+//         
+//            
+//            recipeVC.recipeName = recipeData[indexPath.row].recipeName
+//           
+//        }
+//
+//        self.navigationController?.pushViewController(recipeVC, animated: true)
+//        
+//    }
     
     func updateSearchResults(for searchController: UISearchController) {
-        let searchText = searchController.searchBar.text!
-        if !searchText.isEmpty
-        {
-         searching = true
-            searchedRecipe.removeAll()
-            for recipe in recipeData
-            {
-                if recipe.recipeName.lowercased().contains(searchText.lowercased())
-                {
-                    searchedRecipe.append(recipe)
+//        let searchText = searchController.searchBar.text!
+//        if !searchText.isEmpty
+//        {
+//         searching = true
+//            searchedRecipe.removeAll()
+//            for recipe in recipeData
+//            {
+//                if recipe.recipeName.lowercased().contains(searchText.lowercased())
+//                {
+//                    searchedRecipe.append(recipe)
+//                }
+//            }
+//        }
+//        else
+//        {
+//            searching = false
+//            searchedRecipe.removeAll()
+//            searchedRecipe = recipeData
+//        }
+        // Arama sorgusunu alın
+        guard let searchText = searchController.searchBar.text?.lowercased() else { return }
+        if searchText.isEmpty {
+            viewModel.filteredData = viewModel.data
+        } else {
+            // Verileri filtrele
+            let filteredData = viewModel.data.filter { recipe in
+                if let recipeName = recipe.recipeName {
+                    return recipeName.lowercased().contains(searchText)
+                } else {
+                    return false
                 }
             }
+
+            viewModel.filteredData = filteredData
         }
-        else
-        {
-            searching = false
-            searchedRecipe.removeAll()
-            searchedRecipe = recipeData
-        }
+
         recipeCollectionView.reloadData()
     }
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        notFound = true
-        viewModel.fetchData(for: searchBar.text!)
-    }
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
-        searchedRecipe.removeAll()
-        recipeCollectionView.reloadData()
+//        notFound = true
+//        viewModel.fetchData(for: searchBar.text!)
+//    }
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        searching = false
+//        searchedRecipe.removeAll()
+//        recipeCollectionView.reloadData()
+        
+        guard let searchText = searchBar.text?.lowercased() else { return }
+
+        let filteredData = viewModel.data.filter { recipe in
+            if let recipeName = recipe.recipeName {
+                return recipeName.lowercased().contains(searchText)
+            } else {
+                return false
+            }
+        }
+
+        viewModel.filteredData = filteredData
+        if filteredData.isEmpty {
+            viewModel.endpoint = "/v1/recipes/search"
+            viewModel.fetchData(for: ["foodName" : searchText])
+        } else {
+            recipeCollectionView.reloadData()
+        }
+        
     }
     
     

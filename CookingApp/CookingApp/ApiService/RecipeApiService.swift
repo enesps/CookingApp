@@ -8,8 +8,8 @@ enum APIError: Error {
 }
 
 class APIService {
-    func fetchData<T: Decodable>(for query: String, modelType: T.Type) -> AnyPublisher<T, APIError> {
-        guard let url = URL(string: "https://voices-cir-army-hate.trycloudflare.com/v1/recipes/search?foodName=\(query)") else {
+    func fetchData<T: Decodable>(for query: [String: String] = [:], modelType: T.Type, baseURL: String, endpoint: String) -> AnyPublisher<T, APIError> {
+        guard let url = makeURL(for: endpoint, baseURL: baseURL, parameters: query) else {
             return Fail(error: APIError.invalidURL).eraseToAnyPublisher()
         }
 
@@ -21,10 +21,19 @@ class APIService {
                 return data
             }
             .decode(type: T.self, decoder: JSONDecoder())
-            .mapError { error in
-                APIError.requestFailed
-                // Diğer hata durumlarına göre map işlemi yapılabilir.
-            }
+            .mapError { _ in APIError.requestFailed }
             .eraseToAnyPublisher()
     }
+
+    private func makeURL(for endpoint: String, baseURL: String, parameters: [String: String]?) -> URL? {
+        var urlComponents = URLComponents(string: baseURL + endpoint)
+
+        if let parameters = parameters, !parameters.isEmpty {
+            urlComponents?.queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
+        }
+
+        return urlComponents?.url
+    }
+
+    
 }

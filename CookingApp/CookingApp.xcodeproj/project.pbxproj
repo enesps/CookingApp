@@ -52,6 +52,7 @@
 		E0B05E972B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B05E952B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib */; };
 		E0B1973F2B0F7BDB006F4FFF /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1973E2B0F7BDB006F4FFF /* ForgetPasswordVC.swift */; };
 		E0B197432B0F94F1006F4FFF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B197422B0F94F1006F4FFF /* SignUpVC.swift */; };
+		E0B4918B2B284CED00CB7547 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B4918A2B284CED00CB7547 /* ApiConstants.swift */; };
 		E0BCA5302B109AB10057C65B /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCA52F2B109AB10057C65B /* ProfileVC.swift */; };
 		E0E50C752B226FA9000E6171 /* RecipeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E50C742B226FA9000E6171 /* RecipeApiService.swift */; };
 		E0E50C782B2270A0000E6171 /* RecipeCategoryDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E50C772B2270A0000E6171 /* RecipeCategoryDetailVM.swift */; };
@@ -120,6 +121,7 @@
 		E0B05E952B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeImageViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0B1973E2B0F7BDB006F4FFF /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		E0B197422B0F94F1006F4FFF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		E0B4918A2B284CED00CB7547 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		E0BCA52F2B109AB10057C65B /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		E0E50C742B226FA9000E6171 /* RecipeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeApiService.swift; sourceTree = "<group>"; };
 		E0E50C772B2270A0000E6171 /* RecipeCategoryDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoryDetailVM.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				E0B05E912B1DB98C00EC0FF7 /* RecipeCardTableViewCell.xib */,
 				E0B05E942B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.swift */,
 				E0B05E952B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib */,
+				E0B4918A2B284CED00CB7547 /* ApiConstants.swift */,
 			);
 			path = CookingApp;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				E0B197432B0F94F1006F4FFF /* SignUpVC.swift in Sources */,
 				E0A5345B2B177D9800E22588 /* RecipeLikeVC.swift in Sources */,
 				E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */,
+				E0B4918B2B284CED00CB7547 /* ApiConstants.swift in Sources */,
 				E000F9D72B06B71400ACA458 /* HomeVC.swift in Sources */,
 				E02CDA472B1F4A6A003617F2 /* RecipeCookingTableViewCell.swift in Sources */,
 				E0A878E22B0B959B00E27247 /* PreLoginVC.swift in Sources */,
@@ -932,8 +936,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -962,8 +966,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

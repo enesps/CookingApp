@@ -18,6 +18,7 @@ class APIService {
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
                     throw APIError.requestFailed
                 }
+                
                 return data
             }
             .decode(type: T.self, decoder: JSONDecoder())

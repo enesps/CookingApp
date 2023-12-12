@@ -14,34 +14,33 @@ struct Welcome: Codable {
     let name: String?
     let age: Int?
 }
+//struct Recipe: Codable {
+//    let imageURL: String?
+//    let recipeName, cookingTime, preparationTime, totalTime: String?
+//    let servesFor: Int?
+//    let difficultyLevel, category: String?
+//    let ingredients: [String: [String]]?
+//    let instructions: [String: String]?
+//    let score: Int?
+//
+//    enum CodingKeys: String, CodingKey {
+//        case imageURL = "imageUrl"
+//        case recipeName, cookingTime, preparationTime, totalTime, servesFor, difficultyLevel, category, ingredients, instructions, score
+//    }
+//}
 struct Recipe: Codable {
+    let id: Int?
     let imageURL: String?
     let recipeName, cookingTime, preparationTime, totalTime: String?
-    let servesFor: Int?
-    let difficultyLevel, category: String?
+    let servesFor, difficultyLevel, category: String?
     let ingredients: [String: [String]]?
     let instructions: [String: String]?
     let score: Int?
 
     enum CodingKeys: String, CodingKey {
+        case id
         case imageURL = "imageUrl"
         case recipeName, cookingTime, preparationTime, totalTime, servesFor, difficultyLevel, category, ingredients, instructions, score
     }
 }
 
-class RecipeModel{
-    
-    var recipeImage:String
-    var recipeName:String
-    var recipeScore:String
-    var recipeCookingTime: String
-    var recipeDifficultyLevel:String
-    init(recipeImage: String, recipeName: String, recipeScore: String, recipeCookingTime: String, recipeDifficultyLevel: String) {
-        self.recipeImage = recipeImage
-        self.recipeName = recipeName
-        self.recipeScore = recipeScore
-        self.recipeCookingTime = recipeCookingTime
-        self.recipeDifficultyLevel = recipeDifficultyLevel
-    }
-    
-}

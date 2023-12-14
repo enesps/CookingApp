@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Combine
+import Kingfisher
 enum CellType {
     case recipeHeaderTableViewCell
     case recipeIngredientsTableViewCell
@@ -47,30 +49,58 @@ class RecipeVC: UIViewController {
         ]
     }
     @IBOutlet weak var recipeTableView: UITableView!
-    
-    var recipeName : String?
+    private var cancellables: Set<AnyCancellable> = []
+    private let viewModel = RecipeViewModel()
+    var recipeId : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-       recipeTableView.delegate = self
-        recipeTableView.dataSource = self
-        recipeTableView.register(UINib(nibName: "RecipeHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeHeaderTableViewCell")
-        recipeTableView.register(UINib(nibName: "RecipeCookingTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCookingTableViewCell")
-        recipeTableView.register(UINib(nibName: "RecipeIngredientsTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeIngredientsTableViewCell")
-        recipeTableView.register(UINib(nibName: "RecipePickerPeopleTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipePickerPeopleTableViewCell")
-
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.prefersLargeTitles = false
+        tableViewConfigure()
+        dataUpdate()
+        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeById)\(recipeId ?? -1)")
+    }
+    func skeletonUpdate(){
+        viewModel.onSkeletonUpdate = { [weak self] isActive in
+            if isActive {
+                self?.recipeTableView.isSkeletonable = true
+        //        recipeCollectionView.showAnimatedSkeleton(usingColor: .lightGray, animation: animation, transition: .crossDissolve(0.25))
+                self?.recipeTableView.showAnimatedGradientSkeleton()
+            } else {
+                self?.recipeTableView.stopSkeletonAnimation()
+                self?.view.hideSkeleton()
+            }
+        }
+    }
+    func headerOfTableView(){
         recipeTableView.separatorStyle = .none
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.width-93))
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.size.width))
         let imageView = UIImageView(frame: header.bounds)
-        imageView.image = UIImage(named: "chicken") // Fotoğraf adını güncelleyin
+
+        if let url = URL(string: (viewModel.data?.imageURL!)!) {
+            imageView.kf.setImage(with: url)
+        }
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         header.addSubview(imageView)
         recipeTableView.tableHeaderView = header
     }
+    func dataUpdate(){
+        viewModel.onDataUpdate = { [weak self]   in
+            self?.headerOfTableView()
+            self?.recipeTableView.reloadData()
 
-    
+        }
+    }
+    func tableViewConfigure(){
+        
+        recipeTableView.delegate = self
+         recipeTableView.dataSource = self
+         recipeTableView.register(UINib(nibName: "RecipeHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeHeaderTableViewCell")
+         recipeTableView.register(UINib(nibName: "RecipeCookingTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCookingTableViewCell")
+         recipeTableView.register(UINib(nibName: "RecipeIngredientsTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeIngredientsTableViewCell")
+         recipeTableView.register(UINib(nibName: "RecipePickerPeopleTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipePickerPeopleTableViewCell")
+    }
 
 
 }
@@ -148,23 +178,40 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
             return "Malzemeler:"
 //        case .recipePickerPeopleTableViewCell:
 //            return "Kac Kisilik?"
+        case .recipeHeaderTableViewCell:
+            
+            return viewModel.data?.recipeName
         case .recipeCookingTableViewCell:
             return "Nasil Yapilir?"
-        default:
-            return nil
+
         }
     
         
     }
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let headerView = view as? UITableViewHeaderFooterView else { return }
         
         // Başlık fontunu ayarlayın
-        headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: 18) // İstediğiniz boyutu kullanabilirsiniz
+        headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        
     }
 
     
-    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        recipeTableView.separatorStyle = .none
+//        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.width-93))
+//        let imageView = UIImageView(frame: header.bounds)
+//        print(viewModel.data?.imageURL)
+//        if let url = URL(string: (viewModel.data?.imageURL!)!) {
+//            imageView.kf.setImage(with: url)
+//        }
+//        imageView.contentMode = .scaleAspectFill
+//        imageView.clipsToBounds = true
+//        header.addSubview(imageView)
+//        
+//        return header
+//    }
     
     
 }

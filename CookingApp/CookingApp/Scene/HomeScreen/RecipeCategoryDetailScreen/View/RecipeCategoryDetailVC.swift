@@ -25,19 +25,21 @@ class RecipeCategoryDetailVC: UIViewController {
         viewModel.onDataUpdate = { [weak self]   in
 
             self?.recipeCollectionView.reloadData()
-            self?.recipeCollectionView.stopSkeletonAnimation()
-            self?.view.hideSkeleton()
+
         }
+        viewModel.onSkeletonUpdate = { [weak self] isActive in
+            if isActive {
+                self?.recipeCollectionView.isSkeletonable = true
+        //        recipeCollectionView.showAnimatedSkeleton(usingColor: .lightGray, animation: animation, transition: .crossDissolve(0.25))
+                self?.recipeCollectionView.showAnimatedGradientSkeleton()
+            } else {
+                self?.recipeCollectionView.stopSkeletonAnimation()
+                self?.view.hideSkeleton()
+            }
+        }
+        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        recipeCollectionView.isSkeletonable = true
-//        recipeCollectionView.showAnimatedSkeleton(usingColor: .lightGray, animation: animation, transition: .crossDissolve(0.25))
-        recipeCollectionView.showAnimatedGradientSkeleton()
-        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
-    }
-
     private func configureCollectionView(){
         recipeCollectionView.dataSource = self
         recipeCollectionView.delegate = self
@@ -69,7 +71,7 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchController.isActive ? viewModel.filteredData.count : viewModel.data.count
+        return searchController.isActive ? viewModel.filteredData.count : viewModel.data!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -78,7 +80,7 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
             recipe = viewModel.filteredData[indexPath.item]
         }
         else{
-            recipe = viewModel.data[indexPath.item]
+            recipe = viewModel.data![indexPath.item]
             
         }
         let cell = recipeCollectionView.dequeueReusableCell(withReuseIdentifier: "cell1", for: indexPath)
@@ -93,7 +95,23 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
         
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
+        if searchController.isActive
+        {
+            recipeVC.recipeId = viewModel.filteredData[indexPath.row].id
+        }
+        else
+        {
+         
+            
+            recipeVC.recipeId = viewModel.data?[indexPath.row].id
+           
+        }
+
+        self.navigationController?.pushViewController(recipeVC, animated: true)
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (recipeCollectionView.frame.size.width - 20) / 2
         return CGSize(width: width, height:(recipeCollectionView.frame.size.width-93)/2)
@@ -110,10 +128,10 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
         // Arama sorgusunu alın
         guard let searchText = searchController.searchBar.text?.lowercased() else { return }
         if searchText.isEmpty {
-            viewModel.filteredData = viewModel.data
+            viewModel.filteredData = (viewModel.data)!
         } else {
             // Verileri filtrele
-            let filteredData = viewModel.data.filter { recipe in
+            let filteredData = viewModel.data?.filter { recipe in
                 if let recipeName = recipe.recipeName {
                     return recipeName.lowercased().contains(searchText)
                 } else {
@@ -121,7 +139,7 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
                 }
             }
             
-            viewModel.filteredData = filteredData
+            viewModel.filteredData = filteredData!
         }
         
         recipeCollectionView.reloadData()
@@ -130,7 +148,7 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text?.lowercased() else { return }
         
-        let filteredData = viewModel.data.filter { recipe in
+        let filteredData = viewModel.data?.filter { recipe in
             if let recipeName = recipe.recipeName {
                 return recipeName.lowercased().contains(searchText)
             } else {
@@ -138,8 +156,8 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
             }
         }
         
-        viewModel.filteredData = filteredData
-        if filteredData.isEmpty {
+        viewModel.filteredData = filteredData!
+        if filteredData!.isEmpty {
             viewModel.fetchData1(for: ["foodName" : searchText],endpoint: APIEndpoints.getRecipeSearch)
         } else {
             recipeCollectionView.reloadData()

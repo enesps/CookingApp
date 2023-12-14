@@ -158,22 +158,22 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource,UISearchResultsUp
 //        cell.layer.cornerRadius = 15
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
-        if searching
-        {
-            recipeVC.recipeName = searchedRecipe[indexPath.row].recipeName
-        }
-        else
-        {
-         
-            
-            recipeVC.recipeName = recipeData[indexPath.row].recipeName
-           
-        }
-
-        self.navigationController?.pushViewController(recipeVC, animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
+//        if searching
+//        {
+//            recipeVC.recipeId = searchedRecipe[indexPath.row].recipeName
+//        }
+//        else
+//        {
+//         
+//            
+//            recipeVC.recipeId = recipeData[indexPath.row].id
+//           
+//        }
+//
+//        self.navigationController?.pushViewController(recipeVC, animated: true)
+//    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 112

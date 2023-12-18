@@ -7,12 +7,11 @@
 
 import Foundation
 struct APIConstants {
-    static let baseURL = "https://undertake-environmental-ground-assurance.trycloudflare.com"
+    static let baseURL = "https://tags-plugin-affects-da.trycloudflare.com"
 }
 
 class APIEndpoints {
     static let getRecipeCategory = "/v1/recipes/category/"
     static let getRecipeSearch = "/v1/recipes/search"
     static let getRecipeById = "/v1/recipes/"
-    // Diğer endpointler buraya eklenebilir
 }

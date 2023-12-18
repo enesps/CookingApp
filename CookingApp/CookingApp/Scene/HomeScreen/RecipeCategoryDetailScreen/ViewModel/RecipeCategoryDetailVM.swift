@@ -20,7 +20,7 @@ protocol ViewModelProtocol: ObservableObject {
 
 
 class RecipeCategoryDetailVM: ViewModelProtocol {
-
+    
     @Published var data: [Recipe]? = []
     var filteredData: [Recipe] = []
     var onDataUpdate: (() -> Void)?

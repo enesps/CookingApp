@@ -10,6 +10,7 @@ import Combine
 import Kingfisher
 enum CellType {
     case recipeHeaderTableViewCell
+    case recipeTime
     case recipeIngredientsTableViewCell
     case recipeCookingTableViewCell
 //    case recipePickerPeopleTableViewCell
@@ -19,12 +20,17 @@ class RecipeVC: UIViewController {
         var title:String
         var text:String
     }
+    
+    struct recipeTimer{
+        var  cookingTime, preparationTime, servesFor: String?
+    }
     struct cellData{
         var sectionType:CellType
         var data:[Any]
     }
 
-    let cellTypes: [CellType] = [.recipeHeaderTableViewCell, .recipeIngredientsTableViewCell, .recipeCookingTableViewCell/*.recipePickerPeopleTableViewCell*/]
+    let cellTypes: [CellType] = [.recipeHeaderTableViewCell,
+                                 .recipeTime, .recipeIngredientsTableViewCell, .recipeCookingTableViewCell/*.recipePickerPeopleTableViewCell*/]
     
     var recipeIngredientsArray = [recipeIngredients(title: "zeytinyağı", text: "2 yemek kaşığı"), recipeIngredients(title: "soğan", text: "2 adet"),
         recipeIngredients(title: "pirinç", text: "2 su bardağı"),
@@ -37,7 +43,7 @@ class RecipeVC: UIViewController {
               "Soğanları karıştıra karıştıra kavurun.",
               "Suyunu süzüp duruladığınız pirinçleri ekleyin ve sıcak suyu ekleyip baharatları ve kuş üzümünü ilave edin. Kısık ateşte 15 dakika demlemeye bırakın.",
               "Demlenen iç harcı soğumaya bırakın."]
-
+    
     var cellDataArray: [cellData] {
         return [
              cellData(sectionType: .recipeHeaderTableViewCell, data: ["kjnsks"]),
@@ -51,6 +57,7 @@ class RecipeVC: UIViewController {
     @IBOutlet weak var recipeTableView: UITableView!
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = RecipeViewModel()
+    var celldataArray  = [cellData]()
     var recipeId : Int?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +94,10 @@ class RecipeVC: UIViewController {
     }
     func dataUpdate(){
         viewModel.onDataUpdate = { [weak self]   in
+            self?.celldataArray.append(cellData(sectionType: .recipeHeaderTableViewCell, data: ["kjnsks"]))
+            self?.celldataArray.append(cellData(sectionType: .recipeTime, data: [recipeTimer(cookingTime: self?.viewModel.data?.cookingTime, preparationTime: self?.viewModel.data?.preparationTime,servesFor: self?.viewModel.data?.servesFor)]))
+            self?.celldataArray.append(cellData(sectionType: .recipeIngredientsTableViewCell, data: (self?.viewModel.data?.ingredients)!))
+            self?.celldataArray.append(cellData(sectionType: .recipeCookingTableViewCell, data: (self?.viewModel.data?.instructions)!))
             self?.headerOfTableView()
             self?.recipeTableView.reloadData()
 
@@ -100,21 +111,22 @@ class RecipeVC: UIViewController {
          recipeTableView.register(UINib(nibName: "RecipeCookingTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCookingTableViewCell")
          recipeTableView.register(UINib(nibName: "RecipeIngredientsTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeIngredientsTableViewCell")
          recipeTableView.register(UINib(nibName: "RecipePickerPeopleTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipePickerPeopleTableViewCell")
+        recipeTableView.register(UINib(nibName: "RecipeCookingInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCookingInfoTableViewCell")
     }
 
 
 }
 extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return cellDataArray.count
+        return celldataArray.count
 }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellDataArray[section].data.count
+        return celldataArray[section].data.count
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellType = cellDataArray[indexPath.section].sectionType
+        let cellType = celldataArray[indexPath.section].sectionType
         switch cellType {
         case .recipeHeaderTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeHeaderTableViewCell", for: indexPath) as! RecipeHeaderTableViewCell
@@ -128,7 +140,7 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
 //            return cell
         case .recipeIngredientsTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTableViewCell", for: indexPath) as! RecipeIngredientsTableViewCell
-            if let ingredientsData = cellDataArray[indexPath.section].data[indexPath.row] as? recipeIngredients {
+            if let ingredientsData = celldataArray[indexPath.section].data[indexPath.row] as? recipeIngredients {
                     // ingredientsData'yi kullanarak hücre içeriğini ayarla
                 
                     cell.recipeIngredientsTitle.text = "\(ingredientsData.title):"
@@ -141,12 +153,21 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
         
                       // cookingData'yi kullanarak hücre içeriğini ayarla
                       
-            cell.recipeStepNumber.text = "\(indexPath.row+1)/\(cellDataArray[indexPath.section].data.count)"
-            cell.recipeStepCooking.text = (cellDataArray[indexPath.section].data[indexPath.row] as? String)
+            cell.recipeStepNumber.text = "\(indexPath.row+1)/\(celldataArray[indexPath.section].data.count)"
+            cell.recipeStepCooking.text = (celldataArray[indexPath.section].data[indexPath.row] as? String)
                 return cell
                   
 
         
+            
+        case .recipeTime:
+            let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeCookingInfoTableViewCell", for: indexPath) as! RecipeCookingInfoTableViewCell
+            if let recipeTime = celldataArray[indexPath.section].data[indexPath.row] as? recipeTimer {
+                cell.servesFor.text = recipeTime.servesFor
+                cell.cookingTime.text = recipeTime.cookingTime
+                cell.preparationTime.text = recipeTime.preparationTime
+            }
+            return cell
             
         }
 
@@ -170,7 +191,7 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
         return nil
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let section = cellDataArray[section].sectionType
+        let section = celldataArray[section].sectionType
         switch section{
             
        
@@ -184,6 +205,9 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
         case .recipeCookingTableViewCell:
             return "Nasil Yapilir?"
 
+        case .recipeTime:
+            return ""
+            
         }
     
         

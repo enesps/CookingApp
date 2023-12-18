@@ -207,6 +207,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource,UISearchResultsUp
         searching = false
         searchedRecipe.removeAll()
         recipeSearchTableView.reloadData()
+        
     }
     
     

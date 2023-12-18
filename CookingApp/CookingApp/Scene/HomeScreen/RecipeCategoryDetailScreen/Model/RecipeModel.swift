@@ -33,8 +33,8 @@ struct Recipe: Codable {
     let imageURL: String?
     let recipeName, cookingTime, preparationTime, totalTime: String?
     let servesFor, difficultyLevel, category: String?
-    let ingredients: [String: [String]]?
-    let instructions: [String: String]?
+    let ingredients: [Ingredient]?
+    let instructions: [Instruction]?
     let score: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -44,3 +44,21 @@ struct Recipe: Codable {
     }
 }
 
+// MARK: - Ingredient
+struct Ingredient: Codable {
+    let ingredient, amount: String?
+}
+
+// MARK: - Instruction
+struct Instruction: Codable {
+    let instruction, time: String?
+}
+
+struct RecipeDetail {
+    var recipeName: String
+    var forServes: String
+    var cookingTime: String?
+    var preparingTime: String?
+    var ingredients: [String: [String]]?
+    var instructions: [String: String]?
+}

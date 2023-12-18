@@ -62,3 +62,6 @@ struct RecipeDetail {
     var ingredients: [String: [String]]?
     var instructions: [String: String]?
 }
+struct recipeTimer{
+    var  cookingTime, preparationTime, servesFor: String?
+}

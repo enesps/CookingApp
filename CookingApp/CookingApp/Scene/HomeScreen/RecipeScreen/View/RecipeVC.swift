@@ -21,9 +21,6 @@ class RecipeVC: UIViewController {
         var text:String
     }
     
-    struct recipeTimer{
-        var  cookingTime, preparationTime, servesFor: String?
-    }
     struct cellData{
         var sectionType:CellType
         var data:[Any]
@@ -94,6 +91,7 @@ class RecipeVC: UIViewController {
     }
     func dataUpdate(){
         viewModel.onDataUpdate = { [weak self]   in
+            self?.navigationItem.title = self?.viewModel.data?.recipeName
             self?.celldataArray.append(cellData(sectionType: .recipeHeaderTableViewCell, data: ["kjnsks"]))
             self?.celldataArray.append(cellData(sectionType: .recipeTime, data: [recipeTimer(cookingTime: self?.viewModel.data?.cookingTime, preparationTime: self?.viewModel.data?.preparationTime,servesFor: self?.viewModel.data?.servesFor)]))
             self?.celldataArray.append(cellData(sectionType: .recipeIngredientsTableViewCell, data: (self?.viewModel.data?.ingredients)!))
@@ -130,42 +128,25 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
         switch cellType {
         case .recipeHeaderTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeHeaderTableViewCell", for: indexPath) as! RecipeHeaderTableViewCell
-            cell.recipeLikeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
-            cell.recipeLikeBtn.titleLabel?.text = "3.24"
-            cell.recipeShareBtn.setImage(UIImage(systemName: "bookmark"), for: .normal)
-            cell.recipeShareBtn.titleLabel?.text = "Kaydet"
+            cell.configure()
             return cell
-//        case .recipePickerPeopleTableViewCell:
-//            let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipePickerPeopleTableViewCell", for: indexPath) as! RecipePickerPeopleTableViewCell
-//            return cell
         case .recipeIngredientsTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTableViewCell", for: indexPath) as! RecipeIngredientsTableViewCell
-            if let ingredientsData = celldataArray[indexPath.section].data[indexPath.row] as? recipeIngredients {
-                    // ingredientsData'yi kullanarak hücre içeriğini ayarla
-                
-                    cell.recipeIngredientsTitle.text = "\(ingredientsData.title):"
-                cell.recipeIngredientsText.text = ingredientsData.text
+            if let ingredientsData = celldataArray[indexPath.section].data[indexPath.row] as? Ingredient{
+                cell.configure(with: ingredientsData)
                 }
             return cell
-            
         case .recipeCookingTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeCookingTableViewCell", for: indexPath) as! RecipeCookingTableViewCell
-        
-                      // cookingData'yi kullanarak hücre içeriğini ayarla
-                      
             cell.recipeStepNumber.text = "\(indexPath.row+1)/\(celldataArray[indexPath.section].data.count)"
-            cell.recipeStepCooking.text = (celldataArray[indexPath.section].data[indexPath.row] as? String)
+            if let instruction = celldataArray[indexPath.section].data[indexPath.row] as? Instruction {
+                cell.configure(with: instruction)
+                }
                 return cell
-                  
-
-        
-            
         case .recipeTime:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeCookingInfoTableViewCell", for: indexPath) as! RecipeCookingInfoTableViewCell
             if let recipeTime = celldataArray[indexPath.section].data[indexPath.row] as? recipeTimer {
-                cell.servesFor.text = recipeTime.servesFor
-                cell.cookingTime.text = recipeTime.cookingTime
-                cell.preparationTime.text = recipeTime.preparationTime
+                cell.config(with: recipeTime)
             }
             return cell
             

@@ -7,7 +7,7 @@
 
 import Foundation
 struct APIConstants {
-    static let baseURL = "https://tags-plugin-affects-da.trycloudflare.com"
+    static let baseURL = "https://hints-river-desirable-mon.trycloudflare.com"
 }
 
 class APIEndpoints {

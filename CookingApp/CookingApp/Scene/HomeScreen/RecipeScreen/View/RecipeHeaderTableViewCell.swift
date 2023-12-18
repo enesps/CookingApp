@@ -19,7 +19,13 @@ class RecipeHeaderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    func configure() {
+        recipeLikeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+        recipeLikeBtn.titleLabel?.text = "3.24"
+        recipeShareBtn.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        recipeShareBtn.titleLabel?.text = "Kaydet"
 
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

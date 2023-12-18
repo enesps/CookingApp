@@ -22,5 +22,11 @@ class RecipeCookingInfoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
+    func config(with  recipeTime: recipeTimer){
+       servesFor.text = recipeTime.servesFor
+       cookingTime.text = recipeTime.cookingTime
+       preparationTime.text = recipeTime.preparationTime
+    }
     
 }

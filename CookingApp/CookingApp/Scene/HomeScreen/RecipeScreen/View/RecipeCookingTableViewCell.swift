@@ -21,5 +21,12 @@ class RecipeCookingTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func configure(with instruction: Instruction) {
+        
+        recipeStepCooking.text = instruction.instruction
+        if instruction.time != nil{
+            print(instruction.time)
+        }
+    }
+
 }

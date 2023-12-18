@@ -21,5 +21,11 @@ class RecipeIngredientsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func configure(with ingredient: Ingredient) {
+        if let data = ingredient.ingredient{
+         recipeIngredientsTitle.text = "\(data):"
+        }
+        recipeIngredientsText.text = ingredient.ingredient
+    }
+
 }

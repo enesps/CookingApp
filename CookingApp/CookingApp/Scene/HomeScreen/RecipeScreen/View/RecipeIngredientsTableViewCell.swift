@@ -26,6 +26,7 @@ class RecipeIngredientsTableViewCell: UITableViewCell {
          recipeIngredientsTitle.text = "\(data):"
         }
         recipeIngredientsText.text = ingredient.ingredient
+        
     }
 
 }

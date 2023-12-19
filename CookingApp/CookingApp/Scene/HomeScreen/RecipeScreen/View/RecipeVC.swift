@@ -154,16 +154,11 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
 
     }
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch indexPath.section {
-//        case 0:
-//            return 120 // İlk section'daki hücre yüksekliği
-//        case 1:
-//            return 120
-//        case 2:
-//            return 120// İkinci section'daki hücre yüksekliği
-//        default:
-//            return UITableView.automaticDimension
+//        let section = celldataArray[indexPath.section].sectionType
+//        if (section == .recipeCookingTableViewCell){
+//            return 200
 //        }
+//        return 120
 //    }
 //    func tableView(_ tableView: UITableView, widthForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 393

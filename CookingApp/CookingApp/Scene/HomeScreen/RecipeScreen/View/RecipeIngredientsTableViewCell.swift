@@ -25,7 +25,7 @@ class RecipeIngredientsTableViewCell: UITableViewCell {
         if let data = ingredient.ingredient{
          recipeIngredientsTitle.text = "\(data):"
         }
-        recipeIngredientsText.text = ingredient.ingredient
+        recipeIngredientsText.text = ingredient.amount
         
     }
 

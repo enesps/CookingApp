@@ -20,9 +20,7 @@ class RecipeCookingTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        updateUI()
 
-        startStopButton.addTarget(self, action: #selector(startStopButtonTapped), for: .touchUpInside)
     }
 
     func updateUI() {
@@ -36,7 +34,6 @@ class RecipeCookingTableViewCell: UITableViewCell {
         let remainingSeconds = seconds % 60
         return String(format: "%02d:%02d", minutes, remainingSeconds)
     }
-
     @objc func startStopButtonTapped() {
         if isCounting {
             stopCountdown()
@@ -97,7 +94,11 @@ class RecipeCookingTableViewCell: UITableViewCell {
         countDown.text = instruction.time
         if instruction.time != nil{
             print(instruction.time)
-            
+            countDown.isHidden = false
+            startStopButton.isHidden = false
+            updateUI()
+
+            startStopButton.addTarget(self, action: #selector(startStopButtonTapped), for: .touchUpInside)
         }
         
     }

@@ -83,6 +83,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E05AECBB2B33240800B7A4EA /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E000F98C2B06A12B00ACA458 /* CookingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E000F98F2B06A12B00ACA458 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +124,11 @@
 		E02F61572B307329009B122D /* RecipeCookingInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCookingInfoTableViewCell.swift; sourceTree = "<group>"; };
 		E02F61582B307329009B122D /* RecipeCookingInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCookingInfoTableViewCell.xib; sourceTree = "<group>"; };
 		E05AD9AB2B15457A002D544C /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
+		E05AECAA2B33240700B7A4EA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		E05AECAC2B33240700B7A4EA /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		E05AECAF2B33240700B7A4EA /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		E05AECB22B33240700B7A4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		E05AECB42B33240700B7A4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E072E2142B108C8600F3F4F7 /* ProfileNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNC.swift; sourceTree = "<group>"; };
 		E0A534522B17310D00E22588 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		E0A534552B1754D100E22588 /* RecipeSavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSavedVC.swift; sourceTree = "<group>"; };
@@ -178,6 +196,7 @@
 				E000F98E2B06A12B00ACA458 /* CookingApp */,
 				E000F9A52B06A12C00ACA458 /* CookingAppTests */,
 				E000F9AF2B06A12C00ACA458 /* CookingAppUITests */,
+				E05AECAE2B33240700B7A4EA /* userNotification */,
 				E000F98D2B06A12B00ACA458 /* Products */,
 				E00F24EC2B0E437D00B36FBC /* Frameworks */,
 			);
@@ -338,6 +357,8 @@
 		E00F24EC2B0E437D00B36FBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E05AECAA2B33240700B7A4EA /* UserNotifications.framework */,
+				E05AECAC2B33240700B7A4EA /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -375,6 +396,16 @@
 				E02F61582B307329009B122D /* RecipeCookingInfoTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E05AECAE2B33240700B7A4EA /* userNotification */ = {
+			isa = PBXGroup;
+			children = (
+				E05AECAF2B33240700B7A4EA /* NotificationViewController.swift */,
+				E05AECB12B33240700B7A4EA /* MainInterface.storyboard */,
+				E05AECB42B33240700B7A4EA /* Info.plist */,
+			);
+			path = userNotification;
 			sourceTree = "<group>";
 		};
 		E072E2112B108C1B00F3F4F7 /* ProfileScreen */ = {
@@ -592,6 +623,7 @@
 				E000F9882B06A12B00ACA458 /* Sources */,
 				E000F9892B06A12B00ACA458 /* Frameworks */,
 				E000F98A2B06A12B00ACA458 /* Resources */,
+				E05AECBB2B33240800B7A4EA /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -820,6 +852,14 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		E05AECB12B33240700B7A4EA /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E05AECB22B33240700B7A4EA /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -945,6 +985,7 @@
 		E000F9B72B06A12C00ACA458 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -975,6 +1016,7 @@
 		E000F9B82B06A12C00ACA458 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";

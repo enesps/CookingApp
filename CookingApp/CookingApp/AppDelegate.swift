@@ -14,9 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Uygulama başlatıldığında kontrol et
-
-        return true
+      
+      // Request Permission
+      UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) {
+        granted, error in
+        if granted {
+          print("Approval granted to send notifications")
+        } else {
+          print(error)
+        }
+      }
+      
+      UNUserNotificationCenter.current().delegate = self
+      
+      return true
     }
 
 
@@ -40,3 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+  
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    completionHandler(.sound)
+  }
+}

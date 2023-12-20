@@ -14,9 +14,10 @@ class RecipeCookingTableViewCell: UITableViewCell {
     @IBOutlet weak var recipeStepNumber: UILabel!
     @IBOutlet weak var recipeStepCooking: UILabel!
     var timer: Timer?
-    var countdownSeconds: Int = 300 // Örnek olarak 5 dakika
+    var countdownSeconds: Int? // Örnek olarak 5 dakika
     var isCounting: Bool = false
-    var indexPath: IndexPath?
+
+    let notificationIdentifier = "myNotification"
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +25,7 @@ class RecipeCookingTableViewCell: UITableViewCell {
     }
 
     func updateUI() {
-        countDown.text = formattedTime(countdownSeconds)
+        countDown.text = formattedTime((countdownSeconds)!)
         startStopButton.setTitle(isCounting ? "Durdur" : "Başlat", for: .normal)
         startStopButton.setTitleColor(isCounting ? .systemRed : .systemBlue, for: .normal)
     }
@@ -56,8 +57,8 @@ class RecipeCookingTableViewCell: UITableViewCell {
     }
 
     @objc func updateCountdown() {
-        if countdownSeconds > 0 {
-            countdownSeconds -= 1
+        if countdownSeconds! > 0 {
+            countdownSeconds! -= 1
             updateUI()
         } else {
             // Geri sayım bittiğinde timer'ı durdur
@@ -68,21 +69,61 @@ class RecipeCookingTableViewCell: UITableViewCell {
                 self.sendNotification()
             }
 
-            // IndexPath'e göre tableView'yi güncelle
-            NotificationCenter.default.post(name: Notification.Name("CountdownFinished"), object: indexPath)
+
         }
     }
     func sendNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "Countdown Tamamlandı!"
-        content.body = "Countdown süresi bitti."
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-        let request = UNNotificationRequest(identifier: "countdownNotification", content: content, trigger: trigger)
-
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        self.scheduleNotification(inSeconds: 0.1 , completion: { success in
+            if success {
+              print("Successfully scheduled notification")
+            } else {
+              print("Error scheduling notification")
+            }
+          })
 
     }
+    func scheduleNotification(inSeconds: TimeInterval, completion: @escaping (Bool) -> ()) {
+
+      // Create Notification content
+      let notificationContent = UNMutableNotificationContent()
+    
+      notificationContent.title = "Yemeğiniz yanmadan geri dönün!!!"
+      notificationContent.subtitle = "Yemeğiniz sizi bekliyor."
+      notificationContent.body = "Artık Yemeğinizi bitirme zamanı"
+
+
+      // Create Notification trigger
+      // Note that 60 seconds is the smallest repeating interval.
+      let trigger = UNTimeIntervalNotificationTrigger(timeInterval: inSeconds, repeats: false)
+
+      // Create a notification request with the above components
+      let request = UNNotificationRequest(identifier: notificationIdentifier, content: notificationContent, trigger: trigger)
+
+      // Add this notification to the UserNotificationCenter
+      UNUserNotificationCenter.current().add(request, withCompletionHandler: { error in
+        if error != nil {
+          print("\(error)")
+          completion(false)
+        } else {
+          completion(true)
+        }
+      })
+    }
+    func extractMinutes(from timeString: String) -> Int? {
+        // Gelen string'den "15" gibi sayıları çıkarmak için bir fonksiyon
+        func extractNumber(from input: String) -> Int? {
+            let numbers = input.components(separatedBy: CharacterSet.decimalDigits.inverted)
+            return numbers.compactMap { Int($0) }.first
+        }
+
+        // "15 dakika" gibi bir ifadeyi analiz etmek
+        guard let minutes = extractNumber(from: timeString) else {
+            return nil
+        }
+
+        return minutes
+    }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -93,10 +134,16 @@ class RecipeCookingTableViewCell: UITableViewCell {
         recipeStepCooking.text = instruction.instruction
         countDown.text = instruction.time
         if instruction.time != nil{
-            print(instruction.time)
             countDown.isHidden = false
             startStopButton.isHidden = false
-            updateUI()
+            if let time = instruction.time {
+                if let minutes = extractMinutes(from: time) {
+                    self.countdownSeconds = minutes
+                    updateUI()
+
+                }
+            }
+
 
             startStopButton.addTarget(self, action: #selector(startStopButtonTapped), for: .touchUpInside)
         }

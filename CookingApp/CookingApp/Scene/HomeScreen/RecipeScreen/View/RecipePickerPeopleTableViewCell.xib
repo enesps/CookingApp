@@ -18,6 +18,9 @@
                 <subviews>
                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REW-mN-1QP">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="20"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </pickerView>
                 </subviews>
                 <constraints>
@@ -26,6 +29,9 @@
                     <constraint firstAttribute="bottom" secondItem="REW-mN-1QP" secondAttribute="bottom" id="83E-gW-2gE"/>
                     <constraint firstItem="REW-mN-1QP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="psc-Rm-AZ6"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

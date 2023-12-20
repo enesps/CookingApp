@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 import Kingfisher
+import SkeletonView
 enum CellType {
     case recipeHeaderTableViewCell
     case recipeTime
@@ -61,6 +62,16 @@ class RecipeVC: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.prefersLargeTitles = false
         tableViewConfigure()
+        viewModel.onSkeletonUpdate = { [weak self] isActive in
+            if isActive {
+                self?.recipeTableView.isSkeletonable = true
+        //        recipeCollectionView.showAnimatedSkeleton(usingColor: .lightGray, animation: animation, transition: .crossDissolve(0.25))
+                self?.recipeTableView.showAnimatedGradientSkeleton()
+            } else {
+                self?.recipeTableView.stopSkeletonAnimation()
+                self?.view.hideSkeleton()
+            }
+        }
         dataUpdate()
         viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeById)\(recipeId ?? -1)")
     }
@@ -114,10 +125,18 @@ class RecipeVC: UIViewController {
 
 
 }
-extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
+extension RecipeVC : SkeletonTableViewDelegate,SkeletonTableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return celldataArray.count
-}
+    }
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+            return "RecipeHeaderTableViewCell"
+
+    }
+
+//    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return celldataArray[section].data.count
+//    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return celldataArray[section].data.count
     }
@@ -153,16 +172,7 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
         }
 
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let section = celldataArray[indexPath.section].sectionType
-//        if (section == .recipeCookingTableViewCell){
-//            return 200
-//        }
-//        return 120
-//    }
-//    func tableView(_ tableView: UITableView, widthForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 393
-//    }
+
      func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
@@ -173,8 +183,6 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
        
         case .recipeIngredientsTableViewCell:
             return "Malzemeler:"
-//        case .recipePickerPeopleTableViewCell:
-//            return "Kac Kisilik?"
         case .recipeHeaderTableViewCell:
             
             return viewModel.data?.recipeName
@@ -191,27 +199,9 @@ extension RecipeVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let headerView = view as? UITableViewHeaderFooterView else { return }
-        
-        // Başlık fontunu ayarlayın
         headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         
     }
-
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        recipeTableView.separatorStyle = .none
-//        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.width-93))
-//        let imageView = UIImageView(frame: header.bounds)
-//        print(viewModel.data?.imageURL)
-//        if let url = URL(string: (viewModel.data?.imageURL!)!) {
-//            imageView.kf.setImage(with: url)
-//        }
-//        imageView.contentMode = .scaleAspectFill
-//        imageView.clipsToBounds = true
-//        header.addSubview(imageView)
-//        
-//        return header
-//    }
-    
-    
 }
+
+

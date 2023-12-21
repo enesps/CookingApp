@@ -30,28 +30,7 @@ class RecipeVC: UIViewController {
     let cellTypes: [CellType] = [.recipeHeaderTableViewCell,
                                  .recipeTime, .recipeIngredientsTableViewCell, .recipeCookingTableViewCell/*.recipePickerPeopleTableViewCell*/]
     
-    var recipeIngredientsArray = [recipeIngredients(title: "zeytinyağı", text: "2 yemek kaşığı"), recipeIngredients(title: "soğan", text: "2 adet"),
-        recipeIngredients(title: "pirinç", text: "2 su bardağı"),
-        recipeIngredients(title: "sıcak su", text: "2 su bardağı"),
-        recipeIngredients(title: "kuş üzümü", text: "1,5 yemek kaşığı ")]
- var array = ["Pirinçleri sıcak ve tuzlu suda 15-20 dakika bekletin.",
-              "Kuş üzümlerini sıcak suda bekletin ve şişmelerini sağlayın.",
-              "Soğanları ince ince doğrayın.",
-              "Tencereyi ısıtın ve zeytinyağını ekleyin.",
-              "Soğanları karıştıra karıştıra kavurun.",
-              "Suyunu süzüp duruladığınız pirinçleri ekleyin ve sıcak suyu ekleyip baharatları ve kuş üzümünü ilave edin. Kısık ateşte 15 dakika demlemeye bırakın.",
-              "Demlenen iç harcı soğumaya bırakın."]
-    
-    var cellDataArray: [cellData] {
-        return [
-             cellData(sectionType: .recipeHeaderTableViewCell, data: ["kjnsks"]),
-//             cellData(sectionType: .recipePickerPeopleTableViewCell, data: ["csdsdc"]),
-             cellData(sectionType: .recipeIngredientsTableViewCell, data: recipeIngredientsArray),
 
-             cellData(sectionType: .recipeCookingTableViewCell, data: array)
-                                             
-        ]
-    }
     @IBOutlet weak var recipeTableView: UITableView!
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = RecipeViewModel()
@@ -79,9 +58,9 @@ class RecipeVC: UIViewController {
         viewModel.onSkeletonUpdate = { [weak self] isActive in
             if isActive {
                 self?.recipeTableView.isSkeletonable = true
-        //        recipeCollectionView.showAnimatedSkeleton(usingColor: .lightGray, animation: animation, transition: .crossDissolve(0.25))
                 self?.recipeTableView.showAnimatedGradientSkeleton()
-            } else {
+            }
+            else {
                 self?.recipeTableView.stopSkeletonAnimation()
                 self?.view.hideSkeleton()
             }

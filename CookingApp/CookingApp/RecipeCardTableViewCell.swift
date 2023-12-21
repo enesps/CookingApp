@@ -25,5 +25,16 @@ class RecipeCardTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func configure(with recipe : Recipe){
+        if let score = recipe.score{
+            recipeCardScore.text = String(score)
+        }
+        recipeCardName.text = recipe.recipeName
+        recipeCardDifficultyLevel.text = recipe.difficultyLevel
+        recipeCardCookingTime.text = recipe.totalTime?.replacingOccurrences(of: "dakika", with: "dk")
+        if let imageURL = URL(string: recipe.imageURL!) {
+            recipeCardImage.kf.setImage(with: imageURL)
+        }
+        
+    }
 }

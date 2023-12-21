@@ -9,41 +9,65 @@ import Foundation
 import SwiftAlertView
 import ALPopup
 import UIKit
+import Combine
+import Kingfisher
 class HomeVC : ViewController{
     @IBOutlet weak var recipeCategoryCollectionView: UICollectionView!
     let recipeCategoryTitle: [String] = ["Çorbalar","Ana Yemekler","Tatlılar","İçecekler"]
     let recipeCategoryImage: [String] = ["soup","main-food","dessert","drink"]
-    
+    private var cancellables: Set<AnyCancellable> = []
+    private let viewModel = RecipeHomeVM()
+
     override func viewDidLoad() {
         
+        viewModel.onDataUpdate = { [weak self]   in
+            let imageUrl = URL(string: (self?.viewModel.data?.imageURL)!)
 
-        let popupVC = ALPopup.popup(template: .init(
-                                                title: "Günün Menüsü",
-                                                subtitle: "Zeytinyagli Yaprak Sarması",
-                                                image: UIImage(named: "chicken"),
-                                                privaryButtonTitle: "Bak",
-                                                secondaryButtonTitle: "Simdi Degil")
-                        )
-        popupVC.tempateView.imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 130).isActive = false
+            // Use Kingfisher to download the image
+            KingfisherManager.shared.retrieveImage(with: imageUrl!) { result in
+                switch result {
+                case .success(let value):
+                    let uiImage = value.image
+                    let popupVC = ALPopup.popup(template: .init(
+                                                            title: "Günün Menüsü",
+                                                            subtitle: self?.viewModel.data?.recipeName,
+                                                            image: uiImage,
+                                                            privaryButtonTitle: "Bak",
+                                                            secondaryButtonTitle: "Simdi Degil")
+                                    )
+                    
+                     if let url = URL(string: (self?.viewModel.data?.imageURL!)!) {
+                         popupVC.tempateView.imageView.kf.setImage(with: url)
+                     }
+                    
+                    popupVC.tempateView.imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 130).isActive = false
 
-        popupVC.tempateView.imageView.widthAnchor.constraint(equalToConstant: 300).isActive = false
+                    popupVC.tempateView.imageView.widthAnchor.constraint(equalToConstant: 300).isActive = false
 
-        popupVC.tempateView.imageView.layer.cornerRadius = 30
+                    popupVC.tempateView.imageView.layer.cornerRadius = 30
 
-        popupVC.tempateView.secondaryButtonAction = { [weak self] in
+                    popupVC.tempateView.secondaryButtonAction = { [weak self] in
+                        
+                        popupVC.pop()
+                    }
+
+                    
+                    popupVC.tempateView.primaryButtonAction = {
+                        popupVC.pop()
+                        let recipeVC = self?.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
+                        recipeVC.recipeId = self?.viewModel.data?.id
+                        self?.navigationController?.pushViewController(recipeVC, animated: true)
+                        }
+                    popupVC.push(from: (self)!)
+                case .failure(let error):
+                    print("Error downloading image: \(error)")
+                }
+            }
             
-            popupVC.pop()
+
+
         }
-        
-        popupVC.tempateView.primaryButtonAction = {
-            popupVC.pop()
-            let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
-           
-            self.navigationController?.pushViewController(recipeVC, animated: true)
-            
-        }
-        popupVC.push(from: self)
-    
+        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeDaily)")
         recipeCategoryCollectionView.dataSource = self
         recipeCategoryCollectionView.delegate = self
         recipeCategoryCollectionView.register(UINib(nibName: "RecipeImageViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecipeImageViewCollectionViewCell")

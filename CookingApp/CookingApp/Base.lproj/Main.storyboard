@@ -647,6 +647,9 @@
                                     <fontDescription key="titleFontDescription" name="Farah" family="Farah" pointSize="20"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpGoogle:" destination="wde-HJ-LNP" eventType="touchUpInside" id="1oX-2S-y1Z"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-----------------------veya-----------------------" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrE-t1-rPq">
                                 <rect key="frame" x="4" y="570" width="385" height="21"/>

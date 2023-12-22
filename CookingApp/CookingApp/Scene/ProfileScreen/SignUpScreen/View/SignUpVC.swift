@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import GoogleSignIn
 class SignUpVC: UIViewController {
 
     @IBOutlet weak var loginBtn: UIButton!
@@ -19,6 +19,27 @@ class SignUpVC: UIViewController {
 
     @IBAction func goToLoginVC(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func signUpGoogle(_ sender: Any) {
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+            guard error == nil else { return }
+            guard let signInResult = signInResult else { return }
+
+            let user = signInResult.user
+
+            let emailAddress = user.profile?.email
+
+            let fullName = user.profile?.name
+            let givenName = user.profile?.givenName
+            let familyName = user.profile?.familyName
+            let token = user.idToken
+            
+            let profilePicUrl = user.profile?.imageURL(withDimension: 320)
+            print("username:\(token)")
+            print(user.idToken?.tokenString)
+
+          // If sign in succeeded, display the app's main content View.
+        }
     }
     /*
     // MARK: - Navigation

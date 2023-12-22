@@ -7,12 +7,16 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>Google Sign In</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.664362739344-3imvcg13da6psolsg52uh4hgq0f3c81g</string>
+				<string>com.googleusercontent.apps.489860789976-j4f04d2m5rl0ftas58nd9kasca3pb0b7</string>
 			</array>
 		</dict>
 	</array>
+	<key>GIDClientID</key>
+	<string>489860789976-j4f04d2m5rl0ftas58nd9kasca3pb0b7.apps.googleusercontent.com</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

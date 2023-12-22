@@ -63,9 +63,6 @@ class HomeVC : ViewController{
                     print("Error downloading image: \(error)")
                 }
             }
-            
-
-
         }
         viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeDaily)")
         recipeCategoryCollectionView.dataSource = self

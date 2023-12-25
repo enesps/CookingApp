@@ -19,7 +19,7 @@ class LoginVC:UIViewController{
     
     override func viewDidLoad(){
       super.viewDidLoad()
-    
+        navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = "Giriş Yap"
         
         
@@ -49,6 +49,7 @@ class LoginVC:UIViewController{
     }
     
     @IBAction func signInGoogle(_ sender: Any) {
+   
     }
     
 }

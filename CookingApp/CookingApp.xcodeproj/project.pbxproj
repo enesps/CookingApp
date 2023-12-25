@@ -27,6 +27,9 @@
 		E00321702B10EA04006A280A /* ProfileSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003216F2B10EA04006A280A /* ProfileSettingsVC.swift */; };
 		E00F24F02B0E442500B36FBC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E00F24EF2B0E442500B36FBC /* GoogleSignIn */; };
 		E00F24F22B0E442B00B36FBC /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E00F24F12B0E442B00B36FBC /* GoogleSignInSwift */; };
+		E029B8E92B39B50C00E4A063 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029B8E82B39B50C00E4A063 /* SignUpVM.swift */; };
+		E029B8EF2B39EDD300E4A063 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = E029B8EE2B39EDD300E4A063 /* KeychainAccess */; };
+		E029B8F22B39F4A000E4A063 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029B8F12B39F4A000E4A063 /* KeyChainService.swift */; };
 		E02CDA432B1F46FE003617F2 /* RecipeHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02CDA412B1F46FE003617F2 /* RecipeHeaderTableViewCell.swift */; };
 		E02CDA442B1F46FE003617F2 /* RecipeHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E02CDA422B1F46FE003617F2 /* RecipeHeaderTableViewCell.xib */; };
 		E02CDA472B1F4A6A003617F2 /* RecipeCookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02CDA452B1F4A6A003617F2 /* RecipeCookingTableViewCell.swift */; };
@@ -118,6 +121,8 @@
 		E000F9D62B06B71400ACA458 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E003216B2B10D2DD006A280A /* FixProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixProfileVC.swift; sourceTree = "<group>"; };
 		E003216F2B10EA04006A280A /* ProfileSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsVC.swift; sourceTree = "<group>"; };
+		E029B8E82B39B50C00E4A063 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
+		E029B8F12B39F4A000E4A063 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		E02CDA412B1F46FE003617F2 /* RecipeHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		E02CDA422B1F46FE003617F2 /* RecipeHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		E02CDA452B1F4A6A003617F2 /* RecipeCookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCookingTableViewCell.swift; sourceTree = "<group>"; };
@@ -171,6 +176,7 @@
 				E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */,
 				E00F24F22B0E442B00B36FBC /* GoogleSignInSwift in Frameworks */,
 				E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */,
+				E029B8EF2B39EDD300E4A063 /* KeychainAccess in Frameworks */,
 				E000F9C12B06A3F600ACA458 /* SwiftAlertView in Frameworks */,
 				E0014C822B21F2F500EF6496 /* SkeletonView in Frameworks */,
 				E000F9C42B06A41200ACA458 /* Lottie in Frameworks */,
@@ -221,6 +227,7 @@
 		E000F98E2B06A12B00ACA458 /* CookingApp */ = {
 			isa = PBXGroup;
 			children = (
+				E029B8F02B39F46600E4A063 /* KeyChain */,
 				E0E50C712B226F34000E6171 /* ApiService */,
 				E072E2122B108C4200F3F4F7 /* NavigationController */,
 				E000F9C82B06A43C00ACA458 /* Scene */,
@@ -368,6 +375,22 @@
 				E05AECAC2B33240700B7A4EA /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E029B8E72B39B4F600E4A063 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E029B8E82B39B50C00E4A063 /* SignUpVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E029B8F02B39F46600E4A063 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				E029B8F12B39F4A000E4A063 /* KeyChainService.swift */,
+			);
+			path = KeyChain;
 			sourceTree = "<group>";
 		};
 		E04DE8BF2B3427AF0046B026 /* ViewModel */ = {
@@ -566,6 +589,7 @@
 		E0B197402B0F94C9006F4FFF /* SignUpScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E029B8E72B39B4F600E4A063 /* ViewModel */,
 				E0B197412B0F94D9006F4FFF /* View */,
 			);
 			path = SignUpScreen;
@@ -665,6 +689,7 @@
 				E00F24F12B0E442B00B36FBC /* GoogleSignInSwift */,
 				E0014C812B21F2F500EF6496 /* SkeletonView */,
 				E075A2692B24BAED00C71C95 /* Kingfisher */,
+				E029B8EE2B39EDD300E4A063 /* KeychainAccess */,
 			);
 			productName = CookingApp;
 			productReference = E000F98C2B06A12B00ACA458 /* CookingApp.app */;
@@ -747,6 +772,7 @@
 				E0A878E72B0BA1D400E27247 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				E0014C802B21F2F500EF6496 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				E075A2682B24BAED00C71C95 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E029B8ED2B39EDD300E4A063 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = E000F98D2B06A12B00ACA458 /* Products */;
 			projectDirPath = "";
@@ -803,6 +829,7 @@
 				E000F9CC2B06A53900ACA458 /* LaunchScreen.swift in Sources */,
 				E000F9942B06A12B00ACA458 /* ViewController.swift in Sources */,
 				E0A534562B1754D100E22588 /* RecipeSavedVC.swift in Sources */,
+				E029B8F22B39F4A000E4A063 /* KeyChainService.swift in Sources */,
 				E05AD9AC2B15457A002D544C /* RecipeVC.swift in Sources */,
 				E0A534532B17310D00E22588 /* FavoriteVC.swift in Sources */,
 				E00321702B10EA04006A280A /* ProfileSettingsVC.swift in Sources */,
@@ -825,6 +852,7 @@
 				E000F9922B06A12B00ACA458 /* SceneDelegate.swift in Sources */,
 				E003216C2B10D2DD006A280A /* FixProfileVC.swift in Sources */,
 				E000F9D12B06A5E400ACA458 /* OnBoardingScreen.swift in Sources */,
+				E029B8E92B39B50C00E4A063 /* SignUpVM.swift in Sources */,
 				E0B1973F2B0F7BDB006F4FFF /* ForgetPasswordVC.swift in Sources */,
 				E0A534622B17AB5200E22588 /* RecipeSearchModel.swift in Sources */,
 				E04DE8C42B3457940046B026 /* RecipeSearchVM.swift in Sources */,
@@ -1222,6 +1250,14 @@
 				minimumVersion = 1.30.4;
 			};
 		};
+		E029B8ED2B39EDD300E4A063 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		E05086B52B07A9510022CDE8 /* XCRemoteSwiftPackageReference "ALPopup" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alxrguz/ALPopup.git";
@@ -1286,6 +1322,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E0A878E72B0BA1D400E27247 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		E029B8EE2B39EDD300E4A063 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E029B8ED2B39EDD300E4A063 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 		E05086B62B07A9510022CDE8 /* ALPopup */ = {
 			isa = XCSwiftPackageProductDependency;

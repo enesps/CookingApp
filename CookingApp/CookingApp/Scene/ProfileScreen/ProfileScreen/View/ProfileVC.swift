@@ -31,10 +31,16 @@ class ProfileVC: UIViewController {
     }
 
     @IBAction func onClickSettings(_ sender: Any) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileSettings") as? UIViewController else { return }
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileSettings") as? ProfileSettingsVC else { return }
         vc.modalPresentationStyle = .popover
         self.present(vc, animated: true)
     }
+    @IBAction func onClickShareProfile(_ sender: Any) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProfileSettings") as? ProfileSettingsVC else { return }
+        vc.modalPresentationStyle = .popover
+        self.present(vc, animated: true)
+    }
+    
     @IBAction func onClickFixProfile(_ sender: Any) {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "FixProfile") as? UIViewController else { return }
         vc.modalPresentationStyle = .popover

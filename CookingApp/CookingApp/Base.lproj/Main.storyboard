@@ -224,15 +224,8 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="systemGray2Color"/>
                                 </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeM-NC-ifo">
-                                <rect key="frame" x="305" y="97" width="72" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system"/>
                                 <connections>
-                                    <action selector="onClickSettings:" destination="pAw-7C-cwz" eventType="touchUpInside" id="kGj-YM-6yV"/>
+                                    <action selector="onClickShareProfile:" destination="pAw-7C-cwz" eventType="touchUpInside" id="Yka-rz-6aS"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profilim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kP-4Z-iDf">
@@ -263,6 +256,16 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeM-NC-ifo">
+                                <rect key="frame" x="198" y="63" width="118" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system"/>
+                                <connections>
+                                    <action selector="onClickSettings:" destination="pAw-7C-cwz" eventType="touchUpInside" id="izn-pV-kxk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="te4-LV-wwp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -277,7 +280,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E6E-j9-kMN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Dfb-eD-gdP"/>
             </objects>
-            <point key="canvasLocation" x="4272.5190839694651" y="2654.929577464789"/>
+            <point key="canvasLocation" x="4270.9923664122134" y="2654.929577464789"/>
         </scene>
         <!--Profile SettingsVC-->
         <scene sceneID="kPV-DR-1ql">
@@ -298,6 +301,9 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signOut:" destination="VgD-DT-9rO" eventType="touchUpInside" id="P8N-iM-S2O"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oMS-aN-xvX"/>

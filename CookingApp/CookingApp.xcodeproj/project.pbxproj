@@ -44,6 +44,10 @@
 		E05AD9AC2B15457A002D544C /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AD9AB2B15457A002D544C /* RecipeVC.swift */; };
 		E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072E2142B108C8600F3F4F7 /* ProfileNC.swift */; };
 		E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E075A2692B24BAED00C71C95 /* Kingfisher */; };
+		E092ECDE2B3AD99F00CC2596 /* TokenApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E092ECDD2B3AD99F00CC2596 /* TokenApiService.swift */; };
+		E092ECE12B3ADA0B00CC2596 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E092ECE02B3ADA0B00CC2596 /* Alamofire */; };
+		E092ECE42B3ADEC300CC2596 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E092ECE32B3ADEC300CC2596 /* SignUpModel.swift */; };
+		E092ECE72B3C23E900CC2596 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E092ECE62B3C23E900CC2596 /* LoginVM.swift */; };
 		E0A534532B17310D00E22588 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A534522B17310D00E22588 /* FavoriteVC.swift */; };
 		E0A534562B1754D100E22588 /* RecipeSavedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A534552B1754D100E22588 /* RecipeSavedVC.swift */; };
 		E0A5345B2B177D9800E22588 /* RecipeLikeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A5345A2B177D9800E22588 /* RecipeLikeVC.swift */; };
@@ -140,6 +144,9 @@
 		E05AECB22B33240700B7A4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E05AECB42B33240700B7A4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E072E2142B108C8600F3F4F7 /* ProfileNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNC.swift; sourceTree = "<group>"; };
+		E092ECDD2B3AD99F00CC2596 /* TokenApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenApiService.swift; sourceTree = "<group>"; };
+		E092ECE32B3ADEC300CC2596 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		E092ECE62B3C23E900CC2596 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		E0A534522B17310D00E22588 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		E0A534552B1754D100E22588 /* RecipeSavedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSavedVC.swift; sourceTree = "<group>"; };
 		E0A5345A2B177D9800E22588 /* RecipeLikeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeLikeVC.swift; sourceTree = "<group>"; };
@@ -177,6 +184,7 @@
 				E00F24F22B0E442B00B36FBC /* GoogleSignInSwift in Frameworks */,
 				E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */,
 				E029B8EF2B39EDD300E4A063 /* KeychainAccess in Frameworks */,
+				E092ECE12B3ADA0B00CC2596 /* Alamofire in Frameworks */,
 				E000F9C12B06A3F600ACA458 /* SwiftAlertView in Frameworks */,
 				E0014C822B21F2F500EF6496 /* SkeletonView in Frameworks */,
 				E000F9C42B06A41200ACA458 /* Lottie in Frameworks */,
@@ -479,6 +487,22 @@
 			path = ProfileNC;
 			sourceTree = "<group>";
 		};
+		E092ECE22B3ADEB200CC2596 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E092ECE32B3ADEC300CC2596 /* SignUpModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E092ECE52B3C23D100CC2596 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E092ECE62B3C23E900CC2596 /* LoginVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E0A534502B17309F00E22588 /* FavoriteScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +565,7 @@
 		E0A878DF2B0B919F00E27247 /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E092ECE52B3C23D100CC2596 /* ViewModel */,
 				E0A878E42B0B95F900E27247 /* View */,
 			);
 			path = LoginScreen;
@@ -589,6 +614,7 @@
 		E0B197402B0F94C9006F4FFF /* SignUpScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E092ECE22B3ADEB200CC2596 /* Model */,
 				E029B8E72B39B4F600E4A063 /* ViewModel */,
 				E0B197412B0F94D9006F4FFF /* View */,
 			);
@@ -623,6 +649,7 @@
 			isa = PBXGroup;
 			children = (
 				E0E50C742B226FA9000E6171 /* RecipeApiService.swift */,
+				E092ECDD2B3AD99F00CC2596 /* TokenApiService.swift */,
 			);
 			path = ApiService;
 			sourceTree = "<group>";
@@ -690,6 +717,7 @@
 				E0014C812B21F2F500EF6496 /* SkeletonView */,
 				E075A2692B24BAED00C71C95 /* Kingfisher */,
 				E029B8EE2B39EDD300E4A063 /* KeychainAccess */,
+				E092ECE02B3ADA0B00CC2596 /* Alamofire */,
 			);
 			productName = CookingApp;
 			productReference = E000F98C2B06A12B00ACA458 /* CookingApp.app */;
@@ -773,6 +801,7 @@
 				E0014C802B21F2F500EF6496 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 				E075A2682B24BAED00C71C95 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				E029B8ED2B39EDD300E4A063 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				E092ECDF2B3ADA0B00CC2596 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = E000F98D2B06A12B00ACA458 /* Products */;
 			projectDirPath = "";
@@ -834,9 +863,12 @@
 				E0A534532B17310D00E22588 /* FavoriteVC.swift in Sources */,
 				E00321702B10EA04006A280A /* ProfileSettingsVC.swift in Sources */,
 				E000F9902B06A12B00ACA458 /* AppDelegate.swift in Sources */,
+				E092ECE42B3ADEC300CC2596 /* SignUpModel.swift in Sources */,
 				E0B197432B0F94F1006F4FFF /* SignUpVC.swift in Sources */,
 				E04DE8C12B3427F00046B026 /* RecipeHomeVM.swift in Sources */,
 				E0A5345B2B177D9800E22588 /* RecipeLikeVC.swift in Sources */,
+				E092ECDE2B3AD99F00CC2596 /* TokenApiService.swift in Sources */,
+				E092ECE72B3C23E900CC2596 /* LoginVM.swift in Sources */,
 				E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */,
 				E0B4918B2B284CED00CB7547 /* ApiConstants.swift in Sources */,
 				E000F9D72B06B71400ACA458 /* HomeVC.swift in Sources */,
@@ -1274,6 +1306,14 @@
 				minimumVersion = 7.10.1;
 			};
 		};
+		E092ECDF2B3ADA0B00CC2596 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 		E0A878D32B0B596800E27247 /* XCRemoteSwiftPackageReference "reel-search" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Ramotion/reel-search";
@@ -1337,6 +1377,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E075A2682B24BAED00C71C95 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		E092ECE02B3ADA0B00CC2596 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E092ECDF2B3ADA0B00CC2596 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		E0A878D42B0B596800E27247 /* RAMReel */ = {
 			isa = XCSwiftPackageProductDependency;

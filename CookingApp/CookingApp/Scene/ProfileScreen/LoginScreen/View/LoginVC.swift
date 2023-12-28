@@ -29,9 +29,7 @@ class LoginVC:UIViewController{
             DispatchQueue.main.async {
                 if let token = model?.token{
                     KeyChainService.shared.saveToken(token)
-                    print(token)
                 }
-                print(KeyChainService.shared.readToken())
                 let tabBarController = self?.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                 tabBarController.selectedIndex = 4
                 tabBarController.modalPresentationStyle = .overFullScreen

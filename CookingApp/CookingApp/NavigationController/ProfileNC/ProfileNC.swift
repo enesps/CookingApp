@@ -19,7 +19,6 @@ class ProfileNC: UINavigationController {
             self.pushViewController(vc, animated: true)
         }else
         {
-
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "PreLogin") as? UIViewController else { return }
             vc.modalPresentationStyle = .overFullScreen
             

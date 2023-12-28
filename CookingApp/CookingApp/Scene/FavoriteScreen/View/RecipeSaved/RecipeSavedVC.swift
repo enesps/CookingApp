@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Combine
 class RecipeSavedVC: UIViewController {
     struct recipeSavedData{
         var recipeImage : String
@@ -20,14 +20,21 @@ class RecipeSavedVC: UIViewController {
                 recipeSavedData(recipeImage: "chicken", recipeName: "Tavuk", recipeScore: "3.5", recipeCookingTime: "30dk", recipeDifficultyLevel: "Orta"),
                 recipeSavedData(recipeImage: "chicken", recipeName: "Tavuk", recipeScore: "5.0", recipeCookingTime: "55dk", recipeDifficultyLevel: "Zor"),
                 recipeSavedData(recipeImage: "chicken", recipeName: "Tavuk", recipeScore: "2.0", recipeCookingTime: "60dk", recipeDifficultyLevel: "Kolay")]
+    
     @IBOutlet weak var recipeSavedTableView: UITableView!
+    let viewModel = FavoriteVM()
+    private var cancellables: Set<AnyCancellable> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeSavedTableView.delegate = self
         recipeSavedTableView.dataSource = self
-        recipeSavedTableView.register(UINib(nibName: "RecipeCardTableViewCell", bundle: nil), forCellReuseIdentifier: "XibCard")
-        // Do any additional setup after loading the view.
         
+        recipeSavedTableView.register(UINib(nibName: "RecipeCardTableViewCell", bundle: nil), forCellReuseIdentifier: "XibCard")
+        viewModel.onDataUpdate = { [weak self] model, error in
+            self?.recipeSavedTableView.reloadData()
+        }
+        
+        viewModel.fetchData(idToken: KeyChainService.shared.readToken() ?? "")
     }
     
     
@@ -45,16 +52,12 @@ class RecipeSavedVC: UIViewController {
 }
 extension RecipeSavedVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return viewModel.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = recipeSavedTableView.dequeueReusableCell(withIdentifier: "XibCard", for: indexPath) as! RecipeCardTableViewCell
-        cell.recipeCardImage.image = UIImage(named: data[indexPath.row].recipeImage)
-        cell.recipeCardName.text = data[indexPath.row].recipeName
-        cell.recipeCardScore.text = data[indexPath.row].recipeScore
-        cell.recipeCardCookingTime.text = data[indexPath.row].recipeCookingTime
-        cell.recipeCardDifficultyLevel.text = data[indexPath.row].recipeDifficultyLevel
+        cell.configure(with: viewModel.data![indexPath.item])
         return cell
     }
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -64,7 +67,7 @@ extension RecipeSavedVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             recipeSavedTableView.beginUpdates()
-            data.remove(at: indexPath.row)
+            viewModel.data?.remove(at: indexPath.row)
             recipeSavedTableView.deleteRows(at: [indexPath], with: .fade)
             recipeSavedTableView.endUpdates()
         }

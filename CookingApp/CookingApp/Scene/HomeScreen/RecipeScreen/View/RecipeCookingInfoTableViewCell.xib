@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeCookingInfoTableViewCell" id="KGk-i7-Jjw" customClass="RecipeCookingInfoTableViewCell" customModule="CookingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="350" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFJ-zi-PL0">
+                        <rect key="frame" x="0.0" y="0.0" width="110" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="44w-IT-VBm"/>
+                            <constraint firstAttribute="width" constant="110" id="IZS-Oe-0up"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Servis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkQ-VI-z3W">
+                        <rect key="frame" x="0.0" y="23" width="110" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="5xo-nk-OnH"/>
+                            <constraint firstAttribute="height" constant="21" id="pUh-jm-m0o"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWv-Ra-Gfu">
+                        <rect key="frame" x="118" y="0.0" width="110" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="FrL-Ii-nv3"/>
+                            <constraint firstAttribute="height" constant="21" id="S7X-By-KWF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hazırlama" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgu-sc-1FH">
+                        <rect key="frame" x="118" y="23" width="110" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="3K2-lw-ob8"/>
+                            <constraint firstAttribute="height" constant="21" id="i0o-KL-O8X"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pişirme" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7q-SA-Fp1">
+                        <rect key="frame" x="236" y="23" width="110" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="5jH-bg-Yn4"/>
+                            <constraint firstAttribute="height" constant="21" id="j7f-PI-RBl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKM-3D-2e4">
+                        <rect key="frame" x="236" y="0.0" width="110" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="38p-PR-057"/>
+                            <constraint firstAttribute="width" constant="110" id="z7f-li-NHv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="CKM-3D-2e4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1mM-UX-HlY"/>
+                    <constraint firstItem="Pgu-sc-1FH" firstAttribute="leading" secondItem="bkQ-VI-z3W" secondAttribute="trailing" constant="8" symbolic="YES" id="1qX-x1-GFq"/>
+                    <constraint firstItem="b7q-SA-Fp1" firstAttribute="leading" secondItem="Pgu-sc-1FH" secondAttribute="trailing" constant="8" symbolic="YES" id="81w-ii-He3"/>
+                    <constraint firstAttribute="bottom" secondItem="b7q-SA-Fp1" secondAttribute="bottom" id="8vU-V9-WKd"/>
+                    <constraint firstAttribute="bottom" secondItem="bkQ-VI-z3W" secondAttribute="bottom" id="BZm-Uz-KCI"/>
+                    <constraint firstAttribute="trailing" secondItem="b7q-SA-Fp1" secondAttribute="trailing" constant="4" id="BuU-YA-jnC"/>
+                    <constraint firstAttribute="bottom" secondItem="Pgu-sc-1FH" secondAttribute="bottom" id="KJ6-T5-tHF"/>
+                    <constraint firstAttribute="trailing" secondItem="CKM-3D-2e4" secondAttribute="trailing" constant="4" id="Oqf-tb-gWZ"/>
+                    <constraint firstItem="b7q-SA-Fp1" firstAttribute="top" secondItem="CKM-3D-2e4" secondAttribute="bottom" constant="2" id="XnJ-CO-rjm"/>
+                    <constraint firstItem="CKM-3D-2e4" firstAttribute="leading" secondItem="vWv-Ra-Gfu" secondAttribute="trailing" constant="8" symbolic="YES" id="gKW-Ij-Zmu"/>
+                    <constraint firstItem="bkQ-VI-z3W" firstAttribute="top" secondItem="NFJ-zi-PL0" secondAttribute="bottom" constant="2" id="gYt-9B-EMC"/>
+                    <constraint firstItem="Pgu-sc-1FH" firstAttribute="top" secondItem="vWv-Ra-Gfu" secondAttribute="bottom" constant="2" id="i2o-pp-pB5"/>
+                    <constraint firstItem="vWv-Ra-Gfu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pA2-YH-goS"/>
+                    <constraint firstItem="NFJ-zi-PL0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pzY-DN-GOp"/>
+                    <constraint firstItem="vWv-Ra-Gfu" firstAttribute="leading" secondItem="NFJ-zi-PL0" secondAttribute="trailing" constant="8" symbolic="YES" id="rvy-UV-gzN"/>
+                    <constraint firstItem="NFJ-zi-PL0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xVy-3v-Y1s"/>
+                    <constraint firstItem="bkQ-VI-z3W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="zeR-zQ-J9t"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="cookingTime" destination="CKM-3D-2e4" id="kUQ-CD-WwV"/>
+                <outlet property="preparationTime" destination="vWv-Ra-Gfu" id="KkM-7T-iN9"/>
+                <outlet property="servesFor" destination="NFJ-zi-PL0" id="odt-nb-gE6"/>
+            </connections>
+            <point key="canvasLocation" x="-122.90076335877862" y="19.718309859154932"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -7,7 +7,7 @@
 
 import Foundation
 struct APIConstants {
-    static let baseURL = "https://wrap-records-latter-ta.trycloudflare.com"
+    static let baseURL = "https://pantyhose-waiver-clubs-racial.trycloudflare.com"
 }
 
 class APIEndpoints {

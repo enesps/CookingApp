@@ -44,6 +44,7 @@
 		E05AD9AC2B15457A002D544C /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AD9AB2B15457A002D544C /* RecipeVC.swift */; };
 		E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072E2142B108C8600F3F4F7 /* ProfileNC.swift */; };
 		E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E075A2692B24BAED00C71C95 /* Kingfisher */; };
+		E08CD4412B3F089E00D9A414 /* LottieAnimationSpinner.json in Resources */ = {isa = PBXBuildFile; fileRef = E08CD4402B3F089D00D9A414 /* LottieAnimationSpinner.json */; };
 		E092ECDE2B3AD99F00CC2596 /* TokenApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E092ECDD2B3AD99F00CC2596 /* TokenApiService.swift */; };
 		E092ECE12B3ADA0B00CC2596 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E092ECE02B3ADA0B00CC2596 /* Alamofire */; };
 		E092ECE42B3ADEC300CC2596 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E092ECE32B3ADEC300CC2596 /* SignUpModel.swift */; };
@@ -149,6 +150,7 @@
 		E05AECB22B33240700B7A4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E05AECB42B33240700B7A4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E072E2142B108C8600F3F4F7 /* ProfileNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNC.swift; sourceTree = "<group>"; };
+		E08CD4402B3F089D00D9A414 /* LottieAnimationSpinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottieAnimationSpinner.json; sourceTree = "<group>"; };
 		E092ECDD2B3AD99F00CC2596 /* TokenApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenApiService.swift; sourceTree = "<group>"; };
 		E092ECE32B3ADEC300CC2596 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		E092ECE62B3C23E900CC2596 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 		E0A534602B17AB3600E22588 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E08CD4402B3F089D00D9A414 /* LottieAnimationSpinner.json */,
 				E0A534612B17AB5200E22588 /* RecipeSearchModel.swift */,
 			);
 			path = Model;
@@ -940,6 +943,7 @@
 				E0B05E932B1DB98C00EC0FF7 /* RecipeCardTableViewCell.xib in Resources */,
 				E000F9D42B06A80200ACA458 /* LottieAnimation.json in Resources */,
 				E000F9972B06A12B00ACA458 /* Main.storyboard in Resources */,
+				E08CD4412B3F089E00D9A414 /* LottieAnimationSpinner.json in Resources */,
 				E0F20D212B239A02007EE71A /* RecipePickerPeopleTableViewCell.xib in Resources */,
 				E0B05E972B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib in Resources */,
 			);

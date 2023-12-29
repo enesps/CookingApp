@@ -6,6 +6,7 @@
 //
 import Combine
 import Foundation
+import SPIndicator
 class RecipeSearchVM: ViewModelProtocol {
     @Published var data: [Recipe]? = []
     var filteredData: [Recipe] = []
@@ -25,7 +26,7 @@ class RecipeSearchVM: ViewModelProtocol {
                     break
                 case .failure(let error):
 
-                    print("Hata oluştu: \(error)")
+                    print("Hata oluştu: \(error.localizedDescription)")
                 }
             }, receiveValue: { [weak self] receivedData in
                 self?.data = receivedData
@@ -44,7 +45,12 @@ class RecipeSearchVM: ViewModelProtocol {
                     self.onSkeletonUpdate?(false)
                     break
                 case .failure(let error):
-                    print("Hata oluştu: \(error)")
+                    
+                    self.onSkeletonUpdate?(false)
+                    let indicatorView = SPIndicatorView(title: "Arama Sonucu",message: "Islem Tamamlanilamadi" , preset: .error)
+                    indicatorView.presentSide = .center
+                    indicatorView.present(duration: 2)
+                
                 }
             }, receiveValue: { [weak self] receivedData in
                 self?.data?.append(receivedData)

@@ -9,16 +9,34 @@ import Foundation
 import UIKit
 import Combine
 import SkeletonView
-
+import Lottie
 class SearchVC:UIViewController{
     @IBOutlet weak var recipeSearchTableView: UITableView!
+    var refreshControl = UIRefreshControl()
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = RecipeSearchVM()
     var searchController = UISearchController(searchResultsController: nil)
+
      override func viewDidLoad() {
          super.viewDidLoad()
+         let animationView = LottieAnimationView(name: "LottieAnimationSpinner")
+            animationView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(animationView)
+         NSLayoutConstraint.activate([
+               animationView.topAnchor.constraint(equalTo: view.topAnchor),
+               animationView.leftAnchor.constraint(equalTo: view.leftAnchor),
+               animationView.rightAnchor.constraint(equalTo: view.rightAnchor),
+               animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+             ])
+         animationView.isHidden = false
+         animationView.loopMode = .loop
+         animationView.play()
+            
+         
          recipeSearchTableView.dataSource = self
          recipeSearchTableView.delegate = self
+         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+         recipeSearchTableView.addSubview(refreshControl)
          recipeSearchTableView.register(UINib(nibName: "RecipeCardTableViewCell", bundle: nil), forCellReuseIdentifier: "XibCard")
          navigationItem.title = "Yemek Tarifi Ara"
          viewModel.onSkeletonUpdate = { [weak self] isActive in
@@ -31,14 +49,24 @@ class SearchVC:UIViewController{
              }
          }
          viewModel.onDataUpdate = { [weak self]   in
+
              self?.recipeSearchTableView.reloadData()
+             animationView.stop()
+             animationView.isHidden = true
          }
          viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipes)")
+
          configureSearchController()
      }
+    @objc func refresh(){
+        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipes)")
+        self.refreshControl.endRefreshing()
+    }
     private func configureSearchController(){
         searchController.loadViewIfNeeded()
         searchController.searchResultsUpdater = self
+        searchController.searchBar.scopeButtonTitles = ["Tümü","Zorluğa göre","Yıldıza gore"]
+        searchController.searchBar.showsScopeBar = true
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.enablesReturnKeyAutomatically = false
@@ -51,12 +79,24 @@ class SearchVC:UIViewController{
 }
 
 extension SearchVC: UITableViewDelegate, UITableViewDataSource,UISearchResultsUpdating,UISearchBarDelegate,SkeletonTableViewDataSource{
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchController.isActive ? viewModel.filteredData.count : viewModel.data!.count
     }
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "XibCard"
+    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        switch (selectedScope){
+        case 0 :
+            recipeSearchTableView.reloadData()
+        case 1 :
+            break
+        default: break
+            
+            
+            
+        }
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,6 +112,12 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource,UISearchResultsUp
         cell.configure(with: recipe)
         return cell
     }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        
+        return  searchController.isActive ? String (format:"%d Sonuç bulundu", viewModel.filteredData.count ) : String (format:"%d Sonuç bulundu", viewModel.data!.count )
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
         if searchController.isActive

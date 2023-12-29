@@ -9,22 +9,37 @@ import UIKit
 import Combine
 import Kingfisher
 import SkeletonView
-
+import Lottie
 class RecipeCategoryDetailVC: UIViewController {
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = RecipeCategoryDetailVM()
     var searchController = UISearchController(searchResultsController: nil)
     var categoryTitle : String?
-    
+    var refreshControl = UIRefreshControl()
+    let animationView = LottieAnimationView(name: "LottieAnimationSpinner")
+
     @IBOutlet weak var recipeCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = categoryTitle
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(animationView)
+     NSLayoutConstraint.activate([
+           animationView.topAnchor.constraint(equalTo: view.topAnchor),
+           animationView.leftAnchor.constraint(equalTo: view.leftAnchor),
+           animationView.rightAnchor.constraint(equalTo: view.rightAnchor),
+           animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+         ])
+        animationView.isHidden = false
+        animationView.loopMode = .loop
+        animationView.play()
         configureCollectionView()
         configureSearchController()
         viewModel.onDataUpdate = { [weak self]   in
-
+            
             self?.recipeCollectionView.reloadData()
+            self?.animationView.stop()
+            self?.animationView.isHidden = true
 
         }
         viewModel.onSkeletonUpdate = { [weak self] isActive in
@@ -40,26 +55,36 @@ class RecipeCategoryDetailVC: UIViewController {
         viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
         
     }
+    @objc func refresh(){
+        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
+        self.refreshControl.endRefreshing()
+    }
     private func configureCollectionView(){
+
         recipeCollectionView.dataSource = self
         recipeCollectionView.delegate = self
         recipeCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         if let flowLayout = recipeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.minimumInteritemSpacing = 5  // Hücreler arasındaki minimum boşluk
-            flowLayout.minimumLineSpacing = 5       // Satırlar arasındaki minimum boşluk
+            flowLayout.minimumInteritemSpacing = 5
+            flowLayout.minimumLineSpacing = 5
             flowLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)  // Ekran kenarlarına olan boşluk
         }
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        recipeCollectionView.addSubview(refreshControl)
     }
     
     private func configureSearchController(){
         searchController.loadViewIfNeeded()
         searchController.searchResultsUpdater = self
+        searchController.searchBar.scopeButtonTitles = ["Tümü","Zorluğa göre","Yıldıza gore"]
+        searchController.searchBar.showsScopeBar = true
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.enablesReturnKeyAutomatically = false
         searchController.searchBar.returnKeyType = UIReturnKeyType.done
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        
         definesPresentationContext = true
         searchController.searchBar.placeholder = "Tarifinizi Bulun"
     }
@@ -73,7 +98,7 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchController.isActive ? viewModel.filteredData.count : viewModel.data!.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let recipe: Recipe
         if searchController.isActive {
@@ -158,7 +183,12 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
         
         viewModel.filteredData = filteredData!
         if filteredData!.isEmpty {
+            animationView.isHidden = false
+            animationView.loopMode = .loop
+            animationView.play()
             viewModel.fetchData1(for: ["foodName" : searchText],endpoint: APIEndpoints.getRecipeSearch)
+            animationView.stop()
+            animationView.isHidden = true
         } else {
             recipeCollectionView.reloadData()
         }

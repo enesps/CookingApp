@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import SkeletonView
+import SPIndicator
 
 protocol ViewModelProtocol: ObservableObject {
     associatedtype Model
@@ -64,8 +65,11 @@ class RecipeCategoryDetailVM: ViewModelProtocol {
                     self.onSkeletonUpdate?(false)
                     break
                 case .failure(let error):
-                    // Hata durumu ile ilgili işlemleri burada yapabilirsiniz.
-                    print("Hata oluştu: \(error)")
+                    self.onSkeletonUpdate?(false)
+                    let indicatorView = SPIndicatorView(title: "Arama Sonucu",message: error.localizedDescription, preset: .error)
+                    indicatorView.presentSide = .bottom
+                    indicatorView.present(duration: 2)
+                    
                 }
             }, receiveValue: { [weak self] receivedData in
                 self?.data?.append(receivedData)

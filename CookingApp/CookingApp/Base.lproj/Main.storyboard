@@ -771,14 +771,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pfc-jX-Fwj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pfc-jX-Fwj">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="393" id="1wq-QK-gLT"/>
+                                    <constraint firstAttribute="height" constant="852" id="F4H-tk-4PN"/>
+                                </constraints>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="igv-9J-B59"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pfc-jX-Fwj" firstAttribute="trailing" secondItem="igv-9J-B59" secondAttribute="trailing" id="3AJ-2D-PvJ"/>
+                            <constraint firstItem="Pfc-jX-Fwj" firstAttribute="leading" secondItem="igv-9J-B59" secondAttribute="leading" id="HvQ-Y9-TwB"/>
+                            <constraint firstAttribute="bottom" secondItem="Pfc-jX-Fwj" secondAttribute="bottom" id="asD-qc-8OJ"/>
+                            <constraint firstItem="Pfc-jX-Fwj" firstAttribute="top" secondItem="ATJ-fB-DCe" secondAttribute="top" id="gwG-kV-ccl"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0CQ-9H-Sor"/>
                     <connections>
@@ -1127,19 +1136,30 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2G-VZ-7hX">
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="393" id="ShN-4a-FAZ"/>
+                                    <constraint firstAttribute="height" constant="749" id="w1m-HN-BQA"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="7iR-ER-iPg" kind="embed" id="owz-i4-51n"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCo-3Y-O3r">
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="749" id="Fkd-Jd-Wtd"/>
+                                    <constraint firstAttribute="width" constant="393" id="sIH-tW-qNj"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="szn-dW-1Ml" kind="embed" id="u9J-Qn-BlA"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bcq-ku-AAn">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcq-ku-AAn">
                                 <rect key="frame" x="0.0" y="103" width="393" height="749"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="749" id="6l9-Lw-SqF"/>
+                                    <constraint firstAttribute="width" constant="393" id="KhT-3D-ntz"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="JMU-ZK-zZv" kind="embed" id="Mw5-MY-vcX"/>
                                 </connections>
@@ -1148,7 +1168,11 @@
                         <viewLayoutGuide key="safeArea" id="wya-yZ-dG2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bcq-ku-AAn" firstAttribute="top" secondItem="wya-yZ-dG2" secondAttribute="top" id="2XB-SQ-mCz"/>
+                            <constraint firstItem="bcq-ku-AAn" firstAttribute="leading" secondItem="wya-yZ-dG2" secondAttribute="leading" id="3Zc-zy-gF4"/>
+                            <constraint firstItem="bcq-ku-AAn" firstAttribute="trailing" secondItem="wya-yZ-dG2" secondAttribute="trailing" id="7N3-fW-29R"/>
                             <constraint firstItem="p2G-VZ-7hX" firstAttribute="top" secondItem="wya-yZ-dG2" secondAttribute="top" id="AkO-WK-939"/>
+                            <constraint firstAttribute="bottom" secondItem="bcq-ku-AAn" secondAttribute="bottom" id="BBo-Fg-AgL"/>
                             <constraint firstItem="eCo-3Y-O3r" firstAttribute="trailing" secondItem="wya-yZ-dG2" secondAttribute="trailing" id="C7P-x5-1ek"/>
                             <constraint firstItem="eCo-3Y-O3r" firstAttribute="leading" secondItem="wya-yZ-dG2" secondAttribute="leading" id="KVe-gK-BJf"/>
                             <constraint firstAttribute="bottom" secondItem="p2G-VZ-7hX" secondAttribute="bottom" id="O5a-bq-yhX"/>

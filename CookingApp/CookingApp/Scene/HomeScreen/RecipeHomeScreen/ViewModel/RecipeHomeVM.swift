@@ -32,9 +32,9 @@ class RecipeHomeVM : ViewModelProtocol{
                     case .failure(let error):
                         // Hata durumu ile ilgili işlemleri burada yapabilirsiniz.
                         print("Hata oluştu: \(error.localizedDescription)")
-//                        let indicatorView = SPIndicatorView(title: "Beklenmeyen Bir hata olustu.",message: error.localizedDescription, preset: .error)
-//                        indicatorView.presentSide = .bottom
-//                        indicatorView.present(duration: 2)
+                        //                        let indicatorView = SPIndicatorView(title: "Beklenmeyen Bir hata olustu.",message: error.localizedDescription, preset: .error)
+                        //                        indicatorView.presentSide = .bottom
+                        //                        indicatorView.present(duration: 2)
                     }
                 }, receiveValue: { [weak self] receivedData in
                     self?.data = receivedData

@@ -1,14 +1,14 @@
 //
-//  FavoriteVM.swift
+//  RecipeLikeVM.swift
 //  CookingApp
 //
-//  Created by Enes Pusa on 28.12.2023.
+//  Created by Enes Pusa on 31.12.2023.
 //
 
 import Foundation
 import Combine
 import SPIndicator
-class FavoriteVM {
+class RecipeLikeVM {
     private let apiService = TokenApiService()
     private var cancellables: Set<AnyCancellable> = []
     var onDataUpdate: (([Recipe]?, YourServiceError?) -> Void)?
@@ -16,7 +16,7 @@ class FavoriteVM {
     @Published var error: YourServiceError? = nil
     func fetchData(idToken: String) {
         
-        apiService.tokenAuthPublisher(idToken: idToken, responseType: [Recipe].self, endpoint: APIEndpoints.getSaveList, baseUrl: APIConstants.baseURL)
+        apiService.tokenAuthPublisher(idToken: idToken, responseType: [Recipe].self, endpoint: APIEndpoints.recipeLikeList, baseUrl: APIConstants.baseURL)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {

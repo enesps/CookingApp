@@ -18,9 +18,8 @@ class HomeVC : ViewController{
     let recipeCategoryImage: [String] = ["soup","main-food","dessert","drink"]
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = RecipeHomeVM()
-
+    
     override func viewDidLoad() {
-        
         viewModel.onDataUpdate = { [weak self]   in
             let imageUrl = URL(string: (self?.viewModel.data?.imageURL)!)
             let indicatorView = SPIndicatorView(title: "Hoşgeldiniz",message: "Sizleri görmekten mutluyuz.", preset: .done)
@@ -31,35 +30,35 @@ class HomeVC : ViewController{
                 case .success(let value):
                     let uiImage = value.image
                     let popupVC = ALPopup.popup(template: .init(
-                                                            title: "Günün Menüsü",
-                                                            subtitle: self?.viewModel.data?.recipeName,
-                                                            image: uiImage,
-                                                            privaryButtonTitle: "Bak",
-                                                            secondaryButtonTitle: "Simdi Degil")
-                                    )
+                        title: "Günün Menüsü",
+                        subtitle: self?.viewModel.data?.recipeName,
+                        image: uiImage,
+                        privaryButtonTitle: "Bak",
+                        secondaryButtonTitle: "Simdi Degil")
+                    )
                     
-                     if let url = URL(string: (self?.viewModel.data?.imageURL!)!) {
-                         popupVC.tempateView.imageView.kf.setImage(with: url)
-                     }
+                    if let url = URL(string: (self?.viewModel.data?.imageURL!)!) {
+                        popupVC.tempateView.imageView.kf.setImage(with: url)
+                    }
                     
                     popupVC.tempateView.imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 130).isActive = false
-
+                    
                     popupVC.tempateView.imageView.widthAnchor.constraint(equalToConstant: 300).isActive = false
-
+                    
                     popupVC.tempateView.imageView.layer.cornerRadius = 30
-
+                    
                     popupVC.tempateView.secondaryButtonAction = { [weak self] in
                         
                         popupVC.pop()
                     }
-
+                    
                     
                     popupVC.tempateView.primaryButtonAction = {
                         popupVC.pop()
                         let recipeVC = self?.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
                         recipeVC.recipeId = self?.viewModel.data?.id
                         self?.navigationController?.pushViewController(recipeVC, animated: true)
-                        }
+                    }
                     popupVC.push(from: (self)!)
                 case .failure(let error):
                     print("Error downloading image: \(error)")
@@ -89,7 +88,7 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.darkGray.cgColor
         cell.layer.cornerRadius = 15
-
+        
         cell.recipeImageView.image = UIImage(named: recipeCategoryImage[indexPath.row])
         cell.recipeName.text = recipeCategoryTitle[indexPath.row]
         return cell

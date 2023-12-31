@@ -17,50 +17,58 @@ class RecipeCategoryDetailVC: UIViewController {
     var categoryTitle : String?
     var refreshControl = UIRefreshControl()
     let animationView = LottieAnimationView(name: "LottieAnimationSpinner")
-
+    
     @IBOutlet weak var recipeCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = categoryTitle
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(animationView)
-     NSLayoutConstraint.activate([
-           animationView.topAnchor.constraint(equalTo: view.topAnchor),
-           animationView.leftAnchor.constraint(equalTo: view.leftAnchor),
-           animationView.rightAnchor.constraint(equalTo: view.rightAnchor),
-           animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-         ])
-        animationView.isHidden = false
-        animationView.loopMode = .loop
-        animationView.play()
+        lottieAnimation()
         configureCollectionView()
         configureSearchController()
+        dataUpdate()
+        SkeletonUpdate()
+        viewModel.fetchData(endpoint:"\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
+        
+    }
+    private func dataUpdate(){
         viewModel.onDataUpdate = { [weak self]   in
-            
             self?.recipeCollectionView.reloadData()
             self?.animationView.stop()
             self?.animationView.isHidden = true
-
+            
         }
+
+    }
+    private func SkeletonUpdate(){
         viewModel.onSkeletonUpdate = { [weak self] isActive in
             if isActive {
                 self?.recipeCollectionView.isSkeletonable = true
-        //        recipeCollectionView.showAnimatedSkeleton(usingColor: .lightGray, animation: animation, transition: .crossDissolve(0.25))
                 self?.recipeCollectionView.showAnimatedGradientSkeleton()
             } else {
                 self?.recipeCollectionView.stopSkeletonAnimation()
                 self?.view.hideSkeleton()
             }
         }
-        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
-        
+    }
+    private func lottieAnimation(){
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(animationView)
+        NSLayoutConstraint.activate([
+            animationView.topAnchor.constraint(equalTo: view.topAnchor),
+            animationView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            animationView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            animationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+        animationView.isHidden = false
+        animationView.loopMode = .loop
+        animationView.play()
     }
     @objc func refresh(){
         viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
         self.refreshControl.endRefreshing()
     }
     private func configureCollectionView(){
-
+        
         recipeCollectionView.dataSource = self
         recipeCollectionView.delegate = self
         recipeCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
@@ -98,7 +106,7 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchController.isActive ? viewModel.filteredData.count : viewModel.data!.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let recipe: Recipe
         if searchController.isActive {
@@ -128,15 +136,15 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
         }
         else
         {
-         
+            
             
             recipeVC.recipeId = viewModel.data?[indexPath.row].id
-           
+            
         }
-
+        
         self.navigationController?.pushViewController(recipeVC, animated: true)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (recipeCollectionView.frame.size.width - 20) / 2
         return CGSize(width: width, height:(recipeCollectionView.frame.size.width-93)/2)
@@ -192,6 +200,5 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
         } else {
             recipeCollectionView.reloadData()
         }
-        
     }
 }

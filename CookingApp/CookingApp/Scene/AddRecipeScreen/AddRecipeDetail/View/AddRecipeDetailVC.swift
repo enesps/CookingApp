@@ -163,25 +163,24 @@ extension AddRecipeDetailVC:UITableViewDelegate ,UIImagePickerControllerDelegate
     }
     @objc func submitButtonTapped() {
         // Access the text from all text fields in sections 0 and 1
-        var allMaterialTexts: [String] = []
+        var IngredientViewTexts: [Ingredient] = []
         for i in 0..<IngredientViewCount {
             let indexPath = IndexPath(row: i, section: 0)
             if let cell = addRecipeTableView.cellForRow(at: indexPath) as? IngredientCell {
-                allMaterialTexts.append(cell.ingredient.text ?? "")
-                allMaterialTexts.append(cell.amount.text ?? "")
+                IngredientViewTexts.append(Ingredient(ingredient:cell.ingredient.text ?? "" , amount: cell.amount.text ?? ""))
             }
         }
         
-        var allHowToTexts: [String] = []
+        var InstructionViewTexts: [Instruction] = []
         for i in 0..<InstructionViewCount {
             let indexPath = IndexPath(row: i, section: 1)
             if let cell = addRecipeTableView.cellForRow(at: indexPath) as? InstructionViewCell {
-                allHowToTexts.append(cell.instruction.text ?? "")
+                InstructionViewTexts.append(Instruction(instruction: cell.instruction.text ?? "", time: nil))
             }
         }
         // Now you have the text from all text fields, you can use them as needed
-        print("All Material Texts: \(allMaterialTexts)")
-        print("All How To Texts: \(allHowToTexts)")
+        print("All IngredientView Texts: \(IngredientViewTexts)")
+        print("All InstructionViewTexts Texts: \(InstructionViewTexts)")
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let indexPath = findIndexPathForView(textField) {

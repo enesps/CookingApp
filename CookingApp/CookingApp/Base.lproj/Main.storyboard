@@ -707,10 +707,10 @@
             </objects>
             <point key="canvasLocation" x="6143" y="1939"/>
         </scene>
-        <!--View Controller-->
+        <!--Add RecipeVC-->
         <scene sceneID="cBR-eN-w9o">
             <objects>
-                <viewController id="kE0-GK-RiR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecipeVC" id="kE0-GK-RiR" customClass="AddRecipeVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ef-K3-rY9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -724,7 +724,7 @@
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarif Gondermek icin Tarif Paylas Butonuna basiniz.Paylastiginiz Tarif, Uygulama onayona gonderilecektir." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaR-wY-iz1">
-                                <rect key="frame" x="58" y="193" width="272" height="61"/>
+                                <rect key="frame" x="58" y="149" width="272" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -747,6 +747,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="onClickAddRecipe:" destination="kE0-GK-RiR" eventType="touchUpInside" id="ZAn-pN-uYs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e2G-sj-nMk"/>
@@ -762,6 +765,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RM5-jH-e3b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4362.5954198473282" y="442.95774647887328"/>
+        </scene>
+        <!--Add Recipe DetailVC-->
+        <scene sceneID="Yos-SX-u41">
+            <objects>
+                <viewController storyboardIdentifier="AddRecipeDetailVC" id="wpz-9w-hNb" customClass="AddRecipeDetailVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SlM-HO-r0a">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="afl-Y2-6xv">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FB0-JX-PIf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="afl-Y2-6xv" firstAttribute="top" secondItem="SlM-HO-r0a" secondAttribute="top" id="G9D-Lb-nWW"/>
+                            <constraint firstItem="afl-Y2-6xv" firstAttribute="trailing" secondItem="FB0-JX-PIf" secondAttribute="trailing" id="LbW-Jl-Ucc"/>
+                            <constraint firstAttribute="bottom" secondItem="afl-Y2-6xv" secondAttribute="bottom" id="Wkh-sf-MGv"/>
+                            <constraint firstItem="afl-Y2-6xv" firstAttribute="leading" secondItem="FB0-JX-PIf" secondAttribute="leading" id="jwa-HI-T2c"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="AddRecipeTableView" destination="afl-Y2-6xv" id="z6O-XW-usF"/>
+                        <outlet property="addRecipeTableView" destination="afl-Y2-6xv" id="JyC-qw-Icm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a5Y-QF-LFg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5556.4885496183206" y="28.87323943661972"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="WDt-Go-gf9">
@@ -1091,7 +1125,7 @@
         <!--Tarif Ekle-->
         <scene sceneID="4wX-Op-z7O">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yIH-wS-RaO" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yIH-wS-RaO" customClass="AddRecipeNC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tarif Ekle" image="plus" catalog="system" selectedImage="plus.circle.fill" id="Tr5-Dv-Ntc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vps-ju-eAU">
@@ -1099,9 +1133,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kE0-GK-RiR" kind="relationship" relationship="rootViewController" id="1sG-Jt-oTR"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNy-F6-Hf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -67,6 +67,13 @@
 		E0B05E972B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B05E952B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib */; };
 		E0B1973F2B0F7BDB006F4FFF /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B1973E2B0F7BDB006F4FFF /* ForgetPasswordVC.swift */; };
 		E0B197432B0F94F1006F4FFF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B197422B0F94F1006F4FFF /* SignUpVC.swift */; };
+		E0B479B02B458DA9001724B6 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B479AE2B458DA9001724B6 /* IngredientCell.swift */; };
+		E0B479B12B458DA9001724B6 /* IngredientCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B479AF2B458DA9001724B6 /* IngredientCell.xib */; };
+		E0B479BB2B458E0A001724B6 /* AddButtonRecipeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B479B92B458E0A001724B6 /* AddButtonRecipeViewCell.swift */; };
+		E0B479BC2B458E0A001724B6 /* AddButtonRecipeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B479BA2B458E0A001724B6 /* AddButtonRecipeViewCell.xib */; };
+		E0B479BF2B45906A001724B6 /* InstructionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B479BD2B45906A001724B6 /* InstructionViewCell.swift */; };
+		E0B479C02B45906A001724B6 /* InstructionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B479BE2B45906A001724B6 /* InstructionViewCell.xib */; };
+		E0B479C32B45A2C6001724B6 /* AddRecipeNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B479C22B45A2C6001724B6 /* AddRecipeNC.swift */; };
 		E0B4918B2B284CED00CB7547 /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B4918A2B284CED00CB7547 /* ApiConstants.swift */; };
 		E0BCA5302B109AB10057C65B /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BCA52F2B109AB10057C65B /* ProfileVC.swift */; };
 		E0BEC6292B35C32A00B468F2 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0BEC6282B35C32A00B468F2 /* credentials.plist */; };
@@ -81,6 +88,8 @@
 		E0F2B1DA2B1509D700B5C801 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F2B1D92B1509D700B5C801 /* RecipeModel.swift */; };
 		E0F2ED372B3D710700BC1643 /* ProfileShareVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F2ED362B3D710700BC1643 /* ProfileShareVC.swift */; };
 		E0F2ED3A2B3D9E3600BC1643 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = E0F2ED392B3D9E3600BC1643 /* SPIndicator */; };
+		E0FBC30F2B43F9C000E124F1 /* AddRecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FBC30E2B43F9C000E124F1 /* AddRecipeVC.swift */; };
+		E0FBC3112B43F9DB00E124F1 /* AddRecipeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FBC3102B43F9DB00E124F1 /* AddRecipeDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +181,13 @@
 		E0B05E952B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeImageViewCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0B1973E2B0F7BDB006F4FFF /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		E0B197422B0F94F1006F4FFF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		E0B479AE2B458DA9001724B6 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
+		E0B479AF2B458DA9001724B6 /* IngredientCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientCell.xib; sourceTree = "<group>"; };
+		E0B479B92B458E0A001724B6 /* AddButtonRecipeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonRecipeViewCell.swift; sourceTree = "<group>"; };
+		E0B479BA2B458E0A001724B6 /* AddButtonRecipeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddButtonRecipeViewCell.xib; sourceTree = "<group>"; };
+		E0B479BD2B45906A001724B6 /* InstructionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewCell.swift; sourceTree = "<group>"; };
+		E0B479BE2B45906A001724B6 /* InstructionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InstructionViewCell.xib; sourceTree = "<group>"; };
+		E0B479C22B45A2C6001724B6 /* AddRecipeNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeNC.swift; sourceTree = "<group>"; };
 		E0B4918A2B284CED00CB7547 /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		E0BCA52F2B109AB10057C65B /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		E0BEC6282B35C32A00B468F2 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
@@ -185,6 +201,8 @@
 		E0F2B1D62B1506C500B5C801 /* RecipeCategoryDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoryDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0F2B1D92B1509D700B5C801 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		E0F2ED362B3D710700BC1643 /* ProfileShareVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileShareVC.swift; sourceTree = "<group>"; };
+		E0FBC30E2B43F9C000E124F1 /* AddRecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeVC.swift; sourceTree = "<group>"; };
+		E0FBC3102B43F9DB00E124F1 /* AddRecipeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +304,7 @@
 		E000F9C82B06A43C00ACA458 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				E0FBC3072B43F92700E124F1 /* AddRecipeScreen */,
 				E0A534502B17309F00E22588 /* FavoriteScreen */,
 				E0A878DE2B0B918100E27247 /* ProfileScreen */,
 				E0A878D62B0B59B100E27247 /* SearchScreen */,
@@ -720,6 +739,51 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E0B479AC2B458D79001724B6 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0B479B72B458DD4001724B6 /* AddButtonRecipeCell */,
+				E0B479B22B458DB5001724B6 /* InstructionCell */,
+				E0B479AD2B458D87001724B6 /* IngredientCell */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		E0B479AD2B458D87001724B6 /* IngredientCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0B479AE2B458DA9001724B6 /* IngredientCell.swift */,
+				E0B479AF2B458DA9001724B6 /* IngredientCell.xib */,
+			);
+			path = IngredientCell;
+			sourceTree = "<group>";
+		};
+		E0B479B22B458DB5001724B6 /* InstructionCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0B479BD2B45906A001724B6 /* InstructionViewCell.swift */,
+				E0B479BE2B45906A001724B6 /* InstructionViewCell.xib */,
+			);
+			path = InstructionCell;
+			sourceTree = "<group>";
+		};
+		E0B479B72B458DD4001724B6 /* AddButtonRecipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0B479B92B458E0A001724B6 /* AddButtonRecipeViewCell.swift */,
+				E0B479BA2B458E0A001724B6 /* AddButtonRecipeViewCell.xib */,
+			);
+			path = AddButtonRecipeCell;
+			sourceTree = "<group>";
+		};
+		E0B479C12B45A27E001724B6 /* AddRecipeNC */ = {
+			isa = PBXGroup;
+			children = (
+				E0B479C22B45A2C6001724B6 /* AddRecipeNC.swift */,
+			);
+			path = AddRecipeNC;
+			sourceTree = "<group>";
+		};
 		E0BCA5312B109AB70057C65B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -825,6 +889,49 @@
 			isa = PBXGroup;
 			children = (
 				E0F2ED362B3D710700BC1643 /* ProfileShareVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0FBC3072B43F92700E124F1 /* AddRecipeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E0B479C12B45A27E001724B6 /* AddRecipeNC */,
+				E0FBC30A2B43F97900E124F1 /* AddRecipeDetail */,
+				E0FBC3082B43F93400E124F1 /* AddRecipe */,
+			);
+			path = AddRecipeScreen;
+			sourceTree = "<group>";
+		};
+		E0FBC3082B43F93400E124F1 /* AddRecipe */ = {
+			isa = PBXGroup;
+			children = (
+				E0FBC3092B43F97000E124F1 /* View */,
+			);
+			path = AddRecipe;
+			sourceTree = "<group>";
+		};
+		E0FBC3092B43F97000E124F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0FBC30E2B43F9C000E124F1 /* AddRecipeVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0FBC30A2B43F97900E124F1 /* AddRecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E0B479AC2B458D79001724B6 /* TableViewCell */,
+				E0FBC30B2B43F98200E124F1 /* View */,
+			);
+			path = AddRecipeDetail;
+			sourceTree = "<group>";
+		};
+		E0FBC30B2B43F98200E124F1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0FBC3102B43F9DB00E124F1 /* AddRecipeDetailVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -970,8 +1077,11 @@
 				E0B05E932B1DB98C00EC0FF7 /* RecipeCardTableViewCell.xib in Resources */,
 				E000F9D42B06A80200ACA458 /* LottieAnimation.json in Resources */,
 				E000F9972B06A12B00ACA458 /* Main.storyboard in Resources */,
+				E0B479C02B45906A001724B6 /* InstructionViewCell.xib in Resources */,
 				E08CD4412B3F089E00D9A414 /* LottieAnimationSpinner.json in Resources */,
+				E0B479BC2B458E0A001724B6 /* AddButtonRecipeViewCell.xib in Resources */,
 				E0F20D212B239A02007EE71A /* RecipePickerPeopleTableViewCell.xib in Resources */,
+				E0B479B12B458DA9001724B6 /* IngredientCell.xib in Resources */,
 				E0B05E972B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1015,7 +1125,9 @@
 				E092ECE72B3C23E900CC2596 /* LoginVM.swift in Sources */,
 				E096128B2B3DEF9A00CC1834 /* RecipeSavedVM.swift in Sources */,
 				E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */,
+				E0B479C32B45A2C6001724B6 /* AddRecipeNC.swift in Sources */,
 				E0B4918B2B284CED00CB7547 /* ApiConstants.swift in Sources */,
+				E0B479BB2B458E0A001724B6 /* AddButtonRecipeViewCell.swift in Sources */,
 				E000F9D72B06B71400ACA458 /* HomeVC.swift in Sources */,
 				E02CDA472B1F4A6A003617F2 /* RecipeCookingTableViewCell.swift in Sources */,
 				E0A878E22B0B959B00E27247 /* PreLoginVC.swift in Sources */,
@@ -1026,12 +1138,15 @@
 				E02F61592B307329009B122D /* RecipeCookingInfoTableViewCell.swift in Sources */,
 				E0F2B1DA2B1509D700B5C801 /* RecipeModel.swift in Sources */,
 				E0CA208F2B2B31F90072F4AB /* RecipeViewModel.swift in Sources */,
+				E0FBC30F2B43F9C000E124F1 /* AddRecipeVC.swift in Sources */,
 				E000F9922B06A12B00ACA458 /* SceneDelegate.swift in Sources */,
 				E003216C2B10D2DD006A280A /* FixProfileVC.swift in Sources */,
 				E000F9D12B06A5E400ACA458 /* OnBoardingScreen.swift in Sources */,
 				E0F2ED372B3D710700BC1643 /* ProfileShareVC.swift in Sources */,
 				E029B8E92B39B50C00E4A063 /* SignUpVM.swift in Sources */,
 				E0B1973F2B0F7BDB006F4FFF /* ForgetPasswordVC.swift in Sources */,
+				E0B479BF2B45906A001724B6 /* InstructionViewCell.swift in Sources */,
+				E0B479B02B458DA9001724B6 /* IngredientCell.swift in Sources */,
 				E0A534622B17AB5200E22588 /* RecipeSearchModel.swift in Sources */,
 				E04DE8C42B3457940046B026 /* RecipeSearchVM.swift in Sources */,
 				E092ECEA2B3C4A2500CC2596 /* ProfileVM.swift in Sources */,
@@ -1043,6 +1158,7 @@
 				E02CDA432B1F46FE003617F2 /* RecipeHeaderTableViewCell.swift in Sources */,
 				E0E50C782B2270A0000E6171 /* RecipeCategoryDetailVM.swift in Sources */,
 				E0F20D202B239A02007EE71A /* RecipePickerPeopleTableViewCell.swift in Sources */,
+				E0FBC3112B43F9DB00E124F1 /* AddRecipeDetailVC.swift in Sources */,
 				E0B05E962B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

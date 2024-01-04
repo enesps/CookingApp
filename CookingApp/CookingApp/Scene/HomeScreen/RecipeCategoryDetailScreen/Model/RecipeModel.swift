@@ -9,10 +9,10 @@ import Foundation
 struct Recipe: Codable {
     let id: Int?
     let imageURL: String?
-    let recipeName, cookingTime, preparationTime, totalTime: String?
+    var recipeName, cookingTime, preparationTime, totalTime: String?
     let servesFor, difficultyLevel, category: String?
-    let ingredients: [Ingredient]?
-    let instructions: [Instruction]?
+    var ingredients: [Ingredient]?
+    var instructions: [Instruction]?
     let score: Int?
     
     enum CodingKeys: String, CodingKey {

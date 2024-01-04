@@ -23,7 +23,7 @@
                             <constraint firstAttribute="width" constant="164" id="vWw-ND-dlP"/>
                         </constraints>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="gray" title="Tarif Ekle">
+                        <buttonConfiguration key="configuration" style="gray" image="plus.circle.fill" catalog="system" title="Tarif Ekle">
                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="baseBackgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         </buttonConfiguration>
@@ -43,4 +43,7 @@
             <point key="canvasLocation" x="94.656488549618317" y="51.760563380281695"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+    </resources>
 </document>

@@ -48,11 +48,51 @@ class AddRecipeDetailVC: UIViewController {
     }
     
     func setUpNavigationBarButtons(){
-        
-        let addIngredientButton = UIBarButtonItem(title: "Malzeme Ekle", style: .plain, target: self, action: #selector(addIngredientView))
-        addIngredientButton.image = UIImage(systemName: "add")
-        let addInstructionButton = UIBarButtonItem(title: "Nasil Yapilir Ekle", style: .plain, target: self, action: #selector(addInstructionView))
-        navigationItem.rightBarButtonItems = [addIngredientButton, addInstructionButton]
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem:  .add, primaryAction: nil, menu:menuItems())
+//        // Menü düğmesini oluştur
+//                let menuButton = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(menuButtonTapped))
+//
+//                // UIMenuItem'ları oluştur
+//                let menuItem1 = UIAction(title: "Option 1", handler: { _ in
+//                    print("Option 1 selected")
+//                })
+//
+//                let menuItem2 = UIAction(title: "Option 2", handler: { _ in
+//                    print("Option 2 selected")
+//                })
+//
+//                // UIMenu oluştur
+//                let menu = UIMenu(title: "Menu", children: [menuItem1, menuItem2])
+//
+//                // UIBarButtonItem'a UIMenu'yu ata
+//                menuButton.menu = menu
+//
+//                // UINavigationBar'ın sağında yer alan item'ı ayarla
+//                navigationItem.rightBarButtonItem = menuButton
+//        let addIngredientButton = UIBarButtonItem(title: "Malzeme Ekle", style: .plain, target: self, action: #selector(addIngredientView))
+//        addIngredientButton.image = UIImage(systemName: "add")
+//        let addInstructionButton = UIBarButtonItem(title: "Nasil Yapilir Ekle", style: .plain, target: self, action: #selector(addInstructionView))
+//        navigationItem.rightBarButtonItems = [addIngredientButton, addInstructionButton]
+    }
+    func menuItems () -> UIMenu {
+    let addMenuItems = UIMenu(title: "",options: .displayInline, children: [
+        UIAction (title: " Fotograf Sec", image: UIImage (systemName: "photo.circle" )) { (_) in
+            self.headerImageTapped()
+        },
+        UIAction (title: "Malzeme Ekle", image: UIImage(systemName: "plus.circle")) { (_) in
+            self.addIngredientView()
+        },
+    
+        UIAction (title: "Tarif Ekle", image: UIImage (systemName: "plus.circle")) { (_) in
+            self.addInstructionView()
+        },
+])
+        return addMenuItems
+    }
+    
+    @objc private func menuButtonTapped() {
+        // Bu fonksiyonu dilediğiniz gibi özelleştirebilirsiniz
+        print("Menu Button Tapped!")
     }
     
     @objc func addIngredientView() {

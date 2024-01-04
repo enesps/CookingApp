@@ -104,4 +104,43 @@ class TokenApiService {
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
+    func postRequest<T: Encodable, R: Decodable>(
+        idToken: String,
+        requestModel: T,
+        responseType: R.Type,
+        endpoint: String,
+        baseUrl: String
+    ) -> AnyPublisher<R, YourServiceError> {
+        let urlString = baseUrl + endpoint
+        guard let url = URL(string: urlString) else {
+            return Fail(error: YourServiceError.invalidData).eraseToAnyPublisher()
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(idToken)", forHTTPHeaderField: "Authorization")
+
+        do {
+            // Encode the request model to JSON data and set it as the HTTP body
+            request.httpBody = try JSONEncoder().encode(requestModel)
+        } catch {
+            return Fail(error: YourServiceError.invalidData).eraseToAnyPublisher()
+        }
+
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { data, response in
+                guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+                    throw YourServiceError.networkError
+                }
+                return data
+            }
+            .decode(type: R.self, decoder: JSONDecoder())
+            .mapError { error in
+                // Handle decoding errors or other errors here
+                YourServiceError.networkError
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
 }

@@ -73,22 +73,22 @@ class TokenApiService {
         guard var urlComponents = URLComponents(string: urlString) else {
             return Fail(error: YourServiceError.invalidData).eraseToAnyPublisher()
         }
-
+        
         // Query parameters can be added if needed
         urlComponents.queryItems = [
             URLQueryItem(name: "idToken", value: idToken)
             // Add other query parameters as needed
         ]
-
+        
         guard let url = urlComponents.url else {
             return Fail(error: YourServiceError.invalidData).eraseToAnyPublisher()
         }
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(idToken)", forHTTPHeaderField: "Authorization")
-
+        
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { data, response in
                 guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
@@ -115,22 +115,23 @@ class TokenApiService {
         guard let url = URL(string: urlString) else {
             return Fail(error: YourServiceError.invalidData).eraseToAnyPublisher()
         }
-
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(idToken)", forHTTPHeaderField: "Authorization")
-
+        
         do {
             // Encode the request model to JSON data and set it as the HTTP body
             request.httpBody = try JSONEncoder().encode(requestModel)
         } catch {
             return Fail(error: YourServiceError.invalidData).eraseToAnyPublisher()
         }
-
+        
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { data, response in
                 guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+                    print((response as? HTTPURLResponse)?.statusCode)
                     throw YourServiceError.networkError
                 }
                 return data

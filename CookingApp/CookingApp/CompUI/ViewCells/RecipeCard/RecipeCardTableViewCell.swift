@@ -22,18 +22,23 @@ class RecipeCardTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     func configure(with recipe : Recipe){
+        recipeCardName.preferredMaxLayoutWidth = recipeCardName.frame.size.width
+        print(recipe.recipeName)
         if let score = recipe.score{
             recipeCardScore.text = String(score)
         }
         recipeCardName.text = recipe.recipeName
         recipeCardDifficultyLevel.text = recipe.difficultyLevel
         recipeCardCookingTime.text = recipe.totalTime?.replacingOccurrences(of: "dakika", with: "dk")
-        if let imageURL = URL(string: recipe.imageURL!) {
+        print(recipe.imageURL)
+        if let imageURL = URL(string: recipe.imageURL ?? "") {
+            print(imageURL)
             recipeCardImage.kf.setImage(with: imageURL)
+        }else{
+            recipeCardImage.image = UIImage(named: "chicken")
         }
         
     }

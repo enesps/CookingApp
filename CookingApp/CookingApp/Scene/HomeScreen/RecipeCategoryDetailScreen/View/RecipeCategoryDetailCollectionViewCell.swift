@@ -16,12 +16,21 @@ class RecipeCategoryDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var recipeDifficultyLevel: UILabel!
     
     func configure(with recipe: Recipe) {
-        // Hücre içeriğini doldurma
-        if let imageURL = URL(string: recipe.imageURL!) {
+        print(recipe.imageURL)
+        if let imageURLString = recipe.imageURL, let imageURL = URL(string: imageURLString) {
+            // imageURL bir URL ise Kingfisher ile resmi yükle
             recipeImage.kf.setImage(with: imageURL)
             recipeImage.applyCornerRadiusToTop(corners: [.topLeft, .topRight], radius: 15)
+        } else if let base64String = recipe.imageURL, let imageData = UIImage(base64String: base64String) {
+            // imageURL bir base64 string ise UIImage oluştur ve set et
+            recipeImage.image = imageData
+        } else {
+            // imageURL hem URL değil hem de base64 string değilse, varsayılan bir resim kullanabilirsiniz
+            print(UIImage(base64String: recipe.imageURL ?? ""))
+            recipeImage.image = UIImage(named: "chicken")
         }
         recipeName.text = recipe.recipeName
+        
         if let score = recipe.score{
             recipeScore.text = String(score)
         }

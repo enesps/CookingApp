@@ -70,9 +70,11 @@ class RecipeVC: UIViewController {
         recipeTableView.separatorStyle = .none
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.size.width))
         let imageView = UIImageView(frame: header.bounds)
-
-        if let url = URL(string: (viewModel.data?.imageURL!)!) {
+      
+        if let url = URL(string: viewModel.data?.imageURL ?? "") {
             imageView.kf.setImage(with: url)
+        }else{
+            imageView.image = UIImage(named: "chicken")
         }
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true

@@ -13,10 +13,14 @@ class AddRecipeDetailVC: UIViewController {
     var sections = ["Yemek ismi","Malzemeler", "Nasıl Yapılır",""]
     var  IngredientViewCount = 1
     var InstructionViewCount = 1
-    var recipe: AddRecipeModel = AddRecipeModel()
     var tableHeaderView: UIView!
     var headerImageView: UIImageView!
+    let viewModel = AddRecipeDetailVM()
+    private var cancellables: Set<AnyCancellable> = []
     override func viewDidLoad() {
+        viewModel.onDataUpdate = { [weak self]   in
+            self?.navigationController?.dismiss(animated: true)
+        }
         super.viewDidLoad()
         setUpTableView()
         setUpTableViewHeader()
@@ -49,30 +53,6 @@ class AddRecipeDetailVC: UIViewController {
     
     func setUpNavigationBarButtons(){
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem:  .add, primaryAction: nil, menu:menuItems())
-//        // Menü düğmesini oluştur
-//                let menuButton = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(menuButtonTapped))
-//
-//                // UIMenuItem'ları oluştur
-//                let menuItem1 = UIAction(title: "Option 1", handler: { _ in
-//                    print("Option 1 selected")
-//                })
-//
-//                let menuItem2 = UIAction(title: "Option 2", handler: { _ in
-//                    print("Option 2 selected")
-//                })
-//
-//                // UIMenu oluştur
-//                let menu = UIMenu(title: "Menu", children: [menuItem1, menuItem2])
-//
-//                // UIBarButtonItem'a UIMenu'yu ata
-//                menuButton.menu = menu
-//
-//                // UINavigationBar'ın sağında yer alan item'ı ayarla
-//                navigationItem.rightBarButtonItem = menuButton
-//        let addIngredientButton = UIBarButtonItem(title: "Malzeme Ekle", style: .plain, target: self, action: #selector(addIngredientView))
-//        addIngredientButton.image = UIImage(systemName: "add")
-//        let addInstructionButton = UIBarButtonItem(title: "Nasil Yapilir Ekle", style: .plain, target: self, action: #selector(addInstructionView))
-//        navigationItem.rightBarButtonItems = [addIngredientButton, addInstructionButton]
     }
     func menuItems () -> UIMenu {
     let addMenuItems = UIMenu(title: "",options: .displayInline, children: [
@@ -89,11 +69,7 @@ class AddRecipeDetailVC: UIViewController {
 ])
         return addMenuItems
     }
-    
-    @objc private func menuButtonTapped() {
-        // Bu fonksiyonu dilediğiniz gibi özelleştirebilirsiniz
-        print("Menu Button Tapped!")
-    }
+
     
     @objc func addIngredientView() {
         IngredientViewCount += 1
@@ -115,56 +91,58 @@ class AddRecipeDetailVC: UIViewController {
         
         let indexPath = IndexPath(row: 0, section: 0)
         if let cell = addRecipeTableView.cellForRow(at: indexPath) as? HeaderSetViewCell {
-            recipe.category = cell.category.text
-            recipe.recipeName = cell.recipeName.text
-            recipe.preparationTime = cell.prepearingTime.text
-            recipe.cookingTime = cell.cookingTime.text
-            recipe.servesFor = cell.servesFor.text
-            
+            viewModel.requestModel.category = cell.category.text
+            viewModel.requestModel.recipeName = cell.recipeName.text
+            viewModel.requestModel.preparationTime = cell.prepearingTime.text
+            viewModel.requestModel.cookingTime = cell.cookingTime.text
+            viewModel.requestModel.servesFor = cell.servesFor.text
+            print(cell.category.text)
+            print(cell.recipeName.text)
+            print(cell.prepearingTime.text)
+            print(cell.cookingTime.text)
+            print(cell.servesFor.text)
         }
         var IngredientViewTexts: [AddIngredient] = []
         for i in 0..<IngredientViewCount {
             let indexPath = IndexPath(row: i, section: 1)
             if let cell = addRecipeTableView.cellForRow(at: indexPath) as? IngredientCell {
                 IngredientViewTexts.append(AddIngredient(ingredient:cell.ingredient.text ?? "" , amount: cell.amount.text ?? ""))
-                recipe.ingredients?.append(AddIngredient(ingredient:cell.ingredient.text ?? "" , amount: cell.amount.text ?? ""))
-                print(recipe.ingredients?[i].ingredient)
+                print(cell.ingredient.text)
+
             }
         }
-        print("IngredientViewTexts before setting: \(IngredientViewTexts)")
-        recipe.ingredients = IngredientViewTexts
-        print("Ingredients after setting: \(recipe.ingredients)")
+        viewModel.requestModel.ingredients = IngredientViewTexts
         var InstructionViewTexts: [AddInstruction] = []
         for i in 0..<InstructionViewCount {
             let indexPath = IndexPath(row: i, section: 2)
             if let cell = addRecipeTableView.cellForRow(at: indexPath) as? InstructionViewCell {
                 InstructionViewTexts.append(AddInstruction(instruction: cell.instruction.text ?? "", time: nil))
+                print(cell.instruction.text)
             }
         }
-        recipe.instructions = InstructionViewTexts
-        if let ingredients = recipe.ingredients {
-            if let firstIngredient = ingredients.first {
-                print("Recipe Ingredient: \(firstIngredient)")
-            } else {
-                print("No ingredients added.")
-            }
-        } else {
-            print("No ingredients added.")
-        }
-        print("All IngredientView Texts: \(IngredientViewTexts)")
-        print("All InstructionViewTexts Texts: \(InstructionViewTexts)")
+        viewModel.requestModel.instructions = InstructionViewTexts
+        viewModel.updateRequestModel()
+
+        print(viewModel.requestModel.ingredients)
+        print(viewModel.requestModel.instructions)
+        viewModel.performTokenAuth(idToken: KeyChainService.shared.readToken() ?? "")
+//        print(viewModel.requestModel)
     }
 }
 extension AddRecipeDetailVC:UITableViewDelegate ,UIImagePickerControllerDelegate,UITableViewDataSource,UINavigationControllerDelegate,UITextFieldDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             headerImageView.image = pickedImage
+                if let base64String = pickedImage.toBase64() {
+                    viewModel.requestModel.imageURL = base64String
+                }
+            }
             //ui image to base 64 convert
             
-            
-        }
         picker.dismiss(animated: true, completion: nil)
-    }
+        }
+        
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }

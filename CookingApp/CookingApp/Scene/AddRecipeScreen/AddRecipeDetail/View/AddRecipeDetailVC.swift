@@ -96,6 +96,7 @@ class AddRecipeDetailVC: UIViewController {
             viewModel.requestModel.preparationTime = cell.prepearingTime.text
             viewModel.requestModel.cookingTime = cell.cookingTime.text
             viewModel.requestModel.servesFor = cell.servesFor.text
+            viewModel.updateRequestModel()
             print(cell.category.text)
             print(cell.recipeName.text)
             print(cell.prepearingTime.text)
@@ -112,6 +113,7 @@ class AddRecipeDetailVC: UIViewController {
             }
         }
         viewModel.requestModel.ingredients = IngredientViewTexts
+        viewModel.updateRequestModel()
         var InstructionViewTexts: [AddInstruction] = []
         for i in 0..<InstructionViewCount {
             let indexPath = IndexPath(row: i, section: 2)
@@ -120,9 +122,11 @@ class AddRecipeDetailVC: UIViewController {
                 print(cell.instruction.text)
             }
         }
-        viewModel.requestModel.instructions = InstructionViewTexts
-        viewModel.updateRequestModel()
 
+        viewModel.requestModel.instructions = InstructionViewTexts
+//        viewModel.requestModel.imageUrl = "fejkvfdjkdfkl"
+        viewModel.updateRequestModel()
+        
         print(viewModel.requestModel.ingredients)
         print(viewModel.requestModel.instructions)
         viewModel.performTokenAuth(idToken: KeyChainService.shared.readToken() ?? "")
@@ -134,7 +138,9 @@ extension AddRecipeDetailVC:UITableViewDelegate ,UIImagePickerControllerDelegate
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             headerImageView.image = pickedImage
                 if let base64String = pickedImage.toBase64() {
-                    viewModel.requestModel.imageURL = base64String
+                    viewModel.requestModel.image = base64String
+                    viewModel.updateRequestModel()
+//                    viewModel.requestModel.imageUrl = "fejkvfdjkdfkl"
                 }
             }
             //ui image to base 64 convert

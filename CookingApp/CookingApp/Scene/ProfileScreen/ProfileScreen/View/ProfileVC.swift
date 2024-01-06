@@ -25,6 +25,7 @@ class ProfileVC: UIViewController {
                 self?.navigationItem.title = "\(model.name!) \(model.surname!)"
                 self?.profileUserName.text = model.email
                 self?.profileBtn.kf.setImage(with: URL(string:model.profilePicURL!))
+                self?.ownPostCollectionView.reloadData()
 
             }
         }
@@ -101,12 +102,22 @@ extension ProfileVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return viewModel.data?.recipes?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = ownPostCollectionView.dequeueReusableCell(withReuseIdentifier: "RecipeImageViewCollectionViewCell", for: indexPath) as! RecipeImageViewCollectionViewCell
-        cell.recipeImageView.image = UIImage(named: "chicken-1")
+        if viewModel.data?.recipes?[indexPath.row].image == nil{
+            cell.recipeImageView.image = UIImage(named: "chicken")
+        }else{
+            cell.recipeImageView.image = UIImage(base64String: viewModel.data?.recipes?[indexPath.row].image ?? "")
+        }
+//        if let imageURL = URL(string: viewModel.data?.recipes?[indexPath.row].imageURL ?? "") {
+//            print(imageURL)
+//            cell.recipeImageView.kf.setImage(with: imageURL)
+//        }else{
+//            cell.recipeImageView.image = UIImage(base64String: viewModel.data?.recipes?[indexPath.row].image ?? "")
+//        }
         cell.recipeName.isHidden = true
         return cell
     }

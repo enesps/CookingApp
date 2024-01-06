@@ -8,7 +8,7 @@
 import Foundation
 struct Recipe: Codable {
     let id: Int?
-    let imageURL: String?
+    let imageURL,image: String?
     var recipeName, cookingTime, preparationTime, totalTime: String?
     let servesFor, difficultyLevel, category: String?
     var ingredients: [Ingredient]?
@@ -17,7 +17,9 @@ struct Recipe: Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
+
         case imageURL = "imageUrl"
+        case image = "image"
         case recipeName, cookingTime, preparationTime, totalTime, servesFor, difficultyLevel, category, ingredients, instructions, score
     }
 }

@@ -1,31 +1,27 @@
-//
-//  ProfileModel.swift
-//  CookingApp
-//
-//  Created by Enes Pusa on 27.12.2023.
-//
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let profile = try? JSONDecoder().decode(Profile.self, from: jsonData)
+//   let profileModel = try? JSONDecoder().decode(ProfileModel.self, from: jsonData)
 
 import Foundation
 
-// MARK: - Profile
+// MARK: - ProfileModel
 struct ProfileModel: Codable {
     let id: Int?
-    let email, name, surname: String?
-    let socialLoginID: JSONNull?
+    let name, surname, email: String?
     let profilePicURL: String?
-    let socialTypeLogin, role: JSONNull?
+    let recipes: [Recipe]?
 
     enum CodingKeys: String, CodingKey {
-        case id, email, name, surname
-        case socialLoginID = "socialLoginId"
+        case id, name, surname, email
         case profilePicURL = "profilePicUrl"
-        case socialTypeLogin, role
+        case recipes
     }
 }
+
+
+
+// MARK: - Encode/decode helpers
 
 class JSONNull: Codable, Hashable {
 

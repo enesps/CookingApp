@@ -18,10 +18,10 @@ class AddRecipeDetailVC: UIViewController {
     let viewModel = AddRecipeDetailVM()
     private var cancellables: Set<AnyCancellable> = []
     override func viewDidLoad() {
+        super.viewDidLoad()
         viewModel.onDataUpdate = { [weak self]   in
             self?.navigationController?.dismiss(animated: true)
         }
-        super.viewDidLoad()
         setUpTableView()
         setUpTableViewHeader()
         setUpNavigationBarButtons()

@@ -15,7 +15,7 @@ class HeaderSetViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
     @IBOutlet weak var prepearingTime: UITextField!
     @IBOutlet weak var recipeName: UITextField!
     @IBOutlet weak var cookingTime: UITextField!
-    
+    var ingredientUpdate: ((String, String,String,String,String) -> Void)?
     let categoryPickerView = UIPickerView()
     let servesPickerView = UIPickerView()
     let CookingPickerView = UIPickerView()
@@ -51,9 +51,17 @@ class HeaderSetViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewData
         servesFor.inputAccessoryView = createToolbar(for: servesFor)
         prepearingTime.inputAccessoryView = createToolbar(for: prepearingTime)
         cookingTime.inputAccessoryView = createToolbar(for: cookingTime)
+        recipeName.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        category.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        servesFor.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        prepearingTime.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        cookingTime.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
 
         // İsterseniz inputAccessoryView kullanarak picker üzerinde bir toolbar ekleyebilirsiniz.
         // Örnek: category.inputAccessoryView = createToolbar()
+    }
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        ingredientUpdate?(recipeName.text ?? "",category.text ?? "", servesFor.text ?? "", prepearingTime.text ?? "",cookingTime.text ?? "")
     }
     func createToolbar(for textField: UITextField) -> UIToolbar {
          let toolbar = UIToolbar()

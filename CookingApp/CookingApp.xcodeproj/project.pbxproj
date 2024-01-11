@@ -48,6 +48,7 @@
 		E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072E2142B108C8600F3F4F7 /* ProfileNC.swift */; };
 		E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E075A2692B24BAED00C71C95 /* Kingfisher */; };
 		E08CD4412B3F089E00D9A414 /* LottieAnimationSpinner.json in Resources */ = {isa = PBXBuildFile; fileRef = E08CD4402B3F089D00D9A414 /* LottieAnimationSpinner.json */; };
+		E08DAD232B4FEB2500521A32 /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = E08DAD222B4FEB2500521A32 /* SkyFloatingLabelTextField */; };
 		E092ECDE2B3AD99F00CC2596 /* TokenApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E092ECDD2B3AD99F00CC2596 /* TokenApiService.swift */; };
 		E092ECE12B3ADA0B00CC2596 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E092ECE02B3ADA0B00CC2596 /* Alamofire */; };
 		E092ECE42B3ADEC300CC2596 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E092ECE32B3ADEC300CC2596 /* SignUpModel.swift */; };
@@ -221,6 +222,7 @@
 				E0A878D52B0B596800E27247 /* RAMReel in Frameworks */,
 				E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */,
 				E00F24F22B0E442B00B36FBC /* GoogleSignInSwift in Frameworks */,
+				E08DAD232B4FEB2500521A32 /* SkyFloatingLabelTextField in Frameworks */,
 				E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */,
 				E029B8EF2B39EDD300E4A063 /* KeychainAccess in Frameworks */,
 				E092ECE12B3ADA0B00CC2596 /* Alamofire in Frameworks */,
@@ -1002,6 +1004,7 @@
 				E029B8EE2B39EDD300E4A063 /* KeychainAccess */,
 				E092ECE02B3ADA0B00CC2596 /* Alamofire */,
 				E0F2ED392B3D9E3600BC1643 /* SPIndicator */,
+				E08DAD222B4FEB2500521A32 /* SkyFloatingLabelTextField */,
 			);
 			productName = CookingApp;
 			productReference = E000F98C2B06A12B00ACA458 /* CookingApp.app */;
@@ -1087,6 +1090,7 @@
 				E029B8ED2B39EDD300E4A063 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				E092ECDF2B3ADA0B00CC2596 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E0F2ED382B3D9E3600BC1643 /* XCRemoteSwiftPackageReference "SPIndicator" */,
+				E08DAD212B4FEB2500521A32 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
 			);
 			productRefGroup = E000F98D2B06A12B00ACA458 /* Products */;
 			projectDirPath = "";
@@ -1610,6 +1614,14 @@
 				minimumVersion = 7.10.1;
 			};
 		};
+		E08DAD212B4FEB2500521A32 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Skyscanner/SkyFloatingLabelTextField.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		E092ECDF2B3ADA0B00CC2596 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1689,6 +1701,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E075A2682B24BAED00C71C95 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		E08DAD222B4FEB2500521A32 /* SkyFloatingLabelTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E08DAD212B4FEB2500521A32 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */;
+			productName = SkyFloatingLabelTextField;
 		};
 		E092ECE02B3ADA0B00CC2596 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -8,17 +8,22 @@
 import UIKit
 import Combine
 class AddRecipeDetailVC: UIViewController {
+
+    
     
     @IBOutlet weak var addRecipeTableView: UITableView!
     var sections = ["Yemek ismi","Malzemeler", "Nasıl Yapılır",""]
     var  IngredientViewCount = 1
     var InstructionViewCount = 1
+    var ingredientArray = [AddIngredient()]
+    var instructionArray = [AddInstruction()]
     var tableHeaderView: UIView!
     var headerImageView: UIImageView!
     let viewModel = AddRecipeDetailVM()
     private var cancellables: Set<AnyCancellable> = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel.onDataUpdate = { [weak self]   in
             self?.navigationController?.dismiss(animated: true)
         }
@@ -72,14 +77,15 @@ class AddRecipeDetailVC: UIViewController {
 
     
     @objc func addIngredientView() {
-        IngredientViewCount += 1
-        let newMaterialIndexPath = IndexPath(row: IngredientViewCount - 1, section: 1)
-        addRecipeTableView.insertRows(at: [newMaterialIndexPath], with: .automatic)
+//        IngredientViewCount += 1
+//        let newMaterialIndexPath = IndexPath(row: IngredientViewCount - 1, section: 1)
+//        addRecipeTableView.insertRows(at: [newMaterialIndexPath], with: .automatic)
+        ingredientArray.append(AddIngredient())
+        addRecipeTableView.reloadData()
     }
     @objc func addInstructionView() {
-        InstructionViewCount += 1
-        let newMaterialIndexPath = IndexPath(row: InstructionViewCount - 1, section: 2)
-        addRecipeTableView.insertRows(at: [newMaterialIndexPath], with: .automatic)
+        instructionArray.append(AddInstruction())
+        addRecipeTableView.reloadData()
     }
     @objc func headerImageTapped() {
         let imagePickerController = UIImagePickerController()
@@ -88,52 +94,76 @@ class AddRecipeDetailVC: UIViewController {
         present(imagePickerController, animated: true, completion: nil)
     }
     @objc func submitButtonTapped() {
-        
+        print(ingredientArray.count)
+
         let indexPath = IndexPath(row: 0, section: 0)
         if let cell = addRecipeTableView.cellForRow(at: indexPath) as? HeaderSetViewCell {
-            viewModel.requestModel.category = cell.category.text
+//            viewModel.requestModel.category = cell.categoryButton.currentTitle
+//            viewModel.requestModel.recipeName = cell.recipeName.text
+//            viewModel.requestModel.preparationTime = cell.prepearingTimeButton.currentTitle
+//            viewModel.requestModel.cookingTime = cell.cookingTimeButton.currentTitle
+//            viewModel.requestModel.servesFor = cell.servesForButton.currentTitle
+//            viewModel.updateRequestModel()
             viewModel.requestModel.recipeName = cell.recipeName.text
+            viewModel.requestModel.category = cell.category.text
+            viewModel.requestModel.servesFor = cell.servesFor.text
             viewModel.requestModel.preparationTime = cell.prepearingTime.text
             viewModel.requestModel.cookingTime = cell.cookingTime.text
-            viewModel.requestModel.servesFor = cell.servesFor.text
-            viewModel.updateRequestModel()
-            print(cell.category.text)
-            print(cell.recipeName.text)
-            print(cell.prepearingTime.text)
-            print(cell.cookingTime.text)
-            print(cell.servesFor.text)
-        }
-        var IngredientViewTexts: [AddIngredient] = []
-        for i in 0..<IngredientViewCount {
-            let indexPath = IndexPath(row: i, section: 1)
-            if let cell = addRecipeTableView.cellForRow(at: indexPath) as? IngredientCell {
-                IngredientViewTexts.append(AddIngredient(ingredient:cell.ingredient.text ?? "" , amount: cell.amount.text ?? ""))
-                print(cell.ingredient.text)
+            
 
-            }
         }
-        viewModel.requestModel.ingredients = IngredientViewTexts
+        viewModel.requestModel.ingredients = ingredientArray
+        viewModel.requestModel.instructions = instructionArray
         viewModel.updateRequestModel()
-        var InstructionViewTexts: [AddInstruction] = []
-        for i in 0..<InstructionViewCount {
-            let indexPath = IndexPath(row: i, section: 2)
+        print(viewModel.requestModel)
+//        for (index,value) in ingredientArray.enumerated() {
+//            let indexPath = IndexPath(row: index, section: 1)
+//            
+//            if let cell = addRecipeTableView.cellForRow(at: indexPath) as? IngredientCell {
+//                cell.ingredient.text = value.ingredient
+//                cell.amount.text = value.amount
+//    
+//                print("ingredient:" + (cell.ingredient.text ?? ""))
+//                print("amount:" + (cell.amount.text ?? ""))
+//
+//
+//            }
+//        }
+        for (index,value) in instructionArray.enumerated() {
+            let indexPath = IndexPath(row: index, section: 2)
             if let cell = addRecipeTableView.cellForRow(at: indexPath) as? InstructionViewCell {
-                InstructionViewTexts.append(AddInstruction(instruction: cell.instruction.text ?? "", time: nil))
-                print(cell.instruction.text)
+                cell.instruction.text = value.instruction
+                
+//                IngredientViewTexts.append(AddIngredient(ingredient:cell.ingredient.text ?? "" , amount: cell.amount.text ?? ""))
+                print("instruction:" + (cell.instruction.text ?? ""))
+               
+
+
             }
         }
-
-        viewModel.requestModel.instructions = InstructionViewTexts
-//        viewModel.requestModel.imageUrl = "fejkvfdjkdfkl"
-        viewModel.updateRequestModel()
-        
-        print(viewModel.requestModel.ingredients)
-        print(viewModel.requestModel.instructions)
-        viewModel.performTokenAuth(idToken: KeyChainService.shared.readToken() ?? "")
-//        print(viewModel.requestModel)
+//        viewModel.requestModel.ingredients = IngredientViewTexts
+//        viewModel.updateRequestModel()
+//        var InstructionViewTexts: [AddInstruction] = []
+//        for i in 0..<InstructionViewCount {
+//            let indexPath = IndexPath(row: i, section: 2)
+//            if let cell = addRecipeTableView.cellForRow(at: indexPath) as? InstructionViewCell {
+//                InstructionViewTexts.append(AddInstruction(instruction: cell.instruction.text ?? "", time: nil))
+//                print(cell.instruction.text)
+//            }
+//        }
+//
+//        viewModel.requestModel.instructions = InstructionViewTexts
+////        viewModel.requestModel.imageUrl = "fejkvfdjkdfkl"
+//        viewModel.updateRequestModel()
+//        
+//        print(viewModel.requestModel.ingredients)
+//        print(viewModel.requestModel.instructions)
+//        viewModel.performTokenAuth(idToken: KeyChainService.shared.readToken() ?? "")
+////        print(viewModel.requestModel)
     }
 }
 extension AddRecipeDetailVC:UITableViewDelegate ,UIImagePickerControllerDelegate,UITableViewDataSource,UINavigationControllerDelegate,UITextFieldDelegate{
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             headerImageView.image = pickedImage
@@ -143,7 +173,7 @@ extension AddRecipeDetailVC:UITableViewDelegate ,UIImagePickerControllerDelegate
 //                    viewModel.requestModel.imageUrl = "fejkvfdjkdfkl"
                 }
             }
-            //ui image to base 64 convert
+            
             
         picker.dismiss(animated: true, completion: nil)
         }
@@ -156,31 +186,50 @@ extension AddRecipeDetailVC:UITableViewDelegate ,UIImagePickerControllerDelegate
         if section == 0 {
             return 1
         } else if section == 1 {
-            return  IngredientViewCount// "Nasıl Yapılır" section'ı için sadece bir view cell
+            return  ingredientArray.count// "Nasıl Yapılır" section'ı için sadece bir view cell
         }
         else if section == 2{
-            return InstructionViewCount
+            return instructionArray.count
         }else if section == 3{
             return 1
         }
         return 0
     }
-    // Her view cell için içeriği belirtin
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)  as! HeaderSetViewCell
+            viewModel.requestModel.recipeName = cell.recipeName.text
+            viewModel.requestModel.category = cell.category.text
+            viewModel.requestModel.servesFor = cell.servesFor.text
+            viewModel.requestModel.preparationTime = cell.prepearingTime.text
+            viewModel.requestModel.cookingTime = cell.cookingTime.text
+            cell.ingredientUpdate = { [weak self] recipeName,categoryButton, servesForButton, prepearingTimeButton,cookingTimeButton in
+                self?.viewModel.requestModel.recipeName = recipeName
+                self?.viewModel.requestModel.category = categoryButton
+                self?.viewModel.requestModel.servesFor = servesForButton
+                self?.viewModel.requestModel.preparationTime = prepearingTimeButton
+                self?.viewModel.requestModel.cookingTime = cookingTimeButton
+            }
             return cell
         }
         else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath)  as! IngredientCell
-            // Hücredeki text field'ın delegate'ini ayarla
-            cell.ingredient.delegate = self
-            cell.amount.delegate = self
+            let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath) as! IngredientCell
+            cell.ingredient.text = ingredientArray[indexPath.row].ingredient
+            cell.amount.text = ingredientArray[indexPath.row].amount
+            cell.ingredientUpdate = { [weak self] ingredient, amount in
+                self?.ingredientArray[indexPath.row] = AddIngredient(ingredient: ingredient, amount: amount)
+                self?.viewModel.requestModel.ingredients?[indexPath.row] = AddIngredient(ingredient: ingredient, amount: amount)
+                
+            }
             return cell
-        }
+            }
         else if indexPath.section == 2{
             let cell = tableView.dequeueReusableCell(withIdentifier: "InstructionCell", for: indexPath)  as! InstructionViewCell
-            cell.instruction.delegate = self
+            cell.instruction.text = instructionArray[indexPath.row].instruction
+            cell.instructionUpdate = { [weak self] instruction in
+                self?.instructionArray[indexPath.row] = AddInstruction(instruction: instruction,time: nil)
+            }
             return cell
         }
         else{
@@ -189,7 +238,19 @@ extension AddRecipeDetailVC:UITableViewDelegate ,UIImagePickerControllerDelegate
             return cell
         }
     }
-    
+//    func configureCell(_ cell: IngredientCell, at indexPath: IndexPath) {
+//        let ingredient = ingredientArray[indexPath.row]
+//
+//        cell.textFieldValueChanged = { ingredientText, amountText in
+//            // Handle text changes
+//            self.ingredientArray[indexPath.row].ingredient = ingredientText
+//            self.ingredientArray[indexPath.row].amount = amountText
+//            // You can perform validation or any other actions here
+//        }
+//
+//        cell.ingredient.text = ingredient.ingredient
+//        cell.amount.text = ingredient.amount
+//    }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Sadece 1. ve 2. section'ındaki satırları düzenle
         return indexPath.section == 1 || indexPath.section == 2
@@ -225,32 +286,6 @@ extension AddRecipeDetailVC:UITableViewDelegate ,UIImagePickerControllerDelegate
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section]
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let indexPath = findIndexPathForView(textField) {
-            // Eğer text field bir hücre içindeyse
-            let nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
-            
-            if let nextCell = addRecipeTableView.cellForRow(at: nextIndexPath) as? IngredientCell {
-                // Eğer bir sonraki hücre varsa, onun text field'ına odaklan
-                nextCell.ingredient.becomeFirstResponder()
-            } else {
-                // Eğer bir sonraki hücre yoksa, klavyeyi kapat
-                textField.resignFirstResponder()
-            }
-        }
-        return true
-    }
-    private func findIndexPathForView(_ view: UIView) -> IndexPath? {
-        var currentView: UIView? = view
-        while currentView != nil {
-            if let cell = currentView as? UITableViewCell {
-                return addRecipeTableView.indexPath(for: cell)
-            }
-            currentView = currentView?.superview
-        }
-        return nil
-    }
 }
 
 extension UIImage {
@@ -270,4 +305,5 @@ extension UIImage {
         }
         self.init(data: data)
     }
+
 }

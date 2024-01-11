@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import Combine
+import SkyFloatingLabelTextField
+class IngredientCell: UITableViewCell, UITextFieldDelegate {
 
-class IngredientCell: UITableViewCell {
-
-    @IBOutlet weak var amount: UITextField!
-    @IBOutlet weak var ingredient: UITextField!
+    @IBOutlet weak var amount: SkyFloatingLabelTextField!
+    @IBOutlet weak var ingredient: SkyFloatingLabelTextField!
+    var ingredientUpdate: ((String, String) -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        ingredient.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        amount.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        ingredientUpdate?(ingredient.text ?? "", amount.text ?? "")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -21,5 +28,5 @@ class IngredientCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

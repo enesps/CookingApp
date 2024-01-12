@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
 class HeaderSetViewCell: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate  {
 
-    @IBOutlet weak var category: UITextField!
+    @IBOutlet weak var category: SkyFloatingLabelTextField!
     
-    @IBOutlet weak var servesFor: UITextField!
-    @IBOutlet weak var prepearingTime: UITextField!
-    @IBOutlet weak var recipeName: UITextField!
-    @IBOutlet weak var cookingTime: UITextField!
+    @IBOutlet weak var servesFor: SkyFloatingLabelTextField!
+    @IBOutlet weak var prepearingTime: SkyFloatingLabelTextField!
+    @IBOutlet weak var recipeName: SkyFloatingLabelTextField!
+    @IBOutlet weak var cookingTime: SkyFloatingLabelTextField!
     var ingredientUpdate: ((String, String,String,String,String) -> Void)?
     let categoryPickerView = UIPickerView()
     let servesPickerView = UIPickerView()

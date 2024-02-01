@@ -11,7 +11,6 @@ class KeyChainService{
     static let shared = KeyChainService()
     
     private let keychain = Keychain(service: "com.CookingApp.CookingApp")
-    
     private let tokenKey = "UserToken"
 
     func saveToken(_ token: String) {

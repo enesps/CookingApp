@@ -19,6 +19,7 @@ class SearchVC:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let animationView = LottieAnimationView(name: "LottieAnimationSpinner")
         animationView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(animationView)
@@ -150,6 +151,12 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource,UISearchResultsUp
             viewModel.filteredData = filteredData!
         }
         recipeSearchTableView.reloadData()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // Burada istediğiniz işlemleri gerçekleştirin
+        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipes)")
+        // Örneğin, arama ekranını kapatmak için aşağıdaki satırı ekleyebilirsiniz:
+        // dismiss(animated: true, completion: nil)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

@@ -70,12 +70,12 @@ class RecipeVC: UIViewController {
         recipeTableView.separatorStyle = .none
         let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.size.width))
         let imageView = UIImageView(frame: header.bounds)
-      
-        if let url = URL(string: viewModel.data?.imageURL ?? "") {
-            imageView.kf.setImage(with: url)
+        if viewModel.data?.imageURL != nil{
+            imageView.kf.setImage(with: URL(string: viewModel.data?.imageURL ?? ""))
         }else{
-            imageView.image = UIImage(named: "chicken")
+            imageView.image = UIImage(base64String: viewModel.data?.image ?? "")
         }
+
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         header.addSubview(imageView)

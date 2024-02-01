@@ -18,14 +18,19 @@ class HomeVC : ViewController{
     let recipeCategoryImage: [String] = ["soup","main-food","dessert","drink"]
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = RecipeHomeVM()
-    
+    var imageUrl : URL? = nil
     override func viewDidLoad() {
         viewModel.onDataUpdate = { [weak self]   in
-            let imageUrl = URL(string: (self?.viewModel.data?.imageURL)!)
+            if let ImageUrl = self?.viewModel.data?.imageURL{
+                self?.imageUrl = URL(string: (ImageUrl))
+            }else{
+                self?.imageUrl = URL(string: ("cdscd"))
+                
+            }
             let indicatorView = SPIndicatorView(title: "Hoşgeldiniz",message: "Sizleri görmekten mutluyuz.", preset: .done)
             indicatorView.present(duration: 3)
             // Use Kingfisher to download the image
-            KingfisherManager.shared.retrieveImage(with: imageUrl!) { result in
+            KingfisherManager.shared.retrieveImage(with: (self?.imageUrl)!) { result in
                 switch result {
                 case .success(let value):
                     let uiImage = value.image

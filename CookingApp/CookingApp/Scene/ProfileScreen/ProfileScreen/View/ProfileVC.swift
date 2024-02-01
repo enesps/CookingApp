@@ -128,7 +128,7 @@ extension ProfileVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let recipeVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeVC") as! RecipeVC
-        
+        recipeVC.recipeId = viewModel.data?.recipes?[indexPath.row].id
         self.navigationController?.pushViewController(recipeVC, animated: true)
     }
     

@@ -57,7 +57,7 @@ class RecipeCategoryDetailVM: ViewModelProtocol {
 
     func fetchData1(for query: [String: String] = [:], endpoint: String) {
         self.onSkeletonUpdate?(true)
-        apiService.fetchData(for: query, modelType: Recipe.self, baseURL: APIConstants.baseURL, endpoint: endpoint)
+        apiService.fetchData(for: query, modelType: [Recipe].self, baseURL: APIConstants.baseURL, endpoint: endpoint)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -72,8 +72,13 @@ class RecipeCategoryDetailVM: ViewModelProtocol {
                     
                 }
             }, receiveValue: { [weak self] receivedData in
-                self?.data?.append(receivedData)
-                self?.filteredData.append(receivedData)
+                for i in receivedData{
+                    self?.data?.append(i)
+                    self?.filteredData.append(i)
+                }
+                            
+                
+                
                 self?.onDataUpdate?()
             })
             .store(in: &cancellables)

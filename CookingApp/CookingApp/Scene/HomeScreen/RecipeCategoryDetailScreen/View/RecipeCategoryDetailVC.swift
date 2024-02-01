@@ -177,7 +177,13 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
         
         recipeCollectionView.reloadData()
     }
-    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        // Burada istediğiniz işlemleri gerçekleştirin
+        viewModel.fetchData(endpoint:"\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
+        
+        // Örneğin, arama ekranını kapatmak için aşağıdaki satırı ekleyebilirsiniz:
+        // dismiss(animated: true, completion: nil)
+    }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text?.lowercased() else { return }
         

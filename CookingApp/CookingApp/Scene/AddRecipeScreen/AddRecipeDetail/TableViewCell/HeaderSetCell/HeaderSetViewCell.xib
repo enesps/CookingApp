@@ -163,4 +163,21 @@
             <point key="canvasLocation" x="181.67938931297709" y="84.859154929577471"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="4BD-H6-KYE">
+            <size key="intrinsicContentSize" width="91.666666666666671" height="34"/>
+        </designable>
+        <designable name="7b7-zR-Cda">
+            <size key="intrinsicContentSize" width="136.33333333333334" height="34"/>
+        </designable>
+        <designable name="CYR-4S-8eh">
+            <size key="intrinsicContentSize" width="132.33333333333334" height="34"/>
+        </designable>
+        <designable name="Y0e-eq-N7v">
+            <size key="intrinsicContentSize" width="119.66666666666667" height="34"/>
+        </designable>
+        <designable name="toY-fw-VqO">
+            <size key="intrinsicContentSize" width="86.333333333333329" height="34"/>
+        </designable>
+    </designables>
 </document>

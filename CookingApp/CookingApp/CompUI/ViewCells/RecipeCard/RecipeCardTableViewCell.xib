@@ -44,11 +44,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1U-dX-ElF">
                                 <rect key="frame" x="0.0" y="56" width="203" height="56"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rfb-1J-LZn">
-                                        <rect key="frame" x="0.0" y="0.0" width="202" height="56"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rfb-1J-LZn">
+                                        <rect key="frame" x="0.0" y="0.0" width="203" height="56"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="npb-a7-ISj">
-                                                <rect key="frame" x="0.0" y="0.0" width="202" height="56"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npb-a7-ISj">
+                                                <rect key="frame" x="0.0" y="0.0" width="203" height="56"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" id="RRG-p5-VaB">
                                                         <rect key="frame" x="16" y="11.333333333333336" width="19" height="19"/>
@@ -110,17 +110,31 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="npb-a7-ISj" secondAttribute="bottom" id="7Pc-uI-1IF"/>
+                                            <constraint firstAttribute="trailing" secondItem="npb-a7-ISj" secondAttribute="trailing" id="HYm-AD-ih0"/>
                                             <constraint firstItem="npb-a7-ISj" firstAttribute="leading" secondItem="Rfb-1J-LZn" secondAttribute="leading" id="WoG-bV-uVS"/>
                                             <constraint firstAttribute="trailing" secondItem="npb-a7-ISj" secondAttribute="trailing" id="X9g-dJ-VIe"/>
                                             <constraint firstItem="npb-a7-ISj" firstAttribute="top" secondItem="Rfb-1J-LZn" secondAttribute="top" id="r9f-C1-qzV"/>
+                                            <constraint firstItem="npb-a7-ISj" firstAttribute="top" secondItem="Rfb-1J-LZn" secondAttribute="top" id="u2D-hW-af0"/>
+                                            <constraint firstAttribute="bottom" secondItem="npb-a7-ISj" secondAttribute="bottom" id="vMS-Cx-EZc"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Rfb-1J-LZn" firstAttribute="centerX" secondItem="H1U-dX-ElF" secondAttribute="centerX" id="1G1-a4-Tid"/>
+                                    <constraint firstItem="Rfb-1J-LZn" firstAttribute="leading" secondItem="H1U-dX-ElF" secondAttribute="leading" id="GD9-Jr-BSL"/>
+                                    <constraint firstItem="Rfb-1J-LZn" firstAttribute="centerY" secondItem="H1U-dX-ElF" secondAttribute="centerY" id="b8r-a4-9z4"/>
+                                    <constraint firstItem="Rfb-1J-LZn" firstAttribute="top" secondItem="H1U-dX-ElF" secondAttribute="top" id="rGI-xF-loK"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="H1U-dX-ElF" firstAttribute="leading" secondItem="mTf-mw-DYU" secondAttribute="leading" id="9z9-vz-7BZ"/>
+                            <constraint firstItem="ldq-Ih-H94" firstAttribute="leading" secondItem="mTf-mw-DYU" secondAttribute="leading" id="Kpy-Bj-dse"/>
+                            <constraint firstAttribute="trailing" secondItem="ldq-Ih-H94" secondAttribute="trailing" id="QVW-TH-cCS"/>
                             <constraint firstItem="H1U-dX-ElF" firstAttribute="top" secondItem="ldq-Ih-H94" secondAttribute="bottom" id="SlQ-4m-rZI"/>
+                            <constraint firstItem="H1U-dX-ElF" firstAttribute="top" secondItem="ldq-Ih-H94" secondAttribute="bottom" id="eEb-R4-u1C"/>
+                            <constraint firstItem="ldq-Ih-H94" firstAttribute="top" secondItem="mTf-mw-DYU" secondAttribute="top" id="kIh-XJ-XLK"/>
                         </constraints>
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="CJv-Du-rFk">
@@ -152,6 +166,7 @@
                 <outlet property="recipeCardName" destination="PMJ-c1-5e0" id="sjb-pJ-1FY"/>
                 <outlet property="recipeCardScore" destination="xek-F3-vab" id="rTg-zO-hwB"/>
                 <outlet property="recipeCardStarIcon" destination="RRG-p5-VaB" id="chk-gp-cg0"/>
+                <outlet property="stackView" destination="mTf-mw-DYU" id="WA2-jw-mya"/>
             </connections>
             <point key="canvasLocation" x="-51.145038167938928" y="19.718309859154932"/>
         </tableViewCell>

@@ -166,7 +166,6 @@
                 <outlet property="recipeCardName" destination="PMJ-c1-5e0" id="sjb-pJ-1FY"/>
                 <outlet property="recipeCardScore" destination="xek-F3-vab" id="rTg-zO-hwB"/>
                 <outlet property="recipeCardStarIcon" destination="RRG-p5-VaB" id="chk-gp-cg0"/>
-                <outlet property="stackView" destination="mTf-mw-DYU" id="WA2-jw-mya"/>
             </connections>
             <point key="canvasLocation" x="-51.145038167938928" y="19.718309859154932"/>
         </tableViewCell>

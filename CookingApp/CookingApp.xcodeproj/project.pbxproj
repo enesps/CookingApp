@@ -128,7 +128,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E000F98C2B06A12B00ACA458 /* CookingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E000F98C2B06A12B00ACA458 /* YapYe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YapYe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E000F98F2B06A12B00ACA458 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E000F9912B06A12B00ACA458 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E000F9932B06A12B00ACA458 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 		E000F98D2B06A12B00ACA458 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E000F98C2B06A12B00ACA458 /* CookingApp.app */,
+				E000F98C2B06A12B00ACA458 /* YapYe.app */,
 				E000F9A22B06A12C00ACA458 /* CookingAppTests.xctest */,
 				E000F9AC2B06A12C00ACA458 /* CookingAppUITests.xctest */,
 			);
@@ -977,9 +977,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E000F98B2B06A12B00ACA458 /* CookingApp */ = {
+		E000F98B2B06A12B00ACA458 /* YapYe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E000F9B62B06A12C00ACA458 /* Build configuration list for PBXNativeTarget "CookingApp" */;
+			buildConfigurationList = E000F9B62B06A12C00ACA458 /* Build configuration list for PBXNativeTarget "YapYe" */;
 			buildPhases = (
 				E000F9882B06A12B00ACA458 /* Sources */,
 				E000F9892B06A12B00ACA458 /* Frameworks */,
@@ -990,7 +990,7 @@
 			);
 			dependencies = (
 			);
-			name = CookingApp;
+			name = YapYe;
 			packageProductDependencies = (
 				E000F9C02B06A3F600ACA458 /* SwiftAlertView */,
 				E000F9C32B06A41200ACA458 /* Lottie */,
@@ -1007,7 +1007,7 @@
 				E08DAD222B4FEB2500521A32 /* SkyFloatingLabelTextField */,
 			);
 			productName = CookingApp;
-			productReference = E000F98C2B06A12B00ACA458 /* CookingApp.app */;
+			productReference = E000F98C2B06A12B00ACA458 /* YapYe.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E000F9A12B06A12C00ACA458 /* CookingAppTests */ = {
@@ -1096,7 +1096,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E000F98B2B06A12B00ACA458 /* CookingApp */,
+				E000F98B2B06A12B00ACA458 /* YapYe */,
 				E000F9A12B06A12C00ACA458 /* CookingAppTests */,
 				E000F9AB2B06A12C00ACA458 /* CookingAppUITests */,
 			);
@@ -1229,12 +1229,12 @@
 /* Begin PBXTargetDependency section */
 		E000F9A42B06A12C00ACA458 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E000F98B2B06A12B00ACA458 /* CookingApp */;
+			target = E000F98B2B06A12B00ACA458 /* YapYe */;
 			targetProxy = E000F9A32B06A12C00ACA458 /* PBXContainerItemProxy */;
 		};
 		E000F9AE2B06A12C00ACA458 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E000F98B2B06A12B00ACA458 /* CookingApp */;
+			target = E000F98B2B06A12B00ACA458 /* YapYe */;
 			targetProxy = E000F9AD2B06A12C00ACA458 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1528,7 +1528,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E000F9B62B06A12C00ACA458 /* Build configuration list for PBXNativeTarget "CookingApp" */ = {
+		E000F9B62B06A12C00ACA458 /* Build configuration list for PBXNativeTarget "YapYe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E000F9B72B06A12C00ACA458 /* Debug */,

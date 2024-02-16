@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIdentifier</key>
-	<string></string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Please allow acces</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -39,6 +35,12 @@
 				</dict>
 			</array>
 		</dict>
+		<key>UIApplicationSupportsTabbedSceneCollection</key>
+		<false/>
+		<key>UIViewControllerBasedStatusBarAppearance</key>
+		<false/>
+		<key>Status bar style</key>
+		<false/>
 	</dict>
 </dict>
 </plist>

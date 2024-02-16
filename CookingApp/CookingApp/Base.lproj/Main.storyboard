@@ -13,7 +13,7 @@
         <!--Launch Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LaunchScreen" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LaunchScreen" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
         <!--On Boarding Screen-->
         <scene sceneID="0O4-4K-HSx">
             <objects>
-                <viewController storyboardIdentifier="OnBoardingScreen" id="8zE-3W-Swe" customClass="OnBoardingScreen" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnBoardingScreen" id="8zE-3W-Swe" customClass="OnBoardingScreen" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gL1-6g-NdR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,7 @@
         <!--Pre LoginVC-->
         <scene sceneID="1rY-aa-ni0">
             <objects>
-                <viewController storyboardIdentifier="PreLogin" id="fAQ-bj-bj2" customClass="PreLoginVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PreLogin" id="fAQ-bj-bj2" customClass="PreLoginVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S0r-rd-mh7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,7 @@
         <!--ProfileVC-->
         <scene sceneID="CIB-XL-NDE">
             <objects>
-                <viewController storyboardIdentifier="ProfileVC" id="pAw-7C-cwz" customClass="ProfileVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="pAw-7C-cwz" customClass="ProfileVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wwd-Du-jQm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -322,7 +322,7 @@
         <!--Profile SettingsVC-->
         <scene sceneID="kPV-DR-1ql">
             <objects>
-                <viewController storyboardIdentifier="ProfileSettings" id="VgD-DT-9rO" customClass="ProfileSettingsVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileSettings" id="VgD-DT-9rO" customClass="ProfileSettingsVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9hi-Iy-oN8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,7 +364,7 @@
         <!--Fix ProfileVC-->
         <scene sceneID="Ung-re-dbA">
             <objects>
-                <viewController storyboardIdentifier="FixProfile" id="bwY-50-0pP" customClass="FixProfileVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FixProfile" id="bwY-50-0pP" customClass="FixProfileVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aqi-u8-0Rx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -457,7 +457,7 @@
         <!--Profile ShareVC-->
         <scene sceneID="B3A-Em-umI">
             <objects>
-                <viewController storyboardIdentifier="ProfileShare" id="fK3-JH-vHL" customClass="ProfileShareVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileShare" id="fK3-JH-vHL" customClass="ProfileShareVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jRt-6n-O0r">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -497,192 +497,24 @@
         <!--LoginVC-->
         <scene sceneID="DIo-li-HHZ">
             <objects>
-                <viewController storyboardIdentifier="LoginView" id="e9I-7Q-h9B" customClass="LoginVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" id="e9I-7Q-h9B" customClass="LoginVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UIW-2d-hla">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PrA-2p-mKW">
-                                <rect key="frame" x="16" y="259" width="361" height="495"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Kullanici Adi" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PhM-Se-Ddi">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="53.666666666666664"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sifre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEU-cd-NZt">
-                                        <rect key="frame" x="0.0" y="73.666666666666686" width="361" height="53.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
-                                    </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpy-a4-QPj">
-                                        <rect key="frame" x="0.0" y="147" width="361" height="53.666666666666657"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivd-EI-hui">
-                                                <rect key="frame" x="8" y="8" width="78.333333333333329" height="27"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Beni hatırla">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gza-68-4iz">
-                                                <rect key="frame" x="181" y="8" width="159" height="25"/>
-                                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="8"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Gza-68-4iz" secondAttribute="bottom" constant="18.670000000000002" id="15X-gC-4Gt"/>
-                                            <constraint firstAttribute="bottom" secondItem="ivd-EI-hui" secondAttribute="bottom" constant="18.670000000000002" id="Ffg-WS-1eZ"/>
-                                            <constraint firstItem="ivd-EI-hui" firstAttribute="leading" secondItem="vpy-a4-QPj" secondAttribute="leading" constant="8" id="Jdz-M3-6dv"/>
-                                            <constraint firstAttribute="trailing" secondItem="Gza-68-4iz" secondAttribute="trailing" constant="21" id="czV-s6-Str"/>
-                                            <constraint firstItem="Gza-68-4iz" firstAttribute="top" secondItem="vpy-a4-QPj" secondAttribute="top" constant="8" id="r0V-1n-aNu"/>
-                                            <constraint firstItem="ivd-EI-hui" firstAttribute="top" secondItem="vpy-a4-QPj" secondAttribute="top" constant="8" id="x0z-9U-uXW"/>
-                                        </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="0fC-JB-x0C" appends="YES" id="srW-oC-Oby"/>
-                                        </connections>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjl-Gy-5Ce">
-                                        <rect key="frame" x="0.0" y="220.66666666666669" width="361" height="53.666666666666686"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Giriş Yap veya Üye Ol">
-                                            <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="LoginPage:" destination="fAQ-bj-bj2" eventType="touchUpInside" id="jOt-X6-h4N"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VEYA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vst-vn-o0W">
-                                        <rect key="frame" x="0.0" y="294.33333333333337" width="361" height="53.666666666666686"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKs-Sy-y3S">
-                                        <rect key="frame" x="0.0" y="368" width="361" height="53.333333333333314"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJN-L6-Pr2">
-                                                <rect key="frame" x="181" y="0.0" width="172" height="53.333333333333336"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="172" id="2sg-gE-ST6"/>
-                                                </constraints>
-                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="icons8-google-48(@1×)" title="Google" imagePadding="10" cornerStyle="medium">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </backgroundConfiguration>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
-                                                    <fontDescription key="titleFontDescription" name="Farah" family="Farah" pointSize="20"/>
-                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="signInGoogle:" destination="e9I-7Q-h9B" eventType="touchUpInside" id="yTg-WN-qGY"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33f-V7-fJc">
-                                                <rect key="frame" x="0.0" y="0.0" width="159.33333333333334" height="53.333333333333336"/>
-                                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="faceid" catalog="system" title="Faceebook" imagePadding="10" cornerStyle="medium">
-                                                    <backgroundConfiguration key="background">
-                                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </backgroundConfiguration>
-                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
-                                                    <fontDescription key="titleFontDescription" name="Farah" family="Farah" pointSize="20"/>
-                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="signInGoogle:" destination="e9I-7Q-h9B" eventType="touchUpInside" id="E6h-Wn-T9n"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="SJN-L6-Pr2" firstAttribute="leading" secondItem="33f-V7-fJc" secondAttribute="trailing" constant="21.670000000000002" id="6Jz-JH-MSS"/>
-                                            <constraint firstAttribute="bottom" secondItem="SJN-L6-Pr2" secondAttribute="bottom" id="6te-Lm-Xpj"/>
-                                            <constraint firstItem="33f-V7-fJc" firstAttribute="leading" secondItem="oKs-Sy-y3S" secondAttribute="leading" id="F5g-9k-dpw"/>
-                                            <constraint firstItem="SJN-L6-Pr2" firstAttribute="top" secondItem="oKs-Sy-y3S" secondAttribute="top" id="NcB-jk-n69"/>
-                                            <constraint firstItem="33f-V7-fJc" firstAttribute="top" secondItem="oKs-Sy-y3S" secondAttribute="top" id="bya-ul-pfK"/>
-                                            <constraint firstAttribute="bottom" secondItem="33f-V7-fJc" secondAttribute="bottom" id="e5o-15-fXO"/>
-                                            <constraint firstAttribute="bottom" secondItem="SJN-L6-Pr2" secondAttribute="bottom" id="tbW-Gm-wA3"/>
-                                            <constraint firstAttribute="trailing" secondItem="SJN-L6-Pr2" secondAttribute="trailing" constant="8" id="v6v-AC-7GB"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIw-Xh-vuq">
-                                        <rect key="frame" x="0.0" y="441.33333333333337" width="361" height="53.666666666666686"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovu-FY-JME">
-                                                <rect key="frame" x="291" y="7.9999999999999964" width="70" height="50.666666666666657"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Üye Ol">
-                                                    <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
-                                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="goToSignUpVC:" destination="e9I-7Q-h9B" eventType="touchUpInside" id="6cf-W4-SZf"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hesabın yok mu?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OgD-EV-bxj">
-                                                <rect key="frame" x="145" y="7.9999999999999964" width="137.33333333333337" height="50.666666666666657"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="ovu-FY-JME" firstAttribute="top" secondItem="OgD-EV-bxj" secondAttribute="top" id="1Is-zV-B7J"/>
-                                            <constraint firstItem="ovu-FY-JME" firstAttribute="bottom" secondItem="OgD-EV-bxj" secondAttribute="bottom" id="4hK-4J-UCZ"/>
-                                            <constraint firstAttribute="trailing" secondItem="ovu-FY-JME" secondAttribute="trailing" id="5Hb-Dy-uvl"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OgD-EV-bxj" secondAttribute="trailing" constant="20" symbolic="YES" id="5ps-Cy-q7B"/>
-                                            <constraint firstItem="OgD-EV-bxj" firstAttribute="leading" secondItem="FIw-Xh-vuq" secondAttribute="leading" constant="145" id="6Ki-AU-6xD"/>
-                                            <constraint firstItem="ovu-FY-JME" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="OgD-EV-bxj" secondAttribute="trailing" constant="8" symbolic="YES" id="JLe-G2-2xP"/>
-                                            <constraint firstItem="ovu-FY-JME" firstAttribute="top" secondItem="FIw-Xh-vuq" secondAttribute="topMargin" id="aht-Et-lMc"/>
-                                            <constraint firstAttribute="bottom" secondItem="ovu-FY-JME" secondAttribute="bottom" constant="-5" id="vK2-TW-D4F"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                            </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoOfApp" translatesAutoresizingMaskIntoConstraints="NO" id="xRl-9s-5JG">
-                                <rect key="frame" x="16" y="84" width="361" height="167"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
-                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X1a-NK-yCu">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vTS-aV-L0V"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="vTS-aV-L0V" firstAttribute="trailing" secondItem="xRl-9s-5JG" secondAttribute="trailing" constant="16" id="05g-Z3-qs8"/>
-                            <constraint firstItem="vTS-aV-L0V" firstAttribute="bottom" secondItem="PrA-2p-mKW" secondAttribute="bottom" constant="15" id="GFj-3X-uA7"/>
-                            <constraint firstItem="vTS-aV-L0V" firstAttribute="trailing" secondItem="PrA-2p-mKW" secondAttribute="trailing" constant="16" id="HfL-wP-XeN"/>
-                            <constraint firstItem="xRl-9s-5JG" firstAttribute="leading" secondItem="vTS-aV-L0V" secondAttribute="leading" constant="16" id="IAP-t4-riX"/>
-                            <constraint firstItem="PrA-2p-mKW" firstAttribute="top" secondItem="xRl-9s-5JG" secondAttribute="bottom" constant="8" symbolic="YES" id="PZI-96-z46"/>
-                            <constraint firstItem="xRl-9s-5JG" firstAttribute="top" secondItem="vTS-aV-L0V" secondAttribute="top" constant="25" id="XGh-IP-n0c"/>
-                            <constraint firstItem="PrA-2p-mKW" firstAttribute="top" secondItem="vTS-aV-L0V" secondAttribute="top" constant="200" id="k1P-yZ-QCP"/>
-                            <constraint firstItem="PrA-2p-mKW" firstAttribute="leading" secondItem="vTS-aV-L0V" secondAttribute="leading" constant="16" id="sm8-2W-QRi"/>
-                        </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="forgotPasswordButton" destination="Gza-68-4iz" id="BZA-hB-KEL"/>
-                        <outlet property="loginButton" destination="Rjl-Gy-5Ce" id="dXK-cI-ozy"/>
-                        <outlet property="orLabel" destination="Vst-vn-o0W" id="tyV-8o-FxT"/>
-                        <outlet property="passwordTextField" destination="gEU-cd-NZt" id="AJG-um-0LJ"/>
-                        <outlet property="rememberMeCheckbox" destination="ivd-EI-hui" id="a2D-iS-sOI"/>
-                        <outlet property="userNameTextField" destination="PhM-Se-Ddi" id="QpL-z1-Ptb"/>
+                        <outlet property="loginTableView" destination="X1a-NK-yCu" id="bMD-cF-uwt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Txw-Yq-x7Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -693,7 +525,7 @@
         <!--Forget PasswordVC-->
         <scene sceneID="Alh-gS-ZW9">
             <objects>
-                <viewController storyboardIdentifier="ForgetVC" id="1ku-HW-hj5" customClass="ForgetPasswordVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgetVC" id="1ku-HW-hj5" customClass="ForgetPasswordVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pdM-pG-5aU">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -747,7 +579,7 @@
         <!--Sign UpVC-->
         <scene sceneID="XpT-pf-My6">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC" id="wde-HJ-LNP" customClass="SignUpVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" id="wde-HJ-LNP" customClass="SignUpVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YZ9-RD-cnx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -814,7 +646,7 @@
         <!--Add RecipeVC-->
         <scene sceneID="cBR-eN-w9o">
             <objects>
-                <viewController storyboardIdentifier="AddRecipeVC" id="kE0-GK-RiR" customClass="AddRecipeVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecipeVC" id="kE0-GK-RiR" customClass="AddRecipeVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ef-K3-rY9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -873,7 +705,7 @@
         <!--Add Recipe DetailVC-->
         <scene sceneID="Yos-SX-u41">
             <objects>
-                <viewController storyboardIdentifier="AddRecipeDetailVC" id="wpz-9w-hNb" customClass="AddRecipeDetailVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecipeDetailVC" id="wpz-9w-hNb" customClass="AddRecipeDetailVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SlM-HO-r0a">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -904,7 +736,7 @@
         <!--SearchVC-->
         <scene sceneID="WDt-Go-gf9">
             <objects>
-                <viewController id="JeI-KM-Mjl" customClass="SearchVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JeI-KM-Mjl" customClass="SearchVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ATJ-fB-DCe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -982,7 +814,7 @@
         <!--Anasayfa-->
         <scene sceneID="V0Y-1h-Jgp">
             <objects>
-                <viewController id="Dhu-sp-Dkg" customClass="HomeVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dhu-sp-Dkg" customClass="HomeVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aSA-5L-SjJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1020,7 +852,7 @@
         <!--Recipe Category DetailVC-->
         <scene sceneID="2Jr-JL-C1l">
             <objects>
-                <viewController storyboardIdentifier="RecipeCategoryDetail" id="XNi-7q-LiW" customClass="RecipeCategoryDetailVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeCategoryDetail" id="XNi-7q-LiW" customClass="RecipeCategoryDetailVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dj7-c1-j1W">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1035,7 +867,7 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cell1" id="JMZ-2K-BrC" customClass="RecipeCategoryDetailCollectionViewCell" customModule="CookingApp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="cell1" id="JMZ-2K-BrC" customClass="RecipeCategoryDetailCollectionViewCell" customModule="YapYe" customModuleProvider="target">
                                         <rect key="frame" x="96.666666666666671" y="10" width="200" height="276"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H6H-OJ-QLa">
@@ -1174,7 +1006,7 @@
         <!--RecipeVC-->
         <scene sceneID="Jnt-5o-m3g">
             <objects>
-                <viewController storyboardIdentifier="RecipeVC" id="kTa-Sy-Ynn" customClass="RecipeVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeVC" id="kTa-Sy-Ynn" customClass="RecipeVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fog-XO-rZG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1230,7 +1062,7 @@
         <!--Tarif Ekle-->
         <scene sceneID="4wX-Op-z7O">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yIH-wS-RaO" customClass="AddRecipeNC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yIH-wS-RaO" customClass="AddRecipeNC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tarif Ekle" image="plus" catalog="system" selectedImage="plus.circle.fill" id="Tr5-Dv-Ntc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vps-ju-eAU">
@@ -1265,7 +1097,7 @@
         <!--FavoriteVC-->
         <scene sceneID="SXo-ua-umv">
             <objects>
-                <viewController id="TrI-w0-bTm" customClass="FavoriteVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TrI-w0-bTm" customClass="FavoriteVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CyY-b4-0w8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1346,15 +1178,16 @@
         <!--Profil-->
         <scene sceneID="TpG-md-vf1">
             <objects>
-                <navigationController storyboardIdentifier="ProfileNC" automaticallyAdjustsScrollViewInsets="NO" id="nA4-yG-TsT" customClass="ProfileNC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileNC" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="nA4-yG-TsT" customClass="ProfileNC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profil" image="person.crop.circle" catalog="system" selectedImage="person.crop.circle" id="SRo-8w-7eA"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="LtR-f2-X9w">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" largeTitles="YES" id="LtR-f2-X9w">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8QA-KH-IRt">
+                        <rect key="frame" x="0.0" y="720" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                 </navigationController>
@@ -1365,7 +1198,7 @@
         <!--Recipe SavedVC-->
         <scene sceneID="XYM-tN-xaU">
             <objects>
-                <viewController id="7iR-ER-iPg" customClass="RecipeSavedVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7iR-ER-iPg" customClass="RecipeSavedVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TPW-ZX-l7N">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1390,7 +1223,7 @@
         <!--Recipe LikeVC-->
         <scene sceneID="zFR-Ri-DZ8">
             <objects>
-                <viewController id="szn-dW-1Ml" customClass="RecipeLikeVC" customModule="CookingApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="szn-dW-1Ml" customClass="RecipeLikeVC" customModule="YapYe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f7q-t8-kEf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1400,7 +1233,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipeLikeCell" rowHeight="112" id="41D-cS-nYu" customClass="RecipeLikeTableViewCell" customModule="CookingApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipeLikeCell" rowHeight="112" id="41D-cS-nYu" customClass="RecipeLikeTableViewCell" customModule="YapYe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="41D-cS-nYu" id="fsz-jy-nvG">
@@ -1476,12 +1309,10 @@
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="cooktop" catalog="system" width="128" height="96"/>
-        <image name="faceid" catalog="system" width="128" height="115"/>
         <image name="frying.pan" catalog="system" width="128" height="81"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="icons8-google-48(@1×)" width="48" height="48"/>
-        <image name="logoOfApp" width="1558" height="1558"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="pencil.and.outline" catalog="system" width="123" height="128"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
@@ -1502,9 +1333,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

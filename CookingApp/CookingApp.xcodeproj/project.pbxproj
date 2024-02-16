@@ -27,6 +27,14 @@
 		E00321702B10EA04006A280A /* ProfileSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E003216F2B10EA04006A280A /* ProfileSettingsVC.swift */; };
 		E00F24F02B0E442500B36FBC /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E00F24EF2B0E442500B36FBC /* GoogleSignIn */; };
 		E00F24F22B0E442B00B36FBC /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E00F24F12B0E442B00B36FBC /* GoogleSignInSwift */; };
+		E01A34D32B7F8C5C003C2937 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01A34D12B7F8C5C003C2937 /* TextFieldTableViewCell.swift */; };
+		E01A34D42B7F8C5C003C2937 /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01A34D22B7F8C5C003C2937 /* TextFieldTableViewCell.xib */; };
+		E01A34D82B7F8E55003C2937 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01A34D62B7F8E55003C2937 /* ButtonTableViewCell.swift */; };
+		E01A34D92B7F8E55003C2937 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01A34D72B7F8E55003C2937 /* ButtonTableViewCell.xib */; };
+		E01A34DC2B7F9030003C2937 /* externalLoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01A34DA2B7F9030003C2937 /* externalLoginTableViewCell.swift */; };
+		E01A34DD2B7F9030003C2937 /* externalLoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01A34DB2B7F9030003C2937 /* externalLoginTableViewCell.xib */; };
+		E01A34E12B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01A34DF2B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.swift */; };
+		E01A34E22B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01A34E02B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.xib */; };
 		E029B8E92B39B50C00E4A063 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029B8E82B39B50C00E4A063 /* SignUpVM.swift */; };
 		E029B8EF2B39EDD300E4A063 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = E029B8EE2B39EDD300E4A063 /* KeychainAccess */; };
 		E029B8F22B39F4A000E4A063 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029B8F12B39F4A000E4A063 /* KeyChainService.swift */; };
@@ -41,6 +49,8 @@
 		E02DC8BE2B46B537000C6689 /* HeaderSetViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E02DC8BC2B46B537000C6689 /* HeaderSetViewCell.xib */; };
 		E02F61592B307329009B122D /* RecipeCookingInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02F61572B307329009B122D /* RecipeCookingInfoTableViewCell.swift */; };
 		E02F615A2B307329009B122D /* RecipeCookingInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E02F61582B307329009B122D /* RecipeCookingInfoTableViewCell.xib */; };
+		E04538772B7FD324000AF5C8 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04538752B7FD324000AF5C8 /* LabelTableViewCell.swift */; };
+		E04538782B7FD324000AF5C8 /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E04538762B7FD324000AF5C8 /* LabelTableViewCell.xib */; };
 		E04DE8C12B3427F00046B026 /* RecipeHomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DE8C02B3427F00046B026 /* RecipeHomeVM.swift */; };
 		E04DE8C42B3457940046B026 /* RecipeSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DE8C32B3457940046B026 /* RecipeSearchVM.swift */; };
 		E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */ = {isa = PBXBuildFile; productRef = E05086B62B07A9510022CDE8 /* ALPopup */; };
@@ -146,6 +156,14 @@
 		E000F9D62B06B71400ACA458 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E003216B2B10D2DD006A280A /* FixProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixProfileVC.swift; sourceTree = "<group>"; };
 		E003216F2B10EA04006A280A /* ProfileSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsVC.swift; sourceTree = "<group>"; };
+		E01A34D12B7F8C5C003C2937 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		E01A34D22B7F8C5C003C2937 /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		E01A34D62B7F8E55003C2937 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		E01A34D72B7F8E55003C2937 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
+		E01A34DA2B7F9030003C2937 /* externalLoginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = externalLoginTableViewCell.swift; sourceTree = "<group>"; };
+		E01A34DB2B7F9030003C2937 /* externalLoginTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = externalLoginTableViewCell.xib; sourceTree = "<group>"; };
+		E01A34DF2B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rememberMeAndForgetPasswordTableViewCell.swift; sourceTree = "<group>"; };
+		E01A34E02B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = rememberMeAndForgetPasswordTableViewCell.xib; sourceTree = "<group>"; };
 		E029B8E82B39B50C00E4A063 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		E029B8F12B39F4A000E4A063 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		E02CDA412B1F46FE003617F2 /* RecipeHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -159,6 +177,8 @@
 		E02DC8BC2B46B537000C6689 /* HeaderSetViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSetViewCell.xib; sourceTree = "<group>"; };
 		E02F61572B307329009B122D /* RecipeCookingInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCookingInfoTableViewCell.swift; sourceTree = "<group>"; };
 		E02F61582B307329009B122D /* RecipeCookingInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCookingInfoTableViewCell.xib; sourceTree = "<group>"; };
+		E04538752B7FD324000AF5C8 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
+		E04538762B7FD324000AF5C8 /* LabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
 		E04DE8C02B3427F00046B026 /* RecipeHomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHomeVM.swift; sourceTree = "<group>"; };
 		E04DE8C32B3457940046B026 /* RecipeSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchVM.swift; sourceTree = "<group>"; };
 		E05AD9AB2B15457A002D544C /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
@@ -425,6 +445,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E01A34D02B7F8C3A003C2937 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				E01A34D12B7F8C5C003C2937 /* TextFieldTableViewCell.swift */,
+				E01A34D22B7F8C5C003C2937 /* TextFieldTableViewCell.xib */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		E01A34D52B7F8E43003C2937 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				E01A34D62B7F8E55003C2937 /* ButtonTableViewCell.swift */,
+				E01A34D72B7F8E55003C2937 /* ButtonTableViewCell.xib */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		E029B8E72B39B4F600E4A063 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -589,8 +627,12 @@
 		E092ECEF2B3C510800CC2596 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				E01A34D52B7F8E43003C2937 /* Button */,
+				E01A34D02B7F8C3A003C2937 /* TextField */,
 				E092ECF12B3C517800CC2596 /* RecipeImage */,
 				E092ECF02B3C511800CC2596 /* RecipeCard */,
+				E04538752B7FD324000AF5C8 /* LabelTableViewCell.swift */,
+				E04538762B7FD324000AF5C8 /* LabelTableViewCell.xib */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -736,6 +778,10 @@
 			isa = PBXGroup;
 			children = (
 				E0A878E52B0B960A00E27247 /* LoginVC.swift */,
+				E01A34DA2B7F9030003C2937 /* externalLoginTableViewCell.swift */,
+				E01A34DB2B7F9030003C2937 /* externalLoginTableViewCell.xib */,
+				E01A34DF2B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.swift */,
+				E01A34E02B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1114,15 +1160,20 @@
 				E02CDA4C2B1F4BD6003617F2 /* RecipeIngredientsTableViewCell.xib in Resources */,
 				E000F9992B06A12C00ACA458 /* Assets.xcassets in Resources */,
 				E0BEC6292B35C32A00B468F2 /* credentials.plist in Resources */,
+				E04538782B7FD324000AF5C8 /* LabelTableViewCell.xib in Resources */,
+				E01A34E22B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.xib in Resources */,
 				E02DC8BE2B46B537000C6689 /* HeaderSetViewCell.xib in Resources */,
 				E0B05E932B1DB98C00EC0FF7 /* RecipeCardTableViewCell.xib in Resources */,
 				E000F9D42B06A80200ACA458 /* LottieAnimation.json in Resources */,
 				E000F9972B06A12B00ACA458 /* Main.storyboard in Resources */,
 				E0B479C02B45906A001724B6 /* InstructionViewCell.xib in Resources */,
 				E08CD4412B3F089E00D9A414 /* LottieAnimationSpinner.json in Resources */,
+				E01A34D42B7F8C5C003C2937 /* TextFieldTableViewCell.xib in Resources */,
+				E01A34D92B7F8E55003C2937 /* ButtonTableViewCell.xib in Resources */,
 				E0B479BC2B458E0A001724B6 /* AddButtonRecipeViewCell.xib in Resources */,
 				E0F20D212B239A02007EE71A /* RecipePickerPeopleTableViewCell.xib in Resources */,
 				E0B479B12B458DA9001724B6 /* IngredientCell.xib in Resources */,
+				E01A34DD2B7F9030003C2937 /* externalLoginTableViewCell.xib in Resources */,
 				E0B05E972B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1167,6 +1218,7 @@
 				E092ECE72B3C23E900CC2596 /* LoginVM.swift in Sources */,
 				E096128B2B3DEF9A00CC1834 /* RecipeSavedVM.swift in Sources */,
 				E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */,
+				E01A34D82B7F8E55003C2937 /* ButtonTableViewCell.swift in Sources */,
 				E0B479C32B45A2C6001724B6 /* AddRecipeNC.swift in Sources */,
 				E0B4918B2B284CED00CB7547 /* ApiConstants.swift in Sources */,
 				E0B479BB2B458E0A001724B6 /* AddButtonRecipeViewCell.swift in Sources */,
@@ -1185,16 +1237,20 @@
 				E000F9922B06A12B00ACA458 /* SceneDelegate.swift in Sources */,
 				E003216C2B10D2DD006A280A /* FixProfileVC.swift in Sources */,
 				E000F9D12B06A5E400ACA458 /* OnBoardingScreen.swift in Sources */,
+				E04538772B7FD324000AF5C8 /* LabelTableViewCell.swift in Sources */,
 				E02DC8BD2B46B537000C6689 /* HeaderSetViewCell.swift in Sources */,
 				E0F2ED372B3D710700BC1643 /* ProfileShareVC.swift in Sources */,
 				E029B8E92B39B50C00E4A063 /* SignUpVM.swift in Sources */,
 				E0B1973F2B0F7BDB006F4FFF /* ForgetPasswordVC.swift in Sources */,
 				E0B479BF2B45906A001724B6 /* InstructionViewCell.swift in Sources */,
+				E01A34D32B7F8C5C003C2937 /* TextFieldTableViewCell.swift in Sources */,
 				E0B479B02B458DA9001724B6 /* IngredientCell.swift in Sources */,
 				E0A534622B17AB5200E22588 /* RecipeSearchModel.swift in Sources */,
 				E04DE8C42B3457940046B026 /* RecipeSearchVM.swift in Sources */,
+				E01A34DC2B7F9030003C2937 /* externalLoginTableViewCell.swift in Sources */,
 				E092ECEA2B3C4A2500CC2596 /* ProfileVM.swift in Sources */,
 				E0A878D92B0B59DC00E27247 /* SearchVC.swift in Sources */,
+				E01A34E12B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.swift in Sources */,
 				E02CDA4B2B1F4BD6003617F2 /* RecipeIngredientsTableViewCell.swift in Sources */,
 				E0D3763E2B41BEEC00EBB6AC /* RecipeLikeVM.swift in Sources */,
 				E0E50C752B226FA9000E6171 /* RecipeApiService.swift in Sources */,
@@ -1390,9 +1446,11 @@
 				DEVELOPMENT_TEAM = 39545B6YAC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CookingApp/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow acces";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1421,9 +1479,11 @@
 				DEVELOPMENT_TEAM = 39545B6YAC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CookingApp/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please allow acces";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (

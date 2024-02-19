@@ -73,6 +73,7 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as! LabelTableViewCell
             cell.label.text = "E-posta adresinizi giriniz."
+            
             cell.selectionStyle = .none
             
             return cell
@@ -87,6 +88,7 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
         else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
             cell.textField.placeholder = "E-postanizi giriniz."
+            cell.textField.becomeFirstResponder()
             cell.selectionStyle = .none
            return cell
         }

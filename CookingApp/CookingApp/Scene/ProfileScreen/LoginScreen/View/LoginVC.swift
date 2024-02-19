@@ -98,12 +98,8 @@ class LoginVC:UIViewController{
     @IBAction func goToSignUpVC(_ sender: Any) {
         
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as? UIViewController else { return }
-        let transition = CATransition()
-        transition.duration = 0.5
-        transition.type = CATransitionType.push
-        transition.subtype = CATransitionSubtype.fromTop
-        self.navigationController?.view.layer.add(transition, forKey: kCATransition)
-        self.navigationController?.pushViewController(vc, animated: false)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     

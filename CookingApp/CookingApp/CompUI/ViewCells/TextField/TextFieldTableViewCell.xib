@@ -23,7 +23,7 @@
                             <constraint firstAttribute="width" constant="361" id="oXJ-3z-2UK"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="continue"/>
                     </textField>
                 </subviews>
                 <constraints>

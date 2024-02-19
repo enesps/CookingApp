@@ -119,49 +119,51 @@ class LoginVC:UIViewController{
 }
 extension LoginVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = loginTableView.dequeueReusableCell(withIdentifier: "LabelTableViewCell", for: indexPath) as! LabelTableViewCell
-
+            cell.selectionStyle = .none
             return cell
         }
         else if indexPath.row == 1{
             let cell = loginTableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
             cell.button.setTitleColor(UIColor.black, for: .normal)
-            cell.button.setImage(UIImage(named: "icons8-google-48(@1×)"), for: .normal)
-            cell.button.setTitle("Facebook ile devam et" ,for: .normal)
+            cell.button.setImage(UIImage(named: "google"), for: .normal)
+            cell.button.setTitle("Google ile devam et" ,for: .normal)
+            cell.button.addTarget(self, action: #selector(signInGoogle(_:)), for: .touchUpInside)
             cell.button.backgroundColor = UIColor.white
+            cell.selectionStyle = .none
             return cell
         }
         else if indexPath.row == 2 {
             let cell = loginTableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
             cell.button.setTitleColor(UIColor.black, for: .normal)
             cell.button.setImage(UIImage(systemName: "applelogo"), for: .normal)
-            cell.button.setTitle("Apple ile devam et" ,for: .normal)
+            cell.button.setTitle("Facebook ile devam et" ,for: .normal)
             cell.button.backgroundColor = UIColor.white
+            cell.selectionStyle = .none
            return cell
         }
-        else if indexPath.row == 3 {
+        else  {
             let cell = loginTableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
             cell.button.backgroundColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
             cell.button.setTitleColor(UIColor.white, for: .normal)
-            cell.button.setTitle("E-postayla devam et" ,for: .normal)
             
+            cell.button.setTitle("E-postayla devam et" ,for: .normal)
+            cell.button.addTarget(self, action: #selector(goToSignUpVC(_:)), for: .touchUpInside)
+            cell.selectionStyle = .none
             return cell
         }
-        else {
-            let cell = loginTableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
-            cell.button.backgroundColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
-            cell.button.setTitleColor(UIColor.white, for: .normal)
-            cell.button.setTitle("E-postayla devam et" ,for: .normal)
-            
-            return cell
-        }
+        
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Hücre seçilmesini engelle
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        // İstenilen boşluk miktarını burada belirleyebilirsiniz
 //        if indexPath.row == 4 {

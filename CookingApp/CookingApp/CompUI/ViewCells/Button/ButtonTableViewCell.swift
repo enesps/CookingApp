@@ -18,6 +18,7 @@ class ButtonTableViewCell: UITableViewCell {
 
         // Border rengini ve genişliğini ayarla
         button.layer.borderColor = UIColor.black.cgColor // Kenarlık rengini siyah olarak ayarla
+        button.configuration?.imagePadding = 10
         button.layer.borderWidth = 1 // Kenarlık genişliğini ayarla
     }
 
@@ -26,5 +27,38 @@ class ButtonTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func configureButton() {
+           button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+       }
+
+       @objc func buttonTapped() {
+           button.showActivityIndicator()
+
+           // Simüle edilmiş bir işlem için 2 saniye bekleyin
+           DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+               self.button.hideActivityIndicator()
+           }
+       }
     
+}
+extension UIButton {
+    func showActivityIndicator() {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.center = CGPoint(x: bounds.midX, y: bounds.midY)
+        activityIndicator.style = .medium
+        activityIndicator.color = .white
+        addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        
+        // Disable button while showing activity indicator
+        isEnabled = false
+    }
+    
+    func hideActivityIndicator() {
+        // Remove activity indicator from superview
+        subviews.forEach { $0.removeFromSuperview() }
+        
+        // Enable button after hiding activity indicator
+        isEnabled = true
+    }
 }

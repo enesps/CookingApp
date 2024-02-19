@@ -1137,6 +1137,7 @@
 				E092ECDF2B3ADA0B00CC2596 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E0F2ED382B3D9E3600BC1643 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 				E08DAD212B4FEB2500521A32 /* XCRemoteSwiftPackageReference "SkyFloatingLabelTextField" */,
+				E0F3D09D2B837B10006C9306 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = E000F98D2B06A12B00ACA458 /* Products */;
 			projectDirPath = "";
@@ -1712,6 +1713,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.6.5;
+			};
+		};
+		E0F3D09D2B837B10006C9306 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

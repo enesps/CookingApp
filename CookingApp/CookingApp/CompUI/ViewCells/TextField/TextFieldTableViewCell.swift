@@ -7,19 +7,27 @@
 
 import UIKit
 
-class TextFieldTableViewCell: UITableViewCell {
+class TextFieldTableViewCell: UITableViewCell , UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        textField.layer.cornerRadius = 5 // İstenilen corner radius değerini ayarlayabilirsiniz
+               textField.layer.masksToBounds = true // Köşe yuvarlatma işlemini etkinleştirir
+        textField.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // TextField'in border rengini mavi olarak ayarla
+        textField.layer.borderWidth = 1.0
+        textField.layer.borderColor = UIColor.blue.cgColor
     }
     
 }

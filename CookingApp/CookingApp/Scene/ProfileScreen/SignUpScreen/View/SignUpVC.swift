@@ -10,6 +10,7 @@ import GoogleSignIn
 import Combine
 import KeychainAccess
 import SPIndicator
+import SkyFloatingLabelTextField
 class SignUpVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,7 +30,6 @@ class SignUpVC: UIViewController {
                     KeyChainService.shared.saveToken(token)
                     print(token)
                 }
-                print(KeyChainService.shared.readToken())
 
                 let tabBarController = self?.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                 tabBarController.selectedIndex = 4
@@ -52,6 +52,20 @@ class SignUpVC: UIViewController {
     
     @IBAction func goToLoginVC(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func goToLoginPasswordVC(_ sender: Any) {
+        
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginPasswordVC") as? UIViewController else { return }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    @IBAction func goToRegisterVC(_ sender: Any) {
+        
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterVC") as? UIViewController else { return }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     @IBAction func signUpGoogle(_ sender: Any) {
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
@@ -87,7 +101,20 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
         }
         else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
             cell.textField.placeholder = "E-postanizi giriniz."
+            cell.textField.title = "E-mail"
+            cell.textField.tintColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.textField.textColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
+            cell.textField.lineColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.textField.selectedTitleColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.textField.selectedLineColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+
+            cell.textField.lineHeight = 1.0 // bottom line height in points
+            cell.textField.selectedLineHeight = 2.0
+            cell.textField.errorColor = UIColor.red
+
+            cell.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
             cell.textField.becomeFirstResponder()
             cell.selectionStyle = .none
            return cell
@@ -98,12 +125,66 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
             cell.button.setTitleColor(UIColor.white, for: .normal)
             cell.button.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.center
             cell.button.setTitle("Devam et" ,for: .normal)
-            cell.configureButton()
+            cell.button.isEnabled = false
+            cell.button.layer.borderWidth = 0 // Kenarlık genişliğini ayarla
+            cell.button.setTitle("Devam et", for: .normal)
+            cell.button.setTitleColor(UIColor.red, for: .normal)
+            cell.button.backgroundColor = UIColor.white
+            cell.button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+            
+            
             cell.selectionStyle = .none
             return cell
         }
         
     }
+    @objc func textFieldDidChange(_ textfield: UITextField) {
+        if let text = textfield.text {
+            if let floatingLabelTextField = textfield as? SkyFloatingLabelTextField {
+                if text.count < 3 || !text.contains("@") {
+                    if !text.isEmpty {
+                        floatingLabelTextField.errorColor = #colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 1)
+                        floatingLabelTextField.errorMessage = "Geçersiz email"
+                        if let buttonCell = tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? ButtonTableViewCell {
+                            buttonCell.button.isEnabled = false
+                            buttonCell.button.layer.borderWidth = 0 // Kenarlık genişliğini ayarla
+                            buttonCell.button.setTitle("Devam et", for: .normal)
+                            buttonCell.button.setTitleColor(UIColor.blue, for: .normal)
+                            buttonCell.button.backgroundColor = UIColor.white
+                    }
+                    
+                    }
+                } else {
+                    // Geçerli e-posta girildiğinde
+                    floatingLabelTextField.errorMessage = ""
+                    if let buttonCell = tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? ButtonTableViewCell {
+                        buttonCell.button.isEnabled = true
+                        buttonCell.button.backgroundColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+                        buttonCell.button.layer.borderWidth = 1
+                        buttonCell.button.setTitleColor(UIColor.white, for: .normal)
+                        buttonCell.button.setTitle("Devam et" ,for: .normal)
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc func buttonTapped(_ sender: UIButton) {
+        var flag = false
+        sender.showActivityIndicator()
+        // Simüle edilmiş bir işlem için 2 saniye bekleyin
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            sender.hideActivityIndicator()
+            // Call the method to navigate to the next view controller or perform the desired action
+            if flag{
+                self.goToLoginPasswordVC(sender)
+            }
+            else{
+                self.goToRegisterVC(sender)
+            }
+        }
+    }
+
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Hücre seçilmesini engelle
@@ -120,16 +201,4 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
 //        // Örneğin, her hücre için 80 piksel yükseklik belirtiyoruz.
 //    }
     
-}
-extension UIButton {
-    func alignVerticalCenter(padding: CGFloat = 7.0) {
-        guard let imageSize = imageView?.frame.size, let titleText = titleLabel?.text, let titleFont = titleLabel?.font else {
-            return
-        }
-        
-        let titleSize = (titleText as NSString).size(withAttributes: [.font: titleFont])
-        let total = imageSize.height + titleSize.height + padding
-        imageEdgeInsets = UIEdgeInsets(top: -(total - imageSize.height), left: 0, bottom: 0, right: -titleSize.width)
-        titleEdgeInsets = UIEdgeInsets(top: 0, left: -imageSize.width, bottom: -(total - titleSize.height), right: 0)
-    }
 }

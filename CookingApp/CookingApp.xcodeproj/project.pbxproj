@@ -57,6 +57,8 @@
 		E05AD9AC2B15457A002D544C /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AD9AB2B15457A002D544C /* RecipeVC.swift */; };
 		E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072E2142B108C8600F3F4F7 /* ProfileNC.swift */; };
 		E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E075A2692B24BAED00C71C95 /* Kingfisher */; };
+		E0818CC52B84B8FA00203F34 /* LoginPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0818CC42B84B8FA00203F34 /* LoginPasswordVC.swift */; };
+		E0818CC82B875E3300203F34 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0818CC72B875E3300203F34 /* RegisterVC.swift */; };
 		E08CD4412B3F089E00D9A414 /* LottieAnimationSpinner.json in Resources */ = {isa = PBXBuildFile; fileRef = E08CD4402B3F089D00D9A414 /* LottieAnimationSpinner.json */; };
 		E08DAD232B4FEB2500521A32 /* SkyFloatingLabelTextField in Frameworks */ = {isa = PBXBuildFile; productRef = E08DAD222B4FEB2500521A32 /* SkyFloatingLabelTextField */; };
 		E092ECDE2B3AD99F00CC2596 /* TokenApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E092ECDD2B3AD99F00CC2596 /* TokenApiService.swift */; };
@@ -188,6 +190,8 @@
 		E05AECB22B33240700B7A4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E05AECB42B33240700B7A4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E072E2142B108C8600F3F4F7 /* ProfileNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNC.swift; sourceTree = "<group>"; };
+		E0818CC42B84B8FA00203F34 /* LoginPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordVC.swift; sourceTree = "<group>"; };
+		E0818CC72B875E3300203F34 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		E08CD4402B3F089D00D9A414 /* LottieAnimationSpinner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottieAnimationSpinner.json; sourceTree = "<group>"; };
 		E092ECDD2B3AD99F00CC2596 /* TokenApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenApiService.swift; sourceTree = "<group>"; };
 		E092ECE32B3ADEC300CC2596 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
@@ -584,6 +588,30 @@
 			path = ProfileNC;
 			sourceTree = "<group>";
 		};
+		E0818CBE2B84B81100203F34 /* LoginPasswordScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E0818CBF2B84B82B00203F34 /* View */,
+			);
+			path = LoginPasswordScreen;
+			sourceTree = "<group>";
+		};
+		E0818CBF2B84B82B00203F34 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0818CC42B84B8FA00203F34 /* LoginPasswordVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0818CC62B875DEC00203F34 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				E0818CC72B875E3300203F34 /* RegisterVC.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		E092ECE22B3ADEB200CC2596 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -737,6 +765,8 @@
 		E0A878DE2B0B918100E27247 /* ProfileScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E0818CC62B875DEC00203F34 /* SignUp */,
+				E0818CBE2B84B81100203F34 /* LoginPasswordScreen */,
 				E0F2ED342B3D70D000BC1643 /* ProfileShareScreen */,
 				E003216D2B10E9CE006A280A /* ProfileSettingsScreen */,
 				E00321692B10D2B4006A280A /* FixProfileScreen */,
@@ -1233,6 +1263,7 @@
 				E0BCA5302B109AB10057C65B /* ProfileVC.swift in Sources */,
 				E02F61592B307329009B122D /* RecipeCookingInfoTableViewCell.swift in Sources */,
 				E0F2B1DA2B1509D700B5C801 /* RecipeModel.swift in Sources */,
+				E0818CC52B84B8FA00203F34 /* LoginPasswordVC.swift in Sources */,
 				E0CA208F2B2B31F90072F4AB /* RecipeViewModel.swift in Sources */,
 				E0FBC30F2B43F9C000E124F1 /* AddRecipeVC.swift in Sources */,
 				E000F9922B06A12B00ACA458 /* SceneDelegate.swift in Sources */,
@@ -1259,6 +1290,7 @@
 				E02CDA432B1F46FE003617F2 /* RecipeHeaderTableViewCell.swift in Sources */,
 				E0E50C782B2270A0000E6171 /* RecipeCategoryDetailVM.swift in Sources */,
 				E0F20D202B239A02007EE71A /* RecipePickerPeopleTableViewCell.swift in Sources */,
+				E0818CC82B875E3300203F34 /* RegisterVC.swift in Sources */,
 				E0FBC3112B43F9DB00E124F1 /* AddRecipeDetailVC.swift in Sources */,
 				E0B05E962B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.swift in Sources */,
 			);

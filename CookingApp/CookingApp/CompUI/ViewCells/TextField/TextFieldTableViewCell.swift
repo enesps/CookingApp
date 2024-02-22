@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
 class TextFieldTableViewCell: UITableViewCell , UITextFieldDelegate {
 
-    @IBOutlet weak var textField: UITextField!
+  
+    
+    @IBOutlet weak var textField: SkyFloatingLabelTextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,11 +27,11 @@ class TextFieldTableViewCell: UITableViewCell , UITextFieldDelegate {
 
         // Configure the view for the selected state
     }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        // TextField'in border rengini mavi olarak ayarla
-        textField.layer.borderWidth = 1.0
-        textField.layer.borderColor = UIColor.blue.cgColor
-    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        // TextField'in border rengini mavi olarak ayarla
+//        textField.layer.borderWidth = 1.0
+//        textField.layer.borderColor = UIColor.blue.cgColor
+//    }
     
 }
 extension UITextField {

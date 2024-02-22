@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="393" height="84"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkt-ud-Dd5">
+                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkt-ud-Dd5" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                         <rect key="frame" x="15" y="0.0" width="361" height="62"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="62" id="F2a-w4-rGu"/>
@@ -36,7 +36,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="textField" destination="lkt-ud-Dd5" id="lMC-sD-L4p"/>
+                <outlet property="textField" destination="lkt-ud-Dd5" id="YES-D1-r4i"/>
             </connections>
             <point key="canvasLocation" x="70.992366412213741" y="26.760563380281692"/>
         </tableViewCell>

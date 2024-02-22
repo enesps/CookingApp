@@ -71,7 +71,7 @@ extension LoginPasswordVC : UITableViewDelegate, UITableViewDataSource{
         }
         else  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
-            cell.button.backgroundColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.button.backgroundColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
             cell.button.setTitleColor(UIColor.white, for: .normal)
             cell.button.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.center
             cell.button.setTitle("Devam et" ,for: .normal)

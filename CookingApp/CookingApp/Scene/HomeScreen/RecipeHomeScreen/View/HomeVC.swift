@@ -21,6 +21,7 @@ class HomeVC : ViewController{
     private let viewModel = RecipeHomeVM()
     var imageUrl : URL? = nil
     override func viewDidLoad() {
+        
         showIndicatorView()
         dataUpdate()
         fetchData()

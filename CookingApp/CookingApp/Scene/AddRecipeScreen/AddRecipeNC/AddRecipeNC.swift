@@ -11,6 +11,7 @@ class AddRecipeNC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Ana view controller'ı oluşturun (örneğin, bir ViewController sınıfı kullanın)
 
 

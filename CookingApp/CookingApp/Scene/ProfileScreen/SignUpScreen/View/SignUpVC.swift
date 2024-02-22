@@ -101,14 +101,14 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
         }
         else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
+
             cell.textField.placeholder = "E-postanizi giriniz."
             cell.textField.title = "E-mail"
-            cell.textField.tintColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.textField.tintColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
             cell.textField.textColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
-            cell.textField.lineColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.textField.lineColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)            
             cell.textField.selectedTitleColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
-            cell.textField.selectedLineColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.textField.selectedLineColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
 
             cell.textField.lineHeight = 1.0 // bottom line height in points
             cell.textField.selectedLineHeight = 2.0
@@ -121,7 +121,7 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
         }
         else  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
-            cell.button.backgroundColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.button.backgroundColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
             cell.button.setTitleColor(UIColor.white, for: .normal)
             cell.button.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.center
             cell.button.setTitle("Devam et" ,for: .normal)
@@ -138,10 +138,15 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
         }
         
     }
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
     @objc func textFieldDidChange(_ textfield: UITextField) {
         if let text = textfield.text {
             if let floatingLabelTextField = textfield as? SkyFloatingLabelTextField {
-                if text.count < 3 || !text.contains("@") {
+                if text.count < 3 || !isValidEmail(text) {
                     if !text.isEmpty {
                         floatingLabelTextField.errorColor = #colorLiteral(red: 0.5808190107, green: 0.0884276256, blue: 0.3186392188, alpha: 1)
                         floatingLabelTextField.errorMessage = "Geçersiz email"
@@ -159,7 +164,7 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
                     floatingLabelTextField.errorMessage = ""
                     if let buttonCell = tableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? ButtonTableViewCell {
                         buttonCell.button.isEnabled = true
-                        buttonCell.button.backgroundColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+                        buttonCell.button.backgroundColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
                         buttonCell.button.layer.borderWidth = 1
                         buttonCell.button.setTitleColor(UIColor.white, for: .normal)
                         buttonCell.button.setTitle("Devam et" ,for: .normal)
@@ -170,7 +175,7 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
     }
     
     @objc func buttonTapped(_ sender: UIButton) {
-        var flag = false
+        var flag = true
         sender.showActivityIndicator()
         // Simüle edilmiş bir işlem için 2 saniye bekleyin
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

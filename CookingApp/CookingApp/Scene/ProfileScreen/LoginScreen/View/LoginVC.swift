@@ -38,10 +38,10 @@ class LoginVC:UIViewController{
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = "Yap Ye"
-        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
         self.navigationController?.navigationBar.isHidden = false
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+        appearance.backgroundColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
@@ -145,7 +145,7 @@ extension LoginVC : UITableViewDelegate, UITableViewDataSource{
         }
         else  {
             let cell = loginTableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
-            cell.button.backgroundColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.button.backgroundColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
             cell.button.setTitleColor(UIColor.white, for: .normal)
             
             cell.button.setTitle("E-postayla devam et" ,for: .normal)

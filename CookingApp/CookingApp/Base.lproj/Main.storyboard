@@ -1085,7 +1085,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZXh-Q4-p1N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3437.4045801526718" y="-277.46478873239437"/>
+            <point key="canvasLocation" x="2511" y="-217"/>
         </scene>
         <!--Tarif Ekle-->
         <scene sceneID="4wX-Op-z7O">
@@ -1101,7 +1101,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNy-F6-Hf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3437" y="443"/>
+            <point key="canvasLocation" x="2511" y="514"/>
         </scene>
         <!--Favoriler-->
         <scene sceneID="BRn-nc-N8M">
@@ -1120,7 +1120,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64s-3Z-pAI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3436" y="1192"/>
+            <point key="canvasLocation" x="2511" y="1245"/>
         </scene>
         <!--FavoriteVC-->
         <scene sceneID="SXo-ua-umv">
@@ -1331,7 +1331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ulb-6y-yRK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673" y="1177"/>
+            <point key="canvasLocation" x="7010" y="1105"/>
         </scene>
     </scenes>
     <resources>

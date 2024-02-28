@@ -175,7 +175,7 @@ extension SignUpVC : UITableViewDelegate, UITableViewDataSource{
     }
     
     @objc func buttonTapped(_ sender: UIButton) {
-        var flag = true
+        var flag = false
         sender.showActivityIndicator()
         // Simüle edilmiş bir işlem için 2 saniye bekleyin
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

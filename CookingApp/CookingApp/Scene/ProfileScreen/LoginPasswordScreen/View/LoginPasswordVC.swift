@@ -65,6 +65,7 @@ extension LoginPasswordVC : UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
             cell.textField.placeholder = "Şifrenizi giriniz."
             cell.textField.isSecureTextEntry = true
+            cell.textField.textContentType = .password
             cell.textField.becomeFirstResponder()
             cell.selectionStyle = .none
            return cell

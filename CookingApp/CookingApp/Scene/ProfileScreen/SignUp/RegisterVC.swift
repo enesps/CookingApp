@@ -55,8 +55,9 @@ extension RegisterVC : UITableViewDelegate, UITableViewDataSource{
 
         else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
+
             cell.textField.placeholder = "Şifrenizi girin"
+            cell.textField.textContentType = .newPassword
             cell.textField.title = "Şifre"
             cell.textField.tintColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
             cell.textField.textColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
@@ -75,9 +76,10 @@ extension RegisterVC : UITableViewDelegate, UITableViewDataSource{
         }
         else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
+
             cell.textField.placeholder = "Şifrenizi tekrar girin"
             cell.textField.title = "Tekrar giriniz"
+            cell.textField.textContentType = .newPassword
             cell.textField.tintColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
             cell.textField.textColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
             cell.textField.lineColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)

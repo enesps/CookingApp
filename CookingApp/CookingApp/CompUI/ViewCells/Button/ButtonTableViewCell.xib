@@ -24,7 +24,7 @@
                         </constraints>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="tinted" image="in">
+                        <buttonConfiguration key="configuration" style="tinted">
                             <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </buttonConfiguration>
                     </button>
@@ -43,7 +43,4 @@
             <point key="canvasLocation" x="46" y="20"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="in" width="128" height="128"/>
-    </resources>
 </document>

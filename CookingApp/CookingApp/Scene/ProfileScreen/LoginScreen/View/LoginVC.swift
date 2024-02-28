@@ -115,7 +115,7 @@ class LoginVC:UIViewController{
 }
 extension LoginVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,7 +127,7 @@ extension LoginVC : UITableViewDelegate, UITableViewDataSource{
         else if indexPath.row == 1{
             let cell = loginTableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
             cell.button.setTitleColor(UIColor.black, for: .normal)
-            cell.button.setImage(UIImage(named: "google"), for: .normal)
+            cell.button.setImage(UIImage(named: "icons8-google-48(@1×)"), for: .normal)
             cell.button.setTitle("Google ile devam et" ,for: .normal)
             cell.button.addTarget(self, action: #selector(signInGoogle(_:)), for: .touchUpInside)
             cell.button.backgroundColor = UIColor.white
@@ -137,8 +137,17 @@ extension LoginVC : UITableViewDelegate, UITableViewDataSource{
         else if indexPath.row == 2 {
             let cell = loginTableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
             cell.button.setTitleColor(UIColor.black, for: .normal)
-            cell.button.setImage(UIImage(systemName: "applelogo"), for: .normal)
+            cell.button.setImage(UIImage(named: "facebook"), for: .normal)
             cell.button.setTitle("Facebook ile devam et" ,for: .normal)
+            cell.button.backgroundColor = UIColor.white
+            cell.selectionStyle = .none
+           return cell
+        }
+        else if indexPath.row == 3 {
+            let cell = loginTableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
+            cell.button.setTitleColor(UIColor.black, for: .normal)
+            cell.button.setImage(UIImage(named: "apple"), for: .normal)
+            cell.button.setTitle("Apple ile devam et" ,for: .normal)
             cell.button.backgroundColor = UIColor.white
             cell.selectionStyle = .none
            return cell

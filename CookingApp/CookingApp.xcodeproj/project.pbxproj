@@ -78,6 +78,8 @@
 		E0A878D92B0B59DC00E27247 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A878D82B0B59DC00E27247 /* SearchVC.swift */; };
 		E0A878E22B0B959B00E27247 /* PreLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A878E12B0B959B00E27247 /* PreLoginVC.swift */; };
 		E0A878E62B0B960A00E27247 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A878E52B0B960A00E27247 /* LoginVC.swift */; };
+		E0AF4B262B8F5B7F00D29979 /* ProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF4B242B8F5B7F00D29979 /* ProfileHeaderTableViewCell.swift */; };
+		E0AF4B272B8F5B7F00D29979 /* ProfileHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AF4B252B8F5B7F00D29979 /* ProfileHeaderTableViewCell.xib */; };
 		E0B05E922B1DB98C00EC0FF7 /* RecipeCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B05E902B1DB98C00EC0FF7 /* RecipeCardTableViewCell.swift */; };
 		E0B05E932B1DB98C00EC0FF7 /* RecipeCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0B05E912B1DB98C00EC0FF7 /* RecipeCardTableViewCell.xib */; };
 		E0B05E962B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B05E942B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.swift */; };
@@ -208,6 +210,8 @@
 		E0A878D82B0B59DC00E27247 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		E0A878E12B0B959B00E27247 /* PreLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLoginVC.swift; sourceTree = "<group>"; };
 		E0A878E52B0B960A00E27247 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		E0AF4B242B8F5B7F00D29979 /* ProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		E0AF4B252B8F5B7F00D29979 /* ProfileHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		E0B05E902B1DB98C00EC0FF7 /* RecipeCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardTableViewCell.swift; sourceTree = "<group>"; };
 		E0B05E912B1DB98C00EC0FF7 /* RecipeCardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCardTableViewCell.xib; sourceTree = "<group>"; };
 		E0B05E942B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeImageViewCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -900,6 +904,8 @@
 			isa = PBXGroup;
 			children = (
 				E0BCA52F2B109AB10057C65B /* ProfileVC.swift */,
+				E0AF4B242B8F5B7F00D29979 /* ProfileHeaderTableViewCell.swift */,
+				E0AF4B252B8F5B7F00D29979 /* ProfileHeaderTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1193,6 +1199,7 @@
 				E0BEC6292B35C32A00B468F2 /* credentials.plist in Resources */,
 				E04538782B7FD324000AF5C8 /* LabelTableViewCell.xib in Resources */,
 				E01A34E22B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.xib in Resources */,
+				E0AF4B272B8F5B7F00D29979 /* ProfileHeaderTableViewCell.xib in Resources */,
 				E02DC8BE2B46B537000C6689 /* HeaderSetViewCell.xib in Resources */,
 				E0B05E932B1DB98C00EC0FF7 /* RecipeCardTableViewCell.xib in Resources */,
 				E000F9D42B06A80200ACA458 /* LottieAnimation.json in Resources */,
@@ -1278,6 +1285,7 @@
 				E01A34D32B7F8C5C003C2937 /* TextFieldTableViewCell.swift in Sources */,
 				E0B479B02B458DA9001724B6 /* IngredientCell.swift in Sources */,
 				E0A534622B17AB5200E22588 /* RecipeSearchModel.swift in Sources */,
+				E0AF4B262B8F5B7F00D29979 /* ProfileHeaderTableViewCell.swift in Sources */,
 				E04DE8C42B3457940046B026 /* RecipeSearchVM.swift in Sources */,
 				E01A34DC2B7F9030003C2937 /* externalLoginTableViewCell.swift in Sources */,
 				E092ECEA2B3C4A2500CC2596 /* ProfileVM.swift in Sources */,

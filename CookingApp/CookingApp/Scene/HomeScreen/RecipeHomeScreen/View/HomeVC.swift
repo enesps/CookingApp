@@ -42,8 +42,8 @@ class HomeVC : ViewController{
         recipeCategoryCollectionView.register(UINib(nibName: "RecipeImageViewCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "RecipeImageViewCollectionViewCell")
         recipeCategoryCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
         if let flowLayout = recipeCategoryCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.minimumInteritemSpacing = 5  // Hücreler arasındaki minimum boşluk
-            flowLayout.minimumLineSpacing = 5       // Satırlar arasındaki minimum boşluk
+            flowLayout.minimumInteritemSpacing = 10  // Hücreler arasındaki minimum boşluk
+            flowLayout.minimumLineSpacing = 10       // Satırlar arasındaki minimum boşluk
             flowLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)  // Ekran kenarlarına olan boşluk
         }
     }
@@ -110,9 +110,11 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = recipeCategoryCollectionView.dequeueReusableCell(withReuseIdentifier: "RecipeImageViewCollectionViewCell", for: indexPath) as! RecipeImageViewCollectionViewCell
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.darkGray.cgColor
-        cell.layer.cornerRadius = 15
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2)
+        cell.layer.shadowOpacity = 0.4
+        cell.layer.shadowRadius = 2
+        cell.layer.masksToBounds = false
         
         cell.recipeImageView.image = UIImage(named: recipeCategoryImage[indexPath.row])
         cell.recipeName.text = recipeCategoryTitle[indexPath.row]
@@ -126,7 +128,6 @@ extension HomeVC : UICollectionViewDelegate,UICollectionViewDataSource,UICollect
         let recipeCategoryDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "RecipeCategoryDetail") as! RecipeCategoryDetailVC
         recipeCategoryDetailVC.categoryTitle = recipeCategoryTitle[indexPath.row]
         self.navigationController?.pushViewController(recipeCategoryDetailVC, animated: true)
-        
         
     }
     

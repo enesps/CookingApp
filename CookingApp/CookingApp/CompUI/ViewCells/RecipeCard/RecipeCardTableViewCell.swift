@@ -17,6 +17,7 @@ class RecipeCardTableViewCell: UITableViewCell {
     @IBOutlet weak var recipeCardImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         // Initialization code
     }
 
@@ -24,7 +25,15 @@ class RecipeCardTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
+    override func layoutSubviews() {
+          super.layoutSubviews()
+          //set the values for top,left,bottom,right margins
+          let margins = UIEdgeInsets(top: 5, left: 8, bottom: 5, right: 8)
+          contentView.frame = contentView.frame.inset(by: margins)
+          contentView.layer.cornerRadius = 8
+    }
     func configure(with recipe : Recipe){
+
         recipeCardName.preferredMaxLayoutWidth = recipeCardName.frame.size.width
         print(recipe.recipeName)
         if let score = recipe.score{

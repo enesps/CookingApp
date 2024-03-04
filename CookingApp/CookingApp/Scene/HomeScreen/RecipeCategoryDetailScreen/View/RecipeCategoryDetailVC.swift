@@ -121,18 +121,13 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
         as! RecipeCategoryDetailCollectionViewCell
         cell.configure(with: recipe)
         cell.layer.masksToBounds = false
-        cell.layer.shadowColor = UIColor.gray.cgColor
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2)
         cell.layer.shadowOpacity = 0.4
-        cell.layer.shadowRadius = 3.00
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.darkGray.cgColor
-        cell.layer.cornerRadius = 15
-        cell.layer.shouldRasterize = true
-        cell.layer.rasterizationScale = UIScreen.main.scale
+        cell.layer.shadowRadius = 2
+        cell.layer.masksToBounds = false
 
-        let lineView = UIView(frame: CGRect(x: 0, y: cell.frame.size.height - 1, width: cell.frame.size.width, height: 1))
-                lineView.backgroundColor = UIColor.lightGray
-        cell.addSubview(lineView)
+
         
         return cell
     }
@@ -154,8 +149,8 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (recipeCollectionView.frame.size.width - 20) / 2
-        return CGSize(width: width, height:300)
+        let width = (recipeCollectionView.frame.size.width - 18) / 2
+        return CGSize(width: width, height:173)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

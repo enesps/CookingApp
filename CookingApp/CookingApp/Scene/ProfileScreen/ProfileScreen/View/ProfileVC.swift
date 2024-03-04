@@ -22,7 +22,7 @@ class ProfileVC: UIViewController {
         viewModel.onDataUpdate = { [weak self] model, error in
             if let model = model {
 
-                self?.navigationItem.title = "\(model.name!) \(model.surname!)"
+//                self?.navigationItem.title = "\(model.name!) \(model.surname!)"
                 self?.profileUserName.text = model.email
                 self?.profileBtn.kf.setImage(with: URL(string:model.profilePicURL!))
                 self?.ownPostCollectionView.reloadData()

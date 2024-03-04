@@ -57,19 +57,19 @@ class LoginVC:UIViewController{
         UINavigationBar.appearance().titleTextAttributes = attrs
         tableViewConfigure()
 
-//        // Metin rengi
-//
-//        viewModel.onDataUpdate = { [weak self] model, error in
-//            DispatchQueue.main.async {
-//                if let token = model?.token{
-//                    KeyChainService.shared.saveToken(token)
-//                }
-//                let tabBarController = self?.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-//                tabBarController.selectedIndex = 4
-//                tabBarController.modalPresentationStyle = .overFullScreen
-//                self?.present(tabBarController, animated: true, completion: nil)
-//            }
-//        }
+        // Metin rengi
+
+        viewModel.onDataUpdate = { [weak self] model, error in
+            DispatchQueue.main.async {
+                if let token = model?.token{
+                    KeyChainService.shared.saveToken(token)
+                }
+                let tabBarController = self?.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                tabBarController.selectedIndex = 4
+                tabBarController.modalPresentationStyle = .overFullScreen
+                self?.present(tabBarController, animated: true, completion: nil)
+            }
+        }
     }
     func tableViewConfigure(){
          loginTableView.delegate = self

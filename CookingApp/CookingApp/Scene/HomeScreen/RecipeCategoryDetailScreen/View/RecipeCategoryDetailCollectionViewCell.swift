@@ -20,7 +20,7 @@ class RecipeCategoryDetailCollectionViewCell: UICollectionViewCell {
         if let imageURLString = recipe.imageURL, let imageURL = URL(string: imageURLString) {
             // imageURL bir URL ise Kingfisher ile resmi yükle
             recipeImage.kf.setImage(with: imageURL)
-            recipeImage.applyCornerRadiusToTop(corners: [.topLeft, .topRight], radius: 15)
+            
         } else if let base64String = recipe.imageURL, let imageData = UIImage(base64String: base64String) {
             // imageURL bir base64 string ise UIImage oluştur ve set et
             recipeImage.image = imageData

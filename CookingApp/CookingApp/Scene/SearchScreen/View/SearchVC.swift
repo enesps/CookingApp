@@ -135,6 +135,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource,UISearchResultsUp
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 112
     }
+    
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text?.lowercased() else { return }
         if searchText.isEmpty {

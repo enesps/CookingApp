@@ -49,15 +49,8 @@ class LoginVC:UIViewController{
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.red,
-            NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 45)!
-        ]
 
-        UINavigationBar.appearance().titleTextAttributes = attrs
         tableViewConfigure()
-
-        // Metin rengi
 
         viewModel.onDataUpdate = { [weak self] model, error in
             DispatchQueue.main.async {
@@ -169,15 +162,5 @@ extension LoginVC : UITableViewDelegate, UITableViewDataSource{
         // Hücre seçilmesini engelle
         tableView.deselectRow(at: indexPath, animated: false)
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        // İstenilen boşluk miktarını burada belirleyebilirsiniz
-//        if indexPath.row == 4 {
-//            return 182
-//        }
-//        else{
-//            return 64
-//        }
-//        // Örneğin, her hücre için 80 piksel yükseklik belirtiyoruz.
-//    }
     
 }

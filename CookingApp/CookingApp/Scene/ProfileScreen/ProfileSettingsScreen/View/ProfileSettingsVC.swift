@@ -28,7 +28,7 @@ class ProfileSettingsVC: UIViewController {
     @IBAction func signOut(_ sender: Any) {
 
             KeyChainService.shared.deleteToken()
-            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "PreLogin") as? PreLoginVC else { return }
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginView") as? UIViewController else { return }
             vc.modalPresentationStyle = .overFullScreen
     //        self.present(vc, animated: true)
             if let navigationController = self.navigationController as? ProfileNC {

@@ -13,6 +13,8 @@ import Lottie
 class RecipeCategoryDetailVC: UIViewController {
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = RecipeCategoryDetailVM()
+    let refreshButton = UIButton()
+    let errorMessageLabel = UILabel()
     var searchController = UISearchController(searchResultsController: nil)
     var categoryTitle : String?
     var refreshControl = UIRefreshControl()
@@ -22,6 +24,12 @@ class RecipeCategoryDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = categoryTitle
+        setupUI()
+        
+        // Hata durumunu simüle edin.
+        errorMessageLabel.isHidden = false
+        refreshButton.isHidden = false
+        disableSearchController()
         lottieAnimation()
         configureCollectionView()
         configureSearchController()
@@ -30,25 +38,73 @@ class RecipeCategoryDetailVC: UIViewController {
         viewModel.fetchData(endpoint:"\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
         
     }
+    private func disableSearchController(){
+        searchController.searchBar.searchTextField.isUserInteractionEnabled = false
+    }
     private func dataUpdate(){
         viewModel.onDataUpdate = { [weak self]   in
+            self?.searchController.searchBar.searchTextField.isUserInteractionEnabled = true
             self?.recipeCollectionView.reloadData()
             self?.animationView.stop()
             self?.animationView.isHidden = true
-            
         }
 
     }
+    @objc func refreshButtonTapped() {
+        // Yenileme işlemini gerçekleştirin.
+        
+        viewModel.fetchData(endpoint:"\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
+        // Hata durumunu gizleyin.
+        
+        errorMessageLabel.isHidden = true
+        refreshButton.isHidden = true
+    }
+    func setupUI() {
+           view.backgroundColor = .white
+           
+           refreshButton.translatesAutoresizingMaskIntoConstraints = false
+           refreshButton.setImage(UIImage(systemName: "arrow.clockwise"), for: .normal)
+           refreshButton.tintColor = .black
+           refreshButton.addTarget(self, action: #selector(refreshButtonTapped), for: .touchUpInside)
+           view.addSubview(refreshButton)
+           
+           errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+           errorMessageLabel.textAlignment = .center
+           errorMessageLabel.text = "Bir hata oluştu. Yeniden denemek için lütfen yenile butonuna tıklayın."
+           errorMessageLabel.numberOfLines = 0
+           view.addSubview(errorMessageLabel)
+           
+           NSLayoutConstraint.activate([
+               refreshButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+               refreshButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+               
+               errorMessageLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+               errorMessageLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+               errorMessageLabel.bottomAnchor.constraint(equalTo: refreshButton.topAnchor, constant: -20),
+           ])
+       }
     private func SkeletonUpdate(){
         viewModel.onSkeletonUpdate = { [weak self] isActive in
             if isActive {
                 self?.recipeCollectionView.isSkeletonable = true
                 self?.recipeCollectionView.showAnimatedGradientSkeleton()
+                self?.searchController.searchBar.isHidden = false
+                self?.errorMessageLabel.isHidden = true
+                self?.refreshButton.isHidden = true
             } else {
                 self?.recipeCollectionView.stopSkeletonAnimation()
+                self?.stoplottiAnimation()
+                self?.searchController.searchBar.isHidden = true
+                self?.errorMessageLabel.isHidden = false
+                self?.refreshButton.isHidden = false
                 self?.view.hideSkeleton()
             }
         }
+    }
+    
+    private func stoplottiAnimation(){
+        animationView.stop()
+        animationView.isHidden = true
     }
     private func lottieAnimation(){
         animationView.translatesAutoresizingMaskIntoConstraints = false
@@ -204,8 +260,7 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
             animationView.loopMode = .loop
             animationView.play()
             viewModel.fetchData1(for: ["foodName" : searchText],endpoint: APIEndpoints.getRecipeSearch)
-            animationView.stop()
-            animationView.isHidden = true
+            stoplottiAnimation()
         } else {
             recipeCollectionView.reloadData()
         }

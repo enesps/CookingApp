@@ -59,11 +59,11 @@ extension RegisterVC : UITableViewDelegate, UITableViewDataSource{
             cell.textField.placeholder = "Şifrenizi girin"
             cell.textField.textContentType = .newPassword
             cell.textField.title = "Şifre"
-            cell.textField.tintColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.textField.tintColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
             cell.textField.textColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
-            cell.textField.lineColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
-            cell.textField.selectedTitleColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
-            cell.textField.selectedLineColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.textField.lineColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
+            cell.textField.selectedTitleColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
+            cell.textField.selectedLineColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
 
             cell.textField.lineHeight = 1.0 // bottom line height in points
             cell.textField.selectedLineHeight = 2.0
@@ -80,11 +80,11 @@ extension RegisterVC : UITableViewDelegate, UITableViewDataSource{
             cell.textField.placeholder = "Şifrenizi tekrar girin"
             cell.textField.title = "Tekrar giriniz"
             cell.textField.textContentType = .newPassword
-            cell.textField.tintColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.textField.tintColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
             cell.textField.textColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
-            cell.textField.lineColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
-            cell.textField.selectedTitleColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
-            cell.textField.selectedLineColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.textField.lineColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
+            cell.textField.selectedTitleColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
+            cell.textField.selectedLineColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
 
             cell.textField.lineHeight = 1.0 // bottom line height in points
             cell.textField.selectedLineHeight = 2.0
@@ -97,7 +97,7 @@ extension RegisterVC : UITableViewDelegate, UITableViewDataSource{
         }
         else  {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonTableViewCell", for: indexPath) as! ButtonTableViewCell
-            cell.button.backgroundColor = #colorLiteral(red: 0.004859850742, green: 0.09608627111, blue: 0.5749928951, alpha: 1)
+            cell.button.backgroundColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
             cell.button.setTitleColor(UIColor.white, for: .normal)
             cell.button.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.center
             cell.button.setTitle("Devam et" ,for: .normal)

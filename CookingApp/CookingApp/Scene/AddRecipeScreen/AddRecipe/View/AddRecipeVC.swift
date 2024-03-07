@@ -22,12 +22,7 @@ class AddRecipeVC: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        let attrs = [
-            NSAttributedString.Key.foregroundColor: UIColor.red,
-            NSAttributedString.Key.font: UIFont(name: "Georgia-Bold", size: 45)!
-        ]
 
-        UINavigationBar.appearance().titleTextAttributes = attrs
         // Do any additional setup after loading the view.
     }
     

@@ -43,6 +43,7 @@ class RecipeCategoryDetailVM: ViewModelProtocol {
                     self.onSkeletonUpdate?(false)
                     break
                 case .failure(let error):
+                    self.onSkeletonUpdate?(false)
                     // Hata durumu ile ilgili işlemleri burada yapabilirsiniz.
                     print("Hata oluştu: \(error)")
                 }
@@ -54,6 +55,7 @@ class RecipeCategoryDetailVM: ViewModelProtocol {
             .store(in: &cancellables)
         
     }
+    
 
     func fetchData1(for query: [String: String] = [:], endpoint: String) {
         self.onSkeletonUpdate?(true)

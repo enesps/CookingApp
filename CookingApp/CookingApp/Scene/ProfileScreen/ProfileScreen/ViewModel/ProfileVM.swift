@@ -29,8 +29,8 @@ class ProfileVM{
                 case .failure(let error):
                     self.error = error
                     let indicatorView = SPIndicatorView(title: "Profil",message: "Profile Erişim Sağlanamadı", preset: .error)
+                    indicatorView.presentSide = .bottom
                     indicatorView.present(duration: 3)
-                    
                 }
             } receiveValue: { yourModel in
                 

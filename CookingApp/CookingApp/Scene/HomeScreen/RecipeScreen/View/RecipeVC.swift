@@ -34,6 +34,7 @@ class RecipeVC: UIViewController {
     @IBOutlet weak var recipeTableView: UITableView!
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = RecipeViewModel()
+    var centerButtonsVisible = false
     var celldataArray  = [cellData]()
     var recipeId : Int?
     override func viewDidLoad() {
@@ -181,7 +182,44 @@ extension RecipeVC : SkeletonTableViewDelegate,SkeletonTableViewDataSource{
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let headerView = view as? UITableViewHeaderFooterView else { return }
         headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        if section != 0 && !centerButtonsVisible {
+            centerButtonsVisible = true
+            updateBarButtonItems()
+        } else {
+            centerButtonsVisible = false
+            updateBarButtonItems()
+        }
         
+    }
+
+
+    func updateBarButtonItems() {
+        if centerButtonsVisible {
+            // Eğer ikinci bölümdeysek, butonları ortalamak için bir boşluk ekleyeceğiz.
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+            
+            // Navigation bar için ortadaki butonlar
+            let centerButton1 = UIBarButtonItem(title: "Button1", style: .plain, target: self, action: #selector(button1Tapped))
+            let centerButton2 = UIBarButtonItem(title: "Button2", style: .plain, target: self, action: #selector(button2Tapped))
+
+            // Butonları güncelliyoruz.
+            navigationController?.setToolbarItems([flexibleSpace, centerButton1, flexibleSpace, centerButton2, flexibleSpace], animated: true)
+        } else {
+            // Eğer ikinci bölümde değilsek, varsayılan butonları ekliyoruz.
+            let rightButton1 = UIBarButtonItem(title: "Button1", style: .plain, target: self, action: #selector(button1Tapped))
+            let rightButton2 = UIBarButtonItem(title: "Button2", style: .plain, target: self, action: #selector(button2Tapped))
+            
+            navigationItem.rightBarButtonItems = [rightButton1, rightButton2]
+            navigationItem.leftBarButtonItems = nil
+        }
+    }
+
+    @objc func button1Tapped() {
+        // Button 1'e tıklandığında yapılacak işlemler
+    }
+
+    @objc func button2Tapped() {
+        // Button 2'ye tıklandığında yapılacak işlemler
     }
 }
 

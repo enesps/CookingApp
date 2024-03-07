@@ -19,6 +19,18 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = "Profilim"
+        self.navigationController?.navigationBar.backgroundColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
+        self.navigationController?.navigationBar.isHidden = false
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         viewModel.onDataUpdate = { [weak self] model, error in
             if let model = model {
 
@@ -38,7 +50,7 @@ class ProfileVC: UIViewController {
     }
     func navigationSettingsItem(){
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "gearshape.fill")?.withTintColor(.green),
+            image: UIImage(systemName: "gearshape.fill")?.withTintColor(.lightGray),
             style: .plain,
             target: self,
             action: #selector(ayarlarButtonTapped)

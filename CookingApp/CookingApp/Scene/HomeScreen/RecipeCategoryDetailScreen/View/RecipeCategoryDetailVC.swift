@@ -19,16 +19,19 @@ class RecipeCategoryDetailVC: UIViewController {
     var categoryTitle : String?
     var refreshControl = UIRefreshControl()
     let animationView = LottieAnimationView(name: "LottieAnimationSpinner")
-    
+    private lazy var refreshView: LottieAnimationView = {
+        let animationView = LottieAnimationView(name: "refresh")
+        animationView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        animationView.center = refreshButton.center
+        animationView.isHidden = true
+        return animationView
+    }()
     @IBOutlet weak var recipeCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = categoryTitle
         setupUI()
-        
-        // Hata durumunu simüle edin.
-        errorMessageLabel.isHidden = false
-        refreshButton.isHidden = false
+
         disableSearchController()
         lottieAnimation()
         configureCollectionView()
@@ -43,18 +46,23 @@ class RecipeCategoryDetailVC: UIViewController {
     }
     private func dataUpdate(){
         viewModel.onDataUpdate = { [weak self]   in
-            self?.searchController.searchBar.searchTextField.isUserInteractionEnabled = true
-            self?.recipeCollectionView.reloadData()
-            self?.animationView.stop()
-            self?.animationView.isHidden = true
+            
+                self?.searchController.searchBar.searchTextField.isUserInteractionEnabled = true
+                self?.recipeCollectionView.reloadData()
+                self?.animationView.stop()
+                self?.animationView.isHidden = true
+            
         }
 
     }
     @objc func refreshButtonTapped() {
         // Yenileme işlemini gerçekleştirin.
+        animationView.isHidden = false
+        animationView.loopMode = .loop
+        animationView.play()
         
-        viewModel.fetchData(endpoint:"\(APIEndpoints.getRecipeCategory)\(viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!)))")
-        // Hata durumunu gizleyin.
+            self.viewModel.fetchData(endpoint:"\(APIEndpoints.getRecipeCategory)\(self.viewModel.manipulateString(self.viewModel.convertTurkishToEnglish(self.categoryTitle!)))")
+
         
         errorMessageLabel.isHidden = true
         refreshButton.isHidden = true
@@ -73,7 +81,13 @@ class RecipeCategoryDetailVC: UIViewController {
            errorMessageLabel.text = "Bir hata oluştu. Yeniden denemek için lütfen yenile butonuna tıklayın."
            errorMessageLabel.numberOfLines = 0
            view.addSubview(errorMessageLabel)
-           
+            view.addSubview(refreshView)
+        NSLayoutConstraint.activate([
+            refreshView.topAnchor.constraint(equalTo: view.topAnchor),
+            refreshView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            refreshView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            refreshView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
            NSLayoutConstraint.activate([
                refreshButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                refreshButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -81,6 +95,8 @@ class RecipeCategoryDetailVC: UIViewController {
                errorMessageLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
                errorMessageLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
                errorMessageLabel.bottomAnchor.constraint(equalTo: refreshButton.topAnchor, constant: -20),
+               
+              
            ])
        }
     private func SkeletonUpdate(){

@@ -54,6 +54,7 @@
 		E04DE8C12B3427F00046B026 /* RecipeHomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DE8C02B3427F00046B026 /* RecipeHomeVM.swift */; };
 		E04DE8C42B3457940046B026 /* RecipeSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04DE8C32B3457940046B026 /* RecipeSearchVM.swift */; };
 		E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */ = {isa = PBXBuildFile; productRef = E05086B62B07A9510022CDE8 /* ALPopup */; };
+		E053E5992B9B04BE001C4A16 /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = E053E5982B9B04BE001C4A16 /* refresh.json */; };
 		E05AD9AC2B15457A002D544C /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AD9AB2B15457A002D544C /* RecipeVC.swift */; };
 		E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072E2142B108C8600F3F4F7 /* ProfileNC.swift */; };
 		E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E075A2692B24BAED00C71C95 /* Kingfisher */; };
@@ -185,6 +186,7 @@
 		E04538762B7FD324000AF5C8 /* LabelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
 		E04DE8C02B3427F00046B026 /* RecipeHomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHomeVM.swift; sourceTree = "<group>"; };
 		E04DE8C32B3457940046B026 /* RecipeSearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchVM.swift; sourceTree = "<group>"; };
+		E053E5982B9B04BE001C4A16 /* refresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = refresh.json; sourceTree = "<group>"; };
 		E05AD9AB2B15457A002D544C /* RecipeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeVC.swift; sourceTree = "<group>"; };
 		E05AECAA2B33240700B7A4EA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		E05AECAC2B33240700B7A4EA /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -305,6 +307,7 @@
 		E000F98E2B06A12B00ACA458 /* CookingApp */ = {
 			isa = PBXGroup;
 			children = (
+				E053E5972B9B04AC001C4A16 /* LottieAnimation */,
 				E092ECEE2B3C50F600CC2596 /* CompUI */,
 				E029B8F02B39F46600E4A063 /* KeyChain */,
 				E0E50C712B226F34000E6171 /* ApiService */,
@@ -518,6 +521,14 @@
 				E04DE8C32B3457940046B026 /* RecipeSearchVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E053E5972B9B04AC001C4A16 /* LottieAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				E053E5982B9B04BE001C4A16 /* refresh.json */,
+			);
+			path = LottieAnimation;
 			sourceTree = "<group>";
 		};
 		E05AD9A82B1544FA002D544C /* RecipeHomeScreen */ = {
@@ -1213,6 +1224,7 @@
 				E0B479B12B458DA9001724B6 /* IngredientCell.xib in Resources */,
 				E01A34DD2B7F9030003C2937 /* externalLoginTableViewCell.xib in Resources */,
 				E0B05E972B1DF2AE00EC0FF7 /* RecipeImageViewCollectionViewCell.xib in Resources */,
+				E053E5992B9B04BE001C4A16 /* refresh.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

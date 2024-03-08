@@ -35,6 +35,7 @@ class RecipeCategoryDetailVM: ViewModelProtocol {
         onSkeletonUpdate?(true)
         apiService.fetchData(for: query, modelType: [Recipe].self, baseURL: APIConstants.baseURL, endpoint: endpoint)
             .receive(on: DispatchQueue.main)
+            .delay(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 
                 switch completion {

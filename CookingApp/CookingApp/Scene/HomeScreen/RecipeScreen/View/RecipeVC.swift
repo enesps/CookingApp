@@ -9,51 +9,50 @@ import UIKit
 import Combine
 import Kingfisher
 import SkeletonView
-enum CellType {
-    case recipeHeaderTableViewCell
-    case recipeTime
-    case recipeIngredientsTableViewCell
-    case recipeCookingTableViewCell
-//    case recipePickerPeopleTableViewCell
-}
+
 class RecipeVC: UIViewController {
-    struct  recipeIngredients{
-        var title:String
-        var text:String
-    }
-    
-    struct cellData{
-        var sectionType:CellType
-        var data:[Any]
-    }
-
-    let cellTypes: [CellType] = [.recipeHeaderTableViewCell,
-                                 .recipeTime, .recipeIngredientsTableViewCell, .recipeCookingTableViewCell/*.recipePickerPeopleTableViewCell*/]
-    
-
     @IBOutlet weak var recipeTableView: UITableView!
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = RecipeViewModel()
-    var centerButtonsVisible = false
     var celldataArray  = [cellData]()
     var recipeId : Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.prefersLargeTitles = false
         tableViewConfigure()
+        footerConfiguration()
+        SkeletonUpdate()
+        dataUpdate()
+        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeById)\(recipeId ?? -1)")
+    }
+    
+    private func SkeletonUpdate(){
         viewModel.onSkeletonUpdate = { [weak self] isActive in
             if isActive {
                 self?.recipeTableView.isSkeletonable = true
-        //        recipeCollectionView.showAnimatedSkeleton(usingColor: .lightGray, animation: animation, transition: .crossDissolve(0.25))
                 self?.recipeTableView.showAnimatedGradientSkeleton()
             } else {
                 self?.recipeTableView.stopSkeletonAnimation()
                 self?.view.hideSkeleton()
             }
         }
-        dataUpdate()
-        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeById)\(recipeId ?? -1)")
+        
+    }
+    private func footerConfiguration(){
+        // Footer view'i oluşturup ScrollView'e ekleyin
+        let footerView = createFooterView()
+        view.addSubview(footerView)
+        
+        
+        footerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            footerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            footerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            footerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            footerView.heightAnchor.constraint(equalToConstant: 70) // Footer view'in yüksekliği
+        ])
     }
     func skeletonUpdate(){
         viewModel.onSkeletonUpdate = { [weak self] isActive in
@@ -68,19 +67,17 @@ class RecipeVC: UIViewController {
         }
     }
     func headerOfTableView(){
-        recipeTableView.separatorStyle = .none
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.size.width))
-        let imageView = UIImageView(frame: header.bounds)
-        if viewModel.data?.imageURL != nil{
-            imageView.kf.setImage(with: URL(string: viewModel.data?.imageURL ?? ""))
-        }else{
-            imageView.image = UIImage(base64String: viewModel.data?.image ?? "")
-        }
 
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        header.addSubview(imageView)
-        recipeTableView.tableHeaderView = header
+        recipeTableView.separatorStyle = .none
+        let imageView = StretchyTableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.size.width))
+        if viewModel.data?.imageURL != nil{
+            imageView.imageView.kf.setImage(with: URL(string: viewModel.data?.imageURL ?? ""))
+        }else{
+            imageView.imageView.image = UIImage(base64String: viewModel.data?.image ?? "")
+        }
+ 
+       
+        recipeTableView.tableHeaderView = imageView
     }
     func dataUpdate(){
         viewModel.onDataUpdate = { [weak self]   in
@@ -91,38 +88,72 @@ class RecipeVC: UIViewController {
             self?.celldataArray.append(cellData(sectionType: .recipeCookingTableViewCell, data: (self?.viewModel.data?.instructions)!))
             self?.headerOfTableView()
             self?.recipeTableView.reloadData()
-
+            
         }
     }
     func tableViewConfigure(){
         
         recipeTableView.delegate = self
-         recipeTableView.dataSource = self
-         recipeTableView.register(UINib(nibName: "RecipeHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeHeaderTableViewCell")
-         recipeTableView.register(UINib(nibName: "RecipeCookingTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCookingTableViewCell")
-         recipeTableView.register(UINib(nibName: "RecipeIngredientsTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeIngredientsTableViewCell")
-         recipeTableView.register(UINib(nibName: "RecipePickerPeopleTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipePickerPeopleTableViewCell")
+        recipeTableView.dataSource = self
+        recipeTableView.register(UINib(nibName: "RecipeHeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeHeaderTableViewCell")
+        recipeTableView.register(UINib(nibName: "RecipeCookingTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCookingTableViewCell")
+        recipeTableView.register(UINib(nibName: "RecipeIngredientsTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeIngredientsTableViewCell")
+        recipeTableView.register(UINib(nibName: "RecipePickerPeopleTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipePickerPeopleTableViewCell")
         recipeTableView.register(UINib(nibName: "RecipeCookingInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "RecipeCookingInfoTableViewCell")
+        
     }
-
-
+    func createFooterView() -> UIView {
+        let footerView = UIView()
+        footerView.backgroundColor = .clear
+        
+        let button = UIButton()
+        button.setTitle("Tarifi Yapmaya Başla!", for: .normal)
+        
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0, green: 0.3269316852, blue: 0.4337471128, alpha: 1)
+        button.layer.cornerRadius = 10 // Düğme kenarlarını yuvarlat
+        button.addTarget(self, action: #selector(actionButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        footerView.addSubview(button)
+        
+        NSLayoutConstraint.activate([
+            button.leadingAnchor.constraint(equalTo: footerView.leadingAnchor, constant: 20),
+            button.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -20),
+            button.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 10),
+            button.bottomAnchor.constraint(equalTo: footerView.bottomAnchor, constant: -10)
+        ])
+        
+        return footerView
+    }
+    @objc func actionButton(){
+//        guard let vc = self.storyboard?.instantiateViewController(identifier: "OnBoardingScreen") as? OnBoardingScreen else { return}
+//        self.navigationController?.pushViewController(vc, animated: true)
+                guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "InstructionOnBoardingVC") as? InstructionOnBoardingVC else { return }
+        vc.ingredientsCount = viewModel.data?.instructions?.count ?? 1
+        vc.ingredients = viewModel.data?.instructions
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: true)
+    }
+     
+    
+    
 }
 extension RecipeVC : SkeletonTableViewDelegate,SkeletonTableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return celldataArray.count
     }
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-            return "RecipeHeaderTableViewCell"
-
+        return "RecipeHeaderTableViewCell"
     }
-
-//    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return celldataArray[section].data.count
-//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return celldataArray[section].data.count
     }
-
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let headerView = self.recipeTableView.tableHeaderView as! StretchyTableHeaderView
+        headerView.scrollViewDidScroll(scrollView: scrollView)
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellType = celldataArray[indexPath.section].sectionType
@@ -135,34 +166,30 @@ extension RecipeVC : SkeletonTableViewDelegate,SkeletonTableViewDataSource{
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTableViewCell", for: indexPath) as! RecipeIngredientsTableViewCell
             if let ingredientsData = celldataArray[indexPath.section].data[indexPath.row] as? Ingredient{
                 cell.configure(with: ingredientsData)
-                }
+            }
             return cell
         case .recipeCookingTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeCookingTableViewCell", for: indexPath) as! RecipeCookingTableViewCell
             cell.recipeStepNumber.text = "\(indexPath.row+1)/\(celldataArray[indexPath.section].data.count)"
             if let instruction = celldataArray[indexPath.section].data[indexPath.row] as? Instruction {
                 cell.configure(with: instruction)
-                }
-                return cell
+            }
+            return cell
         case .recipeTime:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeCookingInfoTableViewCell", for: indexPath) as! RecipeCookingInfoTableViewCell
             if let recipeTime = celldataArray[indexPath.section].data[indexPath.row] as? recipeTimer {
                 cell.config(with: recipeTime)
             }
             return cell
-            
         }
-
     }
-
-     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = celldataArray[section].sectionType
         switch section{
-            
-       
         case .recipeIngredientsTableViewCell:
             return "Malzemeler:"
         case .recipeHeaderTableViewCell:
@@ -170,56 +197,11 @@ extension RecipeVC : SkeletonTableViewDelegate,SkeletonTableViewDataSource{
             return viewModel.data?.recipeName
         case .recipeCookingTableViewCell:
             return "Nasil Yapilir?"
-
+            
         case .recipeTime:
             return ""
             
         }
-    
-        
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let headerView = view as? UITableViewHeaderFooterView else { return }
-        headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        if section != 0 && !centerButtonsVisible {
-            centerButtonsVisible = true
-            updateBarButtonItems()
-        } else {
-            centerButtonsVisible = false
-            updateBarButtonItems()
-        }
-        
-    }
-
-
-    func updateBarButtonItems() {
-        if centerButtonsVisible {
-            // Eğer ikinci bölümdeysek, butonları ortalamak için bir boşluk ekleyeceğiz.
-            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-            
-            // Navigation bar için ortadaki butonlar
-            let centerButton1 = UIBarButtonItem(title: "Button1", style: .plain, target: self, action: #selector(button1Tapped))
-            let centerButton2 = UIBarButtonItem(title: "Button2", style: .plain, target: self, action: #selector(button2Tapped))
-
-            // Butonları güncelliyoruz.
-            navigationController?.setToolbarItems([flexibleSpace, centerButton1, flexibleSpace, centerButton2, flexibleSpace], animated: true)
-        } else {
-            // Eğer ikinci bölümde değilsek, varsayılan butonları ekliyoruz.
-            let rightButton1 = UIBarButtonItem(title: "Button1", style: .plain, target: self, action: #selector(button1Tapped))
-            let rightButton2 = UIBarButtonItem(title: "Button2", style: .plain, target: self, action: #selector(button2Tapped))
-            
-            navigationItem.rightBarButtonItems = [rightButton1, rightButton2]
-            navigationItem.leftBarButtonItems = nil
-        }
-    }
-
-    @objc func button1Tapped() {
-        // Button 1'e tıklandığında yapılacak işlemler
-    }
-
-    @objc func button2Tapped() {
-        // Button 2'ye tıklandığında yapılacak işlemler
     }
 }
 

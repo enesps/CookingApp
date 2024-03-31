@@ -13,6 +13,7 @@ class RecipeCookingTableViewCell: UITableViewCell {
     @IBOutlet weak var countDown: UILabel!
     @IBOutlet weak var recipeStepNumber: UILabel!
     @IBOutlet weak var recipeStepCooking: UILabel!
+    @IBOutlet weak var reminderView: UIStackView!
     var timer: Timer?
     var countdownSeconds: Int? // Örnek olarak 5 dakika
     var isCounting: Bool = false
@@ -21,13 +22,18 @@ class RecipeCookingTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        reminderView.isHidden = true
+        
+        
+        
 
     }
 
     func updateUI() {
         countDown.text = formattedTime((countdownSeconds)!)
         startStopButton.setTitle(isCounting ? "Durdur" : "Başlat", for: .normal)
-        startStopButton.setTitleColor(isCounting ? .systemRed : .systemBlue, for: .normal)
+        startStopButton.setTitleColor(isCounting ? .systemRed : .white, for: .normal)
+        
     }
 
     func formattedTime(_ seconds: Int) -> String {
@@ -132,10 +138,10 @@ class RecipeCookingTableViewCell: UITableViewCell {
     func configure(with instruction: Instruction) {
         
         recipeStepCooking.text = instruction.instruction
-        countDown.text = instruction.time
         if instruction.time != nil{
-            countDown.isHidden = false
-            startStopButton.isHidden = false
+            reminderView.isHidden = false
+            countDown.text = instruction.time
+
             if let time = instruction.time {
                 if let minutes = extractMinutes(from: time) {
                     self.countdownSeconds = minutes

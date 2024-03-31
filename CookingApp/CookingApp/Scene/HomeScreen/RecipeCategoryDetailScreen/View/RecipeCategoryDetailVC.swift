@@ -4,7 +4,6 @@
 //
 //  Created by Enes Pusa on 27.11.2023.
 //
-
 import UIKit
 import Combine
 import Kingfisher
@@ -31,7 +30,6 @@ class RecipeCategoryDetailVC: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = categoryTitle
         setupUI()
-
         disableSearchController()
         lottieAnimation()
         configureCollectionView()
@@ -47,72 +45,85 @@ class RecipeCategoryDetailVC: UIViewController {
     private func dataUpdate(){
         viewModel.onDataUpdate = { [weak self]   in
             
-                self?.searchController.searchBar.searchTextField.isUserInteractionEnabled = true
-                self?.recipeCollectionView.reloadData()
-                self?.animationView.stop()
-                self?.animationView.isHidden = true
+            self?.searchController.searchBar.searchTextField.isUserInteractionEnabled = true
+            
+            self?.recipeCollectionView.reloadData()
+            self?.animationView.stop()
+            self?.animationView.isHidden = true
+            self?.updateErrorView()
+            
             
         }
-
+        
     }
     @objc func refreshButtonTapped() {
         // Yenileme işlemini gerçekleştirin.
+        viewModel.hasError = false
+        searchController.searchBar.isHidden = false
+        errorMessageLabel.isHidden = true
+        refreshButton.isHidden = true
+
         animationView.isHidden = false
         animationView.loopMode = .loop
         animationView.play()
         
-            self.viewModel.fetchData(endpoint:"\(APIEndpoints.getRecipeCategory)\(self.viewModel.manipulateString(self.viewModel.convertTurkishToEnglish(self.categoryTitle!)))")
+        self.viewModel.fetchData(endpoint:"\(APIEndpoints.getRecipeCategory)\(self.viewModel.manipulateString(self.viewModel.convertTurkishToEnglish(self.categoryTitle!)))")
 
-        
-        errorMessageLabel.isHidden = true
-        refreshButton.isHidden = true
     }
     func setupUI() {
-           view.backgroundColor = .white
-           
-           refreshButton.translatesAutoresizingMaskIntoConstraints = false
-           refreshButton.setImage(UIImage(systemName: "arrow.clockwise"), for: .normal)
-           refreshButton.tintColor = .black
-           refreshButton.addTarget(self, action: #selector(refreshButtonTapped), for: .touchUpInside)
-           view.addSubview(refreshButton)
-           
-           errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
-           errorMessageLabel.textAlignment = .center
-           errorMessageLabel.text = "Bir hata oluştu. Yeniden denemek için lütfen yenile butonuna tıklayın."
-           errorMessageLabel.numberOfLines = 0
-           view.addSubview(errorMessageLabel)
-            view.addSubview(refreshView)
+        view.backgroundColor = .white
+        
+        refreshButton.translatesAutoresizingMaskIntoConstraints = false
+        refreshButton.setImage(UIImage(systemName: "arrow.clockwise"), for: .normal)
+        refreshButton.tintColor = .blue
+        refreshButton.addTarget(self, action: #selector(refreshButtonTapped), for: .touchUpInside)
+        view.addSubview(refreshButton)
+        
+        errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorMessageLabel.textAlignment = .center
+        errorMessageLabel.text = "Bir hata oluştu. Yeniden denemek için lütfen yenile butonuna tıklayın."
+        errorMessageLabel.numberOfLines = 0
+        
+        view.addSubview(errorMessageLabel)
+        view.addSubview(refreshView)
         NSLayoutConstraint.activate([
             refreshView.topAnchor.constraint(equalTo: view.topAnchor),
             refreshView.leftAnchor.constraint(equalTo: view.leftAnchor),
             refreshView.rightAnchor.constraint(equalTo: view.rightAnchor),
             refreshView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-           NSLayoutConstraint.activate([
-               refreshButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-               refreshButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-               
-               errorMessageLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-               errorMessageLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-               errorMessageLabel.bottomAnchor.constraint(equalTo: refreshButton.topAnchor, constant: -20),
-               
-              
-           ])
-       }
+        NSLayoutConstraint.activate([
+            refreshButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            refreshButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            errorMessageLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            errorMessageLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            errorMessageLabel.bottomAnchor.constraint(equalTo: refreshButton.topAnchor, constant: -20),
+            
+            
+        ])
+    }
+    private func updateErrorView() {
+        if viewModel.hasError {
+            searchController.searchBar.isHidden = true
+            errorMessageLabel.isHidden = false
+            refreshButton.isHidden = false
+        } else {
+            searchController.searchBar.isHidden = false
+            errorMessageLabel.isHidden = true
+            refreshButton.isHidden = true
+        }
+    }
     private func SkeletonUpdate(){
         viewModel.onSkeletonUpdate = { [weak self] isActive in
+            self?.updateErrorView()
             if isActive {
                 self?.recipeCollectionView.isSkeletonable = true
                 self?.recipeCollectionView.showAnimatedGradientSkeleton()
-                self?.searchController.searchBar.isHidden = false
-                self?.errorMessageLabel.isHidden = true
-                self?.refreshButton.isHidden = true
+                
             } else {
                 self?.recipeCollectionView.stopSkeletonAnimation()
                 self?.stoplottiAnimation()
-                self?.searchController.searchBar.isHidden = true
-                self?.errorMessageLabel.isHidden = false
-                self?.refreshButton.isHidden = false
                 self?.view.hideSkeleton()
             }
         }
@@ -198,8 +209,8 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
         cell.layer.shadowOpacity = 0.4
         cell.layer.shadowRadius = 2
         cell.layer.masksToBounds = false
-
-
+        
+        
         
         return cell
     }

@@ -135,7 +135,7 @@ extension OnBoardingScreen: PaperOnboardingDataSource {
 
 
 //MARK: Constants
-private extension OnBoardingScreen {
+ extension OnBoardingScreen {
     
     static let titleFont = UIFont(name: "Nunito-Bold", size: 36.0) ?? UIFont.boldSystemFont(ofSize: 36.0)
     static let descriptionFont = UIFont(name: "OpenSans-Regular", size: 14.0) ?? UIFont.systemFont(ofSize: 14.0)

@@ -23,6 +23,8 @@ protocol ViewModelProtocol: ObservableObject {
 class RecipeCategoryDetailVM: ViewModelProtocol {
     
     @Published var data: [Recipe]? = []
+    @Published var hasError: Bool = false
+
     var filteredData: [Recipe] = []
     var onDataUpdate: (() -> Void)?
     var onSkeletonUpdate: ((Bool) -> Void)?
@@ -42,14 +44,18 @@ class RecipeCategoryDetailVM: ViewModelProtocol {
                     
                 case .finished:
                     self.onSkeletonUpdate?(false)
+                    self.hasError = false
                     break
                 case .failure(let error):
+                    self.hasError = true
                     self.onSkeletonUpdate?(false)
                     // Hata durumu ile ilgili işlemleri burada yapabilirsiniz.
+                   
                     print("Hata oluştu: \(error)")
                 }
             }, receiveValue: { [weak self] receivedData in
                 self?.data = receivedData
+                
                 self?.filteredData = receivedData
                 self?.onDataUpdate?()
             })

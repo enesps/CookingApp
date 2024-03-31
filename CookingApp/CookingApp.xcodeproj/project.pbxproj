@@ -35,6 +35,7 @@
 		E01A34DD2B7F9030003C2937 /* externalLoginTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01A34DB2B7F9030003C2937 /* externalLoginTableViewCell.xib */; };
 		E01A34E12B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01A34DF2B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.swift */; };
 		E01A34E22B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01A34E02B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.xib */; };
+		E01E9CBD2BB98A2400D29DC8 /* InstructionOnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01E9CBC2BB98A2400D29DC8 /* InstructionOnBoardingVC.swift */; };
 		E029B8E92B39B50C00E4A063 /* SignUpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029B8E82B39B50C00E4A063 /* SignUpVM.swift */; };
 		E029B8EF2B39EDD300E4A063 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = E029B8EE2B39EDD300E4A063 /* KeychainAccess */; };
 		E029B8F22B39F4A000E4A063 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029B8F12B39F4A000E4A063 /* KeyChainService.swift */; };
@@ -56,6 +57,8 @@
 		E05086B72B07A9510022CDE8 /* ALPopup in Frameworks */ = {isa = PBXBuildFile; productRef = E05086B62B07A9510022CDE8 /* ALPopup */; };
 		E053E5992B9B04BE001C4A16 /* refresh.json in Resources */ = {isa = PBXBuildFile; fileRef = E053E5982B9B04BE001C4A16 /* refresh.json */; };
 		E05AD9AC2B15457A002D544C /* RecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05AD9AB2B15457A002D544C /* RecipeVC.swift */; };
+		E06566122BB0719F00F9BD1A /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06566112BB0719F00F9BD1A /* CellData.swift */; };
+		E06566152BB0760000F9BD1A /* StretchyTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06566142BB0760000F9BD1A /* StretchyTableHeaderView.swift */; };
 		E072E2152B108C8600F3F4F7 /* ProfileNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072E2142B108C8600F3F4F7 /* ProfileNC.swift */; };
 		E075A26A2B24BAED00C71C95 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E075A2692B24BAED00C71C95 /* Kingfisher */; };
 		E0818CC52B84B8FA00203F34 /* LoginPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0818CC42B84B8FA00203F34 /* LoginPasswordVC.swift */; };
@@ -169,6 +172,7 @@
 		E01A34DB2B7F9030003C2937 /* externalLoginTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = externalLoginTableViewCell.xib; sourceTree = "<group>"; };
 		E01A34DF2B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rememberMeAndForgetPasswordTableViewCell.swift; sourceTree = "<group>"; };
 		E01A34E02B7F91F4003C2937 /* rememberMeAndForgetPasswordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = rememberMeAndForgetPasswordTableViewCell.xib; sourceTree = "<group>"; };
+		E01E9CBC2BB98A2400D29DC8 /* InstructionOnBoardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionOnBoardingVC.swift; sourceTree = "<group>"; };
 		E029B8E82B39B50C00E4A063 /* SignUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVM.swift; sourceTree = "<group>"; };
 		E029B8F12B39F4A000E4A063 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		E02CDA412B1F46FE003617F2 /* RecipeHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 		E05AECAF2B33240700B7A4EA /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		E05AECB22B33240700B7A4EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E05AECB42B33240700B7A4EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E06566112BB0719F00F9BD1A /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		E06566142BB0760000F9BD1A /* StretchyTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyTableHeaderView.swift; sourceTree = "<group>"; };
 		E072E2142B108C8600F3F4F7 /* ProfileNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNC.swift; sourceTree = "<group>"; };
 		E0818CC42B84B8FA00203F34 /* LoginPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordVC.swift; sourceTree = "<group>"; };
 		E0818CC72B875E3300203F34 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -376,6 +382,7 @@
 		E000F9CE2B06A5A700ACA458 /* OnBoardingScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E01E9CBB2BB989F500D29DC8 /* InstructionOnBoarding */,
 				E000F9CF2B06A5C100ACA458 /* View */,
 			);
 			path = OnBoardingScreen;
@@ -474,6 +481,14 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		E01E9CBB2BB989F500D29DC8 /* InstructionOnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				E01E9CBC2BB98A2400D29DC8 /* InstructionOnBoardingVC.swift */,
+			);
+			path = InstructionOnBoarding;
+			sourceTree = "<group>";
+		};
 		E029B8E72B39B4F600E4A063 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +558,7 @@
 		E05AD9A92B154520002D544C /* RecipeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E06566102BB0718E00F9BD1A /* Model */,
 				E0CA208D2B2B310F0072F4AB /* ViewModel */,
 				E05AD9AA2B15454D002D544C /* View */,
 			);
@@ -575,6 +591,22 @@
 				E05AECB42B33240700B7A4EA /* Info.plist */,
 			);
 			path = userNotification;
+			sourceTree = "<group>";
+		};
+		E06566102BB0718E00F9BD1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E06566112BB0719F00F9BD1A /* CellData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E06566132BB075E900F9BD1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E06566142BB0760000F9BD1A /* StretchyTableHeaderView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E072E2112B108C1B00F3F4F7 /* ProfileScreen */ = {
@@ -670,6 +702,7 @@
 		E092ECEF2B3C510800CC2596 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				E06566132BB075E900F9BD1A /* View */,
 				E01A34D52B7F8E43003C2937 /* Button */,
 				E01A34D02B7F8C3A003C2937 /* TextField */,
 				E092ECF12B3C517800CC2596 /* RecipeImage */,
@@ -1249,6 +1282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E06566152BB0760000F9BD1A /* StretchyTableHeaderView.swift in Sources */,
 				E0A5345D2B177E2200E22588 /* RecipeLikeTableViewCell.swift in Sources */,
 				E000F9CC2B06A53900ACA458 /* LaunchScreen.swift in Sources */,
 				E000F9942B06A12B00ACA458 /* ViewController.swift in Sources */,
@@ -1291,11 +1325,13 @@
 				E04538772B7FD324000AF5C8 /* LabelTableViewCell.swift in Sources */,
 				E02DC8BD2B46B537000C6689 /* HeaderSetViewCell.swift in Sources */,
 				E0F2ED372B3D710700BC1643 /* ProfileShareVC.swift in Sources */,
+				E06566122BB0719F00F9BD1A /* CellData.swift in Sources */,
 				E029B8E92B39B50C00E4A063 /* SignUpVM.swift in Sources */,
 				E0B1973F2B0F7BDB006F4FFF /* ForgetPasswordVC.swift in Sources */,
 				E0B479BF2B45906A001724B6 /* InstructionViewCell.swift in Sources */,
 				E01A34D32B7F8C5C003C2937 /* TextFieldTableViewCell.swift in Sources */,
 				E0B479B02B458DA9001724B6 /* IngredientCell.swift in Sources */,
+				E01E9CBD2BB98A2400D29DC8 /* InstructionOnBoardingVC.swift in Sources */,
 				E0A534622B17AB5200E22588 /* RecipeSearchModel.swift in Sources */,
 				E0AF4B262B8F5B7F00D29979 /* ProfileHeaderTableViewCell.swift in Sources */,
 				E04DE8C42B3457940046B026 /* RecipeSearchVM.swift in Sources */,

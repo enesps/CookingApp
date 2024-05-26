@@ -125,7 +125,7 @@ extension AddRecipeDetailVC:UITableViewDelegate ,UIImagePickerControllerDelegate
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             headerImageView.image = pickedImage
             if let base64String = pickedImage.toBase64() {
-                viewModel.requestModel.image = base64String
+                viewModel.requestModel.imageUrl = base64String
                 viewModel.updateRequestModel()
                 //                    viewModel.requestModel.imageUrl = "fejkvfdjkdfkl"
             }

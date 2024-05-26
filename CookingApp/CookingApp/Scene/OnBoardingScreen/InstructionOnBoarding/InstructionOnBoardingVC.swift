@@ -1,10 +1,13 @@
 import UIKit
 import Combine
+import Lottie
+import ALPopup
 class InstructionOnBoardingVC: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     var ingredients : [Instruction]?
+    var loadingView: UIView?
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = InstructionOnBoardingVM()
     let pages = ["Sayfa 1", "Sayfa 2", "Sayfa 3","","","",""] // Örnek sayfa başlıkları
@@ -12,7 +15,7 @@ class InstructionOnBoardingVC: UIViewController {
     var currentPageIndex : Int = 0
     var ingredientsCount : Int?
     @IBOutlet weak var nextButton: UIButton!
-
+    let animationView = LottieAnimationView(name: "LottieAnimationSpinner")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +23,40 @@ class InstructionOnBoardingVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
 
         view.backgroundColor = .white
+        viewModel.onSkeletonUpdate = { [weak self]  isActive in
 
+            self?.animationView.translatesAutoresizingMaskIntoConstraints = false
+            self?.view.addSubview(self!.animationView)
+            NSLayoutConstraint.activate([
+                self!.animationView.topAnchor.constraint(equalTo: self!.view.topAnchor),
+                self!.animationView.leftAnchor.constraint(equalTo: self!.view.leftAnchor),
+                self!.animationView.rightAnchor.constraint(equalTo: self!.view.rightAnchor),
+                self!.animationView.bottomAnchor.constraint(equalTo: self!.view.bottomAnchor),
+            ])
+            
+            
+            if isActive {
+                self!.animationView.isHidden = false
+                self!.animationView.loopMode = .loop
+                self!.animationView.play()
+            } else {
+                self!.animationView.stop()
+                self!.animationView.isHidden = true
+            }
+        }
         viewModel.onDataUpdate = { [weak self]   in
-            print(self?.viewModel.data?.explanation ?? "")
+            let popupVC = ALPopup.popup(template: .init(
+                title: "Yapay Zeka Yardımcısı",
+                subtitle: self?.viewModel.data?.explanation,
+                privaryButtonTitle: "Anladim")
+            )
+           
+            popupVC.tempateView.primaryButtonAction = {
+                popupVC.pop()
+            }
+            popupVC.push(from: (self!))
+           
+            
         }
         updateUI()
 
@@ -41,6 +75,27 @@ class InstructionOnBoardingVC: UIViewController {
         }
        
     }
+    func showLoadingView() {
+        // Loading View oluştur
+        let loadingView = UIView(frame: self.view.bounds)
+        loadingView.backgroundColor = UIColor(white: 0, alpha: 0.7)
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = loadingView.center
+        activityIndicator.startAnimating()
+        
+        loadingView.addSubview(activityIndicator)
+        
+        self.view.addSubview(loadingView)
+        self.loadingView = loadingView
+    }
+
+    func hideLoadingView() {
+        // Loading View'i kaldır
+        self.loadingView?.removeFromSuperview()
+        self.loadingView = nil
+    }
+
     func updateUI() {
 //        navigationItem.title = "\(currentPageIndex)"
         titleLabel.text = ingredients?[currentPageIndex].instruction

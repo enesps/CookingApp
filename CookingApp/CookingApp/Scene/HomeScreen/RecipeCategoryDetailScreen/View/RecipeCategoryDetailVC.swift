@@ -286,7 +286,15 @@ extension RecipeCategoryDetailVC: UICollectionViewDelegate, UICollectionViewData
             animationView.isHidden = false
             animationView.loopMode = .loop
             animationView.play()
-            viewModel.fetchData1(for: ["foodName" : searchText],endpoint: APIEndpoints.getRecipeSearch)
+            var parameters: [String: String] = [:]
+
+                parameters["category"] = viewModel.manipulateString(viewModel.convertTurkishToEnglish(categoryTitle!))
+            
+                parameters["foodName"] = searchText
+            
+
+
+            viewModel.fetchData1(for: parameters,endpoint: APIEndpoints.getRecipeSearch)
             stoplottiAnimation()
         } else {
             recipeCollectionView.reloadData()

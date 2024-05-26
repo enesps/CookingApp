@@ -18,6 +18,7 @@ class InstructionOnBoardingVM : ViewModelProtocol{
     private let apiService = APIService()
     private var isSkeletonActive: Bool = false
     func fetchData(for query: [String : String], endpoint: String) {
+        onSkeletonUpdate?(true)
         apiService.fetchData(for: query, modelType: InstructionExplanation.self, baseURL: APIConstants.baseURL, endpoint: endpoint)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in

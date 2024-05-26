@@ -15,7 +15,7 @@ import SPIndicator
 class HomeVC : ViewController{
     
     @IBOutlet weak var recipeCategoryCollectionView: UICollectionView!
-    let recipeCategoryTitle: [String] = ["Çorbalar","Ana Yemekler","Tatlılar","İçecekler"]
+    let recipeCategoryTitle: [String] = ["Corbalar","Ana Yemekler","Tatlilar","İcecekler"]
     let recipeCategoryImage: [String] = ["soup","main-food","dessert","drink"]
     private var cancellables: Set<AnyCancellable> = []
     private let viewModel = RecipeHomeVM()

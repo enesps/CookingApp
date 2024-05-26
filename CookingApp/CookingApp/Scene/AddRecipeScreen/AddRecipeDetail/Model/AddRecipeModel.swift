@@ -7,7 +7,7 @@
 
 import Foundation
 struct AddRecipeModel:Codable{
-    var image:String?
+    var imageUrl:String?
     var recipeName,preparationTime,cookingTime :String?
     var servesFor,category:String?
     var ingredients: [AddIngredient]?

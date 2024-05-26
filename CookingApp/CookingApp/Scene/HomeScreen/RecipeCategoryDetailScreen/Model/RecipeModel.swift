@@ -45,3 +45,6 @@ struct RecipeDetail {
 struct recipeTimer{
     var  cookingTime, preparationTime, servesFor: String?
 }
+struct InstructionExplanation: Codable {
+    let explanation: String?
+}

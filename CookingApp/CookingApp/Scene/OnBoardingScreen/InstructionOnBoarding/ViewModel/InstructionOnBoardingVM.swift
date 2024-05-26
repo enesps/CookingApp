@@ -1,26 +1,24 @@
 //
-//  RecipeViewModel.swift
-//  CookingApp
+//  InstructionOnBoardingVM.swift
+//  YapYe
 //
-//  Created by Enes Pusa on 14.12.2023.
+//  Created by Enes Pusa on 24.05.2024.
 //
 
 import Foundation
 import Combine
-class RecipeViewModel : ViewModelProtocol{
+class InstructionOnBoardingVM : ViewModelProtocol{
 
-    @Published var data: Recipe?
+    
+    @Published var data: InstructionExplanation?
     var onDataUpdate: (() -> Void)?
     
     var onSkeletonUpdate: ((Bool) -> Void)?
     private var cancellables: Set<AnyCancellable> = []
     private let apiService = APIService()
     private var isSkeletonActive: Bool = false
-    
-    
-    func fetchData(for query: [String: String] = [:], endpoint: String) {
-        onSkeletonUpdate?(true)
-        apiService.fetchData(for: query, modelType: Recipe.self, baseURL: APIConstants.baseURL, endpoint: endpoint)
+    func fetchData(for query: [String : String], endpoint: String) {
+        apiService.fetchData(for: query, modelType: InstructionExplanation.self, baseURL: APIConstants.baseURL, endpoint: endpoint)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 
@@ -38,8 +36,9 @@ class RecipeViewModel : ViewModelProtocol{
                 self?.onDataUpdate?()
             })
             .store(in: &cancellables)
-        
     }
     
-    
+    func explainInstruction(for query: [String: String] = [:], endpoint: String){
+
+    }
 }

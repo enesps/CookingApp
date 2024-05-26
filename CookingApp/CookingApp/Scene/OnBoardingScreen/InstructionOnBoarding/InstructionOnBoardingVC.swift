@@ -1,10 +1,12 @@
 import UIKit
-
+import Combine
 class InstructionOnBoardingVC: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     var ingredients : [Instruction]?
+    private var cancellables: Set<AnyCancellable> = []
+    private let viewModel = InstructionOnBoardingVM()
     let pages = ["Sayfa 1", "Sayfa 2", "Sayfa 3","","","",""] // Örnek sayfa başlıkları
     // Geçerli sayfa indeksi
     var currentPageIndex : Int = 0
@@ -19,14 +21,26 @@ class InstructionOnBoardingVC: UIViewController {
 
         view.backgroundColor = .white
 
-
+        viewModel.onDataUpdate = { [weak self]   in
+            print(self?.viewModel.data?.explanation ?? "")
+        }
         updateUI()
 
-
+        
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
-
+    
+    @IBAction func cancelOnBoarding(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func instructionExplanationAction(_ sender: Any) {
+        if let instruction = ingredients?[currentPageIndex].instruction{
+            viewModel.fetchData(for: ["instruction" : instruction],endpoint: APIEndpoints.getInstructionDetail)
+        }
+       
+    }
     func updateUI() {
 //        navigationItem.title = "\(currentPageIndex)"
         titleLabel.text = ingredients?[currentPageIndex].instruction

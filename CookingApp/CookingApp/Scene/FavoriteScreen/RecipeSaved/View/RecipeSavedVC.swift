@@ -10,11 +10,14 @@ import Combine
 class RecipeSavedVC: UIViewController {
     @IBOutlet weak var recipeSavedTableView: UITableView!
     let viewModel = RecipeSavedVM()
+    var refreshControl = UIRefreshControl()
     private var cancellables: Set<AnyCancellable> = []
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeSavedTableView.delegate = self
         recipeSavedTableView.dataSource = self
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        recipeSavedTableView.addSubview(refreshControl)
         
         recipeSavedTableView.register(UINib(nibName: "RecipeCardTableViewCell", bundle: nil), forCellReuseIdentifier: "XibCard")
         viewModel.onDataUpdate = { [weak self] model, error in
@@ -22,6 +25,10 @@ class RecipeSavedVC: UIViewController {
         }
         
         viewModel.fetchData(idToken: KeyChainService.shared.readToken() ?? "")
+    }
+    @objc func refresh(){
+        viewModel.fetchData(idToken: KeyChainService.shared.readToken() ?? "")
+        self.refreshControl.endRefreshing()
     }
 }
 extension RecipeSavedVC: UITableViewDelegate, UITableViewDataSource{

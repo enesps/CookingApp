@@ -14,13 +14,15 @@ struct Recipe: Codable {
     var ingredients: [Ingredient]?
     var instructions: [Instruction]?
     let score: Int?
+    let likeCount: Int?
+    let liked, saved: Bool?
     
     enum CodingKeys: String, CodingKey {
         case id
 
         case imageURL = "imageUrl"
         case image = "image"
-        case recipeName, cookingTime, preparationTime, totalTime, servesFor, difficultyLevel, category, ingredients, instructions, score
+        case recipeName, cookingTime, preparationTime, totalTime, servesFor, difficultyLevel, category, ingredients, instructions, score, likeCount, liked, saved 
     }
 }
 

@@ -9,6 +9,7 @@ import UIKit
 import Combine
 import Kingfisher
 import SkeletonView
+import ALPopup
 
 class RecipeVC: UIViewController {
     @IBOutlet weak var recipeTableView: UITableView!
@@ -25,7 +26,28 @@ class RecipeVC: UIViewController {
         footerConfiguration()
         SkeletonUpdate()
         dataUpdate()
-        viewModel.fetchData(endpoint: "\(APIEndpoints.getRecipeById)\(recipeId ?? -1)")
+        viewModel.$statusCode
+            .sink { statusCode in
+                if let statusCode = statusCode {
+                    if statusCode == 401{
+                        let popupVC = ALPopup.popup(template: .init(
+                            title: "Giriş Yapılmamış",
+                            subtitle: "Lütfen Giriş Yapınız.",
+                            privaryButtonTitle: "Giriş Yap")
+                        )
+                       
+                        popupVC.tempateView.primaryButtonAction = {
+                            popupVC.pop()
+                            if let tabBarController = self.tabBarController {
+                                tabBarController.selectedIndex = 4
+                            }
+                        }
+                        popupVC.push(from: (self))
+                    }
+                }
+            }
+            .store(in: &cancellables)
+        viewModel.fetchData1(endpoint: "\(APIEndpoints.getRecipeById)\(recipeId ?? -1)", idToken: KeyChainService.shared.readToken() ?? "")
     }
     
     private func SkeletonUpdate(){
@@ -160,7 +182,12 @@ extension RecipeVC : SkeletonTableViewDelegate,SkeletonTableViewDataSource{
         switch cellType {
         case .recipeHeaderTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeHeaderTableViewCell", for: indexPath) as! RecipeHeaderTableViewCell
-            cell.configure()
+            cell.recipeLikeBtn.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+            cell.recipeShareBtn.addTarget(self, action: #selector(buttonTapped1), for: .touchUpInside)
+            cell.configure(with: viewModel.data!)
+                
+            
+            
             return cell
         case .recipeIngredientsTableViewCell:
             let cell = recipeTableView.dequeueReusableCell(withIdentifier: "RecipeIngredientsTableViewCell", for: indexPath) as! RecipeIngredientsTableViewCell
@@ -203,6 +230,14 @@ extension RecipeVC : SkeletonTableViewDelegate,SkeletonTableViewDataSource{
             
         }
     }
+    @objc func buttonTapped() {
+        viewModel.addLike(endpoint: "\(APIEndpoints.recipeLikeList)/\(recipeId ?? -1)", idToken: KeyChainService.shared.readToken() ?? "")
+        
+        }
+    @objc func buttonTapped1() {
+        viewModel.addLike(endpoint: "\(APIEndpoints.recipeSave)/\(recipeId ?? -1)", idToken: KeyChainService.shared.readToken() ?? "")
+        
+        }
 }
 
 

@@ -19,10 +19,20 @@ class RecipeHeaderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func configure() {
-        recipeLikeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
-        recipeLikeBtn.titleLabel?.text = "3.24"
-        recipeShareBtn.setImage(UIImage(systemName: "bookmark"), for: .normal)
+    func configure(with header: Recipe) {
+        if header.liked == true{
+            recipeLikeBtn.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }else
+        {
+            recipeLikeBtn.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+        if header.saved == true{
+            recipeShareBtn.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        }else
+        {
+            recipeShareBtn.setImage(UIImage(systemName: "bookmark"), for: .normal)
+        }
+        recipeLikeBtn.setTitle(String(header.likeCount ?? 0), for: .normal)
         recipeShareBtn.titleLabel?.text = "Kaydet"
 
     }

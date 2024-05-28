@@ -9,6 +9,7 @@ import UIKit
 import Combine
 class RecipeLikeVC: UIViewController {
     let viewModel = RecipeSavedVM()
+    var refreshControl = UIRefreshControl()
     private var cancellables: Set<AnyCancellable> = []
     struct recipeLike{
         var recipeImage:String
@@ -25,6 +26,8 @@ class RecipeLikeVC: UIViewController {
         super.viewDidLoad()
         recipeLikeTableView.dataSource = self
         recipeLikeTableView.delegate = self
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        recipeLikeTableView.addSubview(refreshControl)
         viewModel.onDataUpdate = { [weak self] model, error in
             self?.recipeLikeTableView.reloadData()
         }
@@ -32,7 +35,10 @@ class RecipeLikeVC: UIViewController {
         viewModel.fetchData(idToken: KeyChainService.shared.readToken() ?? "")
         // Do any additional setup after loading the view.
     }
-    
+    @objc func refresh(){
+        viewModel.fetchData(idToken: KeyChainService.shared.readToken() ?? "")
+        self.refreshControl.endRefreshing()
+    }
 
     /*
     // MARK: - Navigation

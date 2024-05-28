@@ -8,7 +8,7 @@
 import Foundation
 struct APIConstants {
     
-    static let baseURL = "https://rates-muze-nasdaq-gain.trycloudflare.com"
+    static let baseURL = "https://crop-roommates-hansen-papers.trycloudflare.com"
 }
 
 class APIEndpoints {
@@ -21,8 +21,8 @@ class APIEndpoints {
     static let getProfile = "/v1/members"
     static let getSaveList = "/v1/recipes/saved"
     static let getLikeList = "v1/recipes/liked"
-    static let recipeLikeList = "/v1/recipes/{recipeId}/like"
-    static let recipeSave = "/v1/recipes/{recipeId}/save"
+    static let recipeLikeList = "/v1/recipes/like"
+    static let recipeSave = "/v1/recipes/save"
     static let getInstructionDetail = "/v1/recipes/instructionDetail"
     
 }
